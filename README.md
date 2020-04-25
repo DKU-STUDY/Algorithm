@@ -27,7 +27,7 @@
 
 - [codility](https://app.codility.com/)
     - [연습문제풀기](https://app.codility.com/programmers/lessons/1-iterations/) 의 문제를 풉니다. 
-    - [codility_trainging](codility_training) 폴더에 풀이한 내용을 업로드해주세요.
+    - [codility_training](codility_training) 폴더에 풀이한 내용을 업로드해주세요.
     
 - [프로그래머스](https://programmers.co.kr/https://programmers.co.kr/)
     - [고득점kit](https://programmers.co.kr/learn/challenges?tab=algorithm_practice_kit)
@@ -35,7 +35,7 @@
     - [모든문제](https://programmers.co.kr/learn/challenges?tab=all_challenges)
     - [programmers](https://github.com/JunilHwang/Algorithm/tree/master/programmers) 폴더에 풀이한 내용을 업로드해주세요.
     
-알고리즈 플랫폼 사이트에 상관 없이 파일/폴더 형식만 잘 정리해서 올려주세요!
+알고리즘 플랫폼 사이트에 상관 없이 파일/폴더 형식만 잘 정리해서 올려주세요!
   
 
 ## 파일 및 폴더 구조

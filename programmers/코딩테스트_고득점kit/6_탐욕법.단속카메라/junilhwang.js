@@ -1,6 +1,7 @@
 // 단속카메라 - https://programmers.co.kr/learn/courses/30/lessons/42884?language=javascript
 
 function solution(routes) {
+  // 미해결. 포기
   routes.sort((a, b) => Math.abs(a[0] - a[1]) - Math.abs(b[0] - b[1]))
   const stack = [], last = routes.length
   let cnt = 0

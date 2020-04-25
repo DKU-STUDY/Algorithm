@@ -1,13 +1,10 @@
 function solution(X, A) {
-  const arr = [...new Array(X).keys()].map(v => false) // O(n)
+  const set = new Set()
   const len = A.length
   for (let i = 0; i < len; i++) { // O(n)
-    const v = A[i]
-    arr[v - 1] = true
-    if (arr.indexOf(false) === -1) return i // O(n)
+    set.add(A[i])
+    if (set.size === X) return i
   }
-
-  // 최종 : O(n^2)
   return -1
 }
 

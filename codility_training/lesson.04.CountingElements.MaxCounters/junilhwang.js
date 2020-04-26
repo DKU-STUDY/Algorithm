@@ -1,20 +1,15 @@
 function solution(N, A) {
-  const stack = new Array(N).fill(0)
-  let start = 0
-  let max = start
-
+  let start = 0, max = 0
+  const arr = new Array(N).fill(0)
   for (const v of A) {
-    console.log(stack)
     if (N < v) {
       start = max
       continue
     }
-    stack[v - 1] = Math.max(stack[v - 1], start) + 1
-    max = Math.max(stack[v - 1], max)
+    arr[v-1] = Math.max(arr[v-1], start) + 1
+    max = Math.max(arr[v-1], max)
   }
-  const result = stack.map( v => v < start ? start : v )
-  console.log(result)
-  return result
+  return arr.map(v => Math.max(v, start))
 }
 
 console.log(

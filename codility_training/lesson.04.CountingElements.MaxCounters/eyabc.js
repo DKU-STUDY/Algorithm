@@ -1,10 +1,5 @@
-
-console.log(
-  solution(5, [3, 4, 4, 6, 1, 4, 4]).toString() ===[3, 2, 2, 4, 2].toString()
-);
-
 /* timeout O(N^2)*/
-function solution2(N, A) {
+function solution(N, A) {
   const aLen = A.length;
   const arr = new Array(N).fill(0); // O(n)
   for (let i = 0; i < aLen; i++) { // O(n)
@@ -14,3 +9,8 @@ function solution2(N, A) {
   }
   return arr;
 }
+
+console.log(
+  solution(5, [3, 4, 4, 6, 1, 4, 4]).toString() ===[3, 2, 2, 4, 2].toString()
+);
+

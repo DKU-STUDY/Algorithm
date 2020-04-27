@@ -42,7 +42,7 @@
   - `플랫폼/카테고리(생략가능)/주제.문제.숫자/깃허브아디` 형식으로 업로드해주세요.
   - 예시 01: [/codility_training/lesson.01.Iterations.BinaryGap/junilhwang.js](./codility_training/lesson.01.Iterations.BinaryGap/junilhwang.js)
   - 예시 01: [/codility_training/lesson.01.Iterations.BinaryGap/eyabc.js](./codility_training/lesson.01.Iterations.BinaryGap/eyabc.js)
-  - 예시 02: [/codility_training/lesson.02.Arrays.CyclicRotation/junilhwang.js](./codility_training/lesson.02.Arrays.CyclicRotation/junilhwang.js)
+  - 예시 02: [/codility_training/lesson.02.Arrays.CyclicRotation/junilhwang.js](codility_training/lesson02.Arrays.CyclicRotation/junilhwang.js)
   - 예시 03: [/programmers/코딩테스트_고득점kit/2_스택,큐.기능개발/junilhwang.js](./programmers/코딩테스트_고득점kit/2_스택,큐.기능개발/junilhwang.js)
 
 ## tip
@@ -52,5 +52,3 @@
 - 어려우면 솔루션을 찾아본다.
 - 문제 풀이의 흔적을 남기기 위해서 당신의 솔루션을 업로드
 - 가능 하면 매일 매일 풀이하여 일일커밋에 도전해보기
-    
-        

@@ -1,11 +1,7 @@
-// you can also use imports, for example:
-// import java.util.*;
+package lessons.lesson01.Iterations.BinaryGap;
 
-// you can write to stdout for debugging purposes, e.g.
-// System.out.println("this is a debug message");
-
-class Solution {
-    public int solution(int n)
+public class sjjyy {
+    public static int solution(int n)
     {
         int gap = 0;
         int temp = 0;
@@ -30,5 +26,14 @@ class Solution {
             }
         }
         return gap;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solution(32) == 0);
+        System.out.println(solution(1041) == 5);
+        System.out.println(solution(9) == 2);
+        System.out.println(solution(529) == 4);
+        System.out.println(solution(20) == 1);
+        System.out.println(solution(15) == 0);
     }
 }

@@ -1,4 +1,4 @@
-package BinaryGap;
+package lessons.lesson01.Iterations.BinaryGap;
 
 public class JunilHwang {
   public static int solution(int n) {

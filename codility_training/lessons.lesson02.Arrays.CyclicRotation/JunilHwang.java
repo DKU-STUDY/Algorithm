@@ -9,9 +9,10 @@ public class JunilHwang {
     if (len == 0 || len == K || K == 0) return A;
     int[] newA = new int[A.length];
     K = K % A.length;
-    for (int i = 0, j = K - 1; i < K; i++, j++) newA[i] = A[j];
-    for (int i = K, j = 0; i < len; i++, j++) newA[i] = A[j];
-    System.out.println( Arrays.stream(newA).boxed().collect(Collectors.toList()));
+    for (int i = 0; i < len; i++) {
+      newA[i] = A[(len - K + i) % len];
+    }
+    System.out.println(Arrays.stream(newA).boxed().collect(Collectors.toList()));
     return newA;
   }
 
@@ -23,5 +24,9 @@ public class JunilHwang {
     int[] A2 = {};
     int[] Sol2 = {};
     System.out.println(Arrays.equals(solution(A2,0), Sol2));
+
+    int[] A3 = {5, -1000};
+    int[] Sol3 = {-1000, 5};
+    System.out.println(Arrays.equals(solution(A3,1), Sol3));
   }
 }

@@ -5,6 +5,5 @@ def solution(participant, completion):
     for i in range(len(completion)):
         if participant[i] != completion[i]:
             answer = participant[i]
-    if answer == '':
-        answer = participant[-1]
-    return answer
+            return answer
+    return participant[-1]

@@ -19,5 +19,5 @@ function solution(N) {
      return max_result-1;
      else
      return 0;
-    
+    //성공
 }

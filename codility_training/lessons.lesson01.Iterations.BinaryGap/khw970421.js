@@ -1,4 +1,3 @@
-  
 function solution(N) {
     let a=[];               //배열생성
     let max_result=0;

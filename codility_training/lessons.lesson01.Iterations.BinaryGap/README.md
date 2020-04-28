@@ -40,6 +40,9 @@ b.indexOf("1", 12); // output 21
 ```
 
 ### 2. Math.max를 이용한다.
+
+#### javascript
+
 ``` js
 const max = Math.max(7 - 4, 11 - 7, 21 - 11)
 return max

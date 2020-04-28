@@ -16,7 +16,6 @@ public class sjjyy {
             if(binary[x] == '0')
             {
                 temp++; // count 0
-                continue;
             }
             else if(binary[x] == '1') // end
             {
@@ -25,6 +24,24 @@ public class sjjyy {
                 temp = 0;
             }
         }
+        return gap;
+    }
+    
+    public static int solution2(int n) // indexOf 방법
+    {
+        int gap = 0;
+        String binary = Integer.toBinaryString(n);
+        
+        for(int x=0; x<binary.length();)
+        {
+            int i = binary.indexOf("1", x+1); // search 1
+            
+            if(i == -1) break; // 닫는 1이 없음
+            
+            gap = Math.max(gap, i-x-1); // maxGap
+            x=i;
+        }
+        
         return gap;
     }
 

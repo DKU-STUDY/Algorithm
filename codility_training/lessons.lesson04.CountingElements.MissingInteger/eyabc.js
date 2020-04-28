@@ -1,7 +1,8 @@
 function solution(A) {
   const set = new Set(A);
   const len = set.size;
-  for(var i = 1; i < len + 1; i++) {
+  let i = 1;
+  for(; i < len + 1; i++) {
     if(!set.has(i)) return i;
   }
   return i;

@@ -1,12 +1,11 @@
 def solution(participant, completion):
-    participant.sort()
-    completion.sort()
-    answer = ''
-    for i in range(len(completion)):
-        if participant[i] != completion[i]:
-            answer = participant[i]
-            return answer
-    return participant[-1]
+    vector = {}
+    for v in participant : vector[v] = vector.get(v, 0) + 1
+    for v in completion :
+        vector[v] -= 1
+        if vector[v] == 0 : del vector[v]
+    for k, v in vector.items() :
+        return k
 
 print(
     solution(['leo', 'kiki', 'eden'], ['eden', 'kiki'] ) == 'leo',

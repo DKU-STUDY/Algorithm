@@ -4,7 +4,7 @@ function solution(A) {
   //원래 예상 합
   let x = ((1 + len) / 2) * len;
   //현재 배열 합
-  let y = A.reduce(function (sum, curr) {
+  const y = A.reduce((sum, curr) => sum + curr, 0);
     return sum + curr;
   }, 0);
   //missing num = 예상 합 - 현재 합

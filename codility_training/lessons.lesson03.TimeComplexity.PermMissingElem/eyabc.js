@@ -18,8 +18,11 @@ function solution2(A) {
   //원래 예상 합
   const x = (1 + len) / 2 * len;
   //현재 배열 합
-  const y = A.reduce((sum, curr) => sum + curr, 0);
+  const y = A.reduce((sum, curr) => sum + curr);
   //missing num = 예상 합 - 현재 합
   return x - y;
 }
-console.log(solution2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12]));
+console.log(
+  solution2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12]) === 11
+  solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12]) === 11
+);

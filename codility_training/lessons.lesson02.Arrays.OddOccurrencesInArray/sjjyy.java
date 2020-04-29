@@ -4,9 +4,10 @@ public class sjjyy
 {
     public static int solution(int[] A)
     {
-         int a = 0;
+        int a = 0;
+        int len = A.length;
         
-        for (int i=0; i<A.length; i++)
+        for (int i=0; i<len; i++)
             a ^= A[i];
                 
         return a;

@@ -10,8 +10,9 @@ public class sjjyy {
             return 0; // 1 = 0
         
         char binary[] = Integer.toBinaryString(n).toCharArray(); // binary로 변환 후 char[] 배열 생성
+        int len = binary.length;
         
-        for (int x = 0; x < binary.length; x++)
+        for (int x = 0; x < len; x++)
         {
             if(binary[x] == '0')
             {
@@ -31,8 +32,9 @@ public class sjjyy {
     {
         int gap = 0;
         String binary = Integer.toBinaryString(n);
+        int len = binary.length();
         
-        for(int x=0; x<binary.length();)
+        for(int x=0; x < len;)
         {
             int i = binary.indexOf("1", x+1); // search 1
             

@@ -10,6 +10,6 @@ def solution(a, b):
             answer += i
     return answer
 
-print(solution(4, 4))
-print(solution(4, 6))
-print(solution(-4, 3))
+print(solution(4, 4) == 4)
+print(solution(4, 6) == 4 + 5 + 6)
+print(solution(-4, 3) == (-4) + (-3) + (-2) + (-1) + 0 + 1 + 2 + 3)

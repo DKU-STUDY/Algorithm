@@ -25,7 +25,7 @@ class Solution{
         one_cnt--;
 
         //최초로 1이 나온 것 다음 index부터 검사
-        for(int i = index + 1; i < strN.length(); i++){
+        for(int i = index + 1, len = strN.length(); i < len; i++){
             if(strN.charAt(i) == '0'){ // 현재 index의 값이 0이라면
                 zero_cnt++; // 0의 개수 누적시킴
 

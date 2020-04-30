@@ -1,7 +1,7 @@
 function solution(A) {
   if (!A) return;
   const len = A.length;
-  var P = 1;
+  let P = 1;
   var arr = [];
   //reduce 가 반복문 안으로 들어가면 시간 복잡도가 n^2이 되기 때문에 빼준다.
   var diff = A[0] - A.slice(P).reduce((prev, curr) => prev + curr);

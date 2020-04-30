@@ -12,7 +12,7 @@ function solution(A) {
     P++;
   }
   // arr의 값을 전부 다 절대값 매핑 해준뒤 최소 값 반환
-  return Math.min(...arr.map((num) => Math.abs(num)));
+  return Math.min(...arr.map(num => Math.abs(num)));
 }
 var ans = solution([-1000, 1000]);
 console.log(ans);

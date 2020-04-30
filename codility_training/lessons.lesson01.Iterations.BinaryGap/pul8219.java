@@ -9,7 +9,7 @@ class Solution{
         System.out.println("N(이진수): " + strN);
 
         // 이진수에 1값이 얼마나 있는지 알아보기 위한 반복문
-        for(int i = 0; i < strN.length(); i++){
+        for(int i = 0, len = strN.length() ; i < len; i++){
             if(strN.charAt(i) == '1')
                 one_cnt++;
         }

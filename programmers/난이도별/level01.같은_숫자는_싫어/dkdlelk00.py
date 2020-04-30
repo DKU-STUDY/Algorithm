@@ -7,6 +7,6 @@ def solution(a):
     return answer
     
 a = [1,1,3,3,0,1,1]
-print(solution(a))
+print(solution(a) == [1,3,0,1])
 b = [1,5,2,2,2,4,4,5,5,5,0,9,9]
-print(solution(b))
+print(solution(b) == [1,5,2,4,5,0,9])

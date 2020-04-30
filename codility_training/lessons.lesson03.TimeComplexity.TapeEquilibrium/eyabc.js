@@ -7,7 +7,7 @@ function solution(A) {
     frontSum += v;
     backSum -= v;
     return Math.min(Math.abs(frontSum - backSum), min);
-  }, infinity);
+  }, Infinity);
 }
 console.log(solution([3, 1, 2, 4, 3]) === 1);
 console.log(solution([-1000, 1000]) === 2000);

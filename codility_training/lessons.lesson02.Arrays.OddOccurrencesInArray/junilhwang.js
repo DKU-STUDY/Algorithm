@@ -1,8 +1,7 @@
 function solution (A) {
-  return [ ...A.reduce((set, v) => {
-    set.has(v) ? set.delete(v) : set.add(v)
-    return set
-  }, new Set) ][0]
+  return [ ...A.reduce((set, v) => (
+    set[set.has(v) ? 'delete' : 'add'](v), set
+  ), new Set) ][0]
 }
 
 console.log(

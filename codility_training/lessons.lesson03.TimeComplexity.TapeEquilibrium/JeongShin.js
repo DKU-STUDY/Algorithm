@@ -10,7 +10,7 @@ function solution(A) {
         arr.push(diff);
         diff += A[P++] * 2;
     }
-    return arr.reduce ((min, a)=> Math.min(Math.abs(a), min), min);
+    return arr.reduce ((min, a)=> Math.min(Math.abs(a), min), Infinity);
 }
 
 var ans = solution([-1000, 1000]);

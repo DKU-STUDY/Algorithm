@@ -1,6 +1,6 @@
 https://app.codility.com/programmers/lessons/5-prefix_sums/count_div/
 
-
+* good lecture https://www.youtube.com/watch?v=scD312I7kkE
 ```
 Write a function:
 

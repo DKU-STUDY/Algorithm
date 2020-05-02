@@ -18,3 +18,5 @@ A and B are integers within the range [0..2,000,000,000];
 K is an integer within the range [1..2,000,000,000];
 A ≤ B.
 ```
+
+정수 인수 , A, B ,K 가 주어지고, A <= B 입니다.  이 범위 사이의 수 중 (A<= i <= B) 가 K로 나누었을 때 나머지가 0이 되는 수의 갯수를 return 하는 문제입니다.

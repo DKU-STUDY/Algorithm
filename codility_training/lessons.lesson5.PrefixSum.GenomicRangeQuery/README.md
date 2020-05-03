@@ -1,4 +1,10 @@
 https://app.codility.com/programmers/lessons/5-prefix_sums/genomic_range_query/
+```javascript
+function solution(S, P, Q) {
+    // write your code in JavaScript (Node.js 8.9.4)
+    return []
+}
+solution('CAGCCTA', [2, 5, 0], [4, 5, 6]).toString() === [2, 4, 1].toString()
 ```
 A DNA sequence can be represented as a string consisting of the letters A, C, G and T, which correspond to the types of successive nucleotides in the sequence. Each nucleotide has an impact factor, which is an integer. Nucleotides of types A, C, G and T have impact factors of 1, 2, 3 and 4, respectively. You are going to answer several queries of the form: What is the minimal impact factor of nucleotides contained in a particular part of the given DNA sequence?
 

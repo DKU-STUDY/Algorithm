@@ -1,6 +1,6 @@
 function solution(A) {
     const len = A.length;
-    let arr = [];
+    const arr = [];
     for (let i = 0; i < len; i++) {
         const val = A[i] - 1;
         if (val < 0)

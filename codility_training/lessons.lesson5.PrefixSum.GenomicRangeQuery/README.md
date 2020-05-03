@@ -6,6 +6,14 @@ function solution(S, P, Q) {
 }
 solution('CAGCCTA', [2, 5, 0], [4, 5, 6]).toString() === [2, 4, 1].toString()
 ```
+    P[0] = 2    Q[0] = 4
+    P[1] = 5    Q[1] = 5
+    P[2] = 0    Q[2] = 6
+    
+ A, C, G and T의 각 영향력은 1,2 ,3, 4 이다.
+ P[0] 의 값 2 와 Q[0] 의 값 4 인덱스 사이의 문자열 값은 gc 의 영향력은, 3,2 이다. 이중 최소 는 2 이고. RETURN할 배열의 0번째 요소값이 된다.
+ ... 이런식으로 반복하여 [ 2, 3, 1] 을 얻을 수 있다.
+ 
 A DNA sequence can be represented as a string consisting of the letters A, C, G and T, which correspond to the types of successive nucleotides in the sequence. Each nucleotide has an impact factor, which is an integer. Nucleotides of types A, C, G and T have impact factors of 1, 2, 3 and 4, respectively. You are going to answer several queries of the form: What is the minimal impact factor of nucleotides contained in a particular part of the given DNA sequence?
 
 The DNA sequence is given as a non-empty string S = S[0]S[1]...S[N-1] consisting of N characters. There are M queries, which are given in non-empty arrays P and Q, each consisting of M integers. The K-th query (0 ≤ K < M) requires you to find the minimal impact factor of nucleotides contained in the DNA sequence between positions P[K] and Q[K] (inclusive).

@@ -1,15 +1,13 @@
 function solution(A) {
     const len = A.length;
     let arr = [];
-    let count = 0;
     for (let i = 0; i < len; i++) {
         const val = A[i] - 1;
         if (val < 0)
             continue;
-        else if (!arr[val]) {
+        else if (!arr[val])
             arr[val] = true;
-            count++;
-        } else
+        else
             return 0;
     }
 

@@ -1,5 +1,5 @@
 function solution(A) {
-  return !(A.sort((a, b) => a - b).find((v, k) => v - 1 === k)) * 1
+  return !(A.sort((a, b) => a - b).find((v, k) => v - 1 !== k)) * 1
 }
 
 console.log(

@@ -1,6 +1,9 @@
 function solution(A) {
-  const idx = [ ...new Set(A.sort((a, b) => a - b)) ].findIndex((v, k) => v-1 !== k)
-  return idx === -1 ? A.length : idx + 1
+  const set = new Set(A)
+  for (let i = 1, len = set.size; i <= len; i++) {
+    if (!set.has(i)) return i;
+  }
+  return set.size + 1;
 }
 
 console.log(

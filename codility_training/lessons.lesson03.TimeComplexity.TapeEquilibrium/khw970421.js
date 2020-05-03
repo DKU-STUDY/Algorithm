@@ -26,6 +26,5 @@ console.log(
     solution()
 
 );
-git remote add upstream https://github.com/DKU-STUDY/Algorithm
-git pull upstream master
+
 

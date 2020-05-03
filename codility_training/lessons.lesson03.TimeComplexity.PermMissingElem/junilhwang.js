@@ -8,6 +8,11 @@ function solution(A) {
   return sum1 - sum2 + last
 }
 
+function solution2(A) {
+  return A.findIndex((v, k) => v !== k+1) + 1
+}
+
 console.log(
-  solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12]) === 11
+  solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12]) === 11,
+  solution2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12]) === 11,
 );

@@ -22,5 +22,10 @@ function solution(A) {
 console.log(
     solution([3, 1, 2, 4, 3]) === 1,
     solution([-1000, 1000]) === 2000,
-    solution([1, 2]) === 1
+    solution([1, 2]) === 1,
+    solution()
+
 );
+git remote add upstream https://github.com/DKU-STUDY/Algorithm
+git pull upstream master
+

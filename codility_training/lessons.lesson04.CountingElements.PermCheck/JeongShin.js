@@ -1,9 +1,3 @@
-/*
-1,2,3,4 -> 순열 O -> return 1
-1, 3, 4 -> 순열 X -> return 0
-
-고려: 중복, missing
- */
 function solution(A) {
     const len = A.length;
     let arr = [];

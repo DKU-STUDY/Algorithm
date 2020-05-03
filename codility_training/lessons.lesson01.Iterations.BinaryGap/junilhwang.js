@@ -10,9 +10,11 @@ function solution (N) {
   return max
 }
 
-console.log(solution(32) === 0)
-console.log(solution(1041) === 5)
-console.log(solution(9) === 2)
-console.log(solution(529) === 4)
-console.log(solution(20) === 1)
-console.log(solution(15) === 0)
+console.log(
+  solution(32) === 0,
+  solution(1041) === 5,
+  solution(9) === 2,
+  solution(529) === 4,
+  solution(20) === 1,
+  solution(15) === 0
+)

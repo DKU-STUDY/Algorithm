@@ -9,3 +9,6 @@ function solution(A) {
     
     return [...mySet][0];                               //그후 남은 [0]의 set을 배열로 바꿔 return
 }
+
+
+//set() 메서드는 Map 객체에서 주어진 키를 가진 요소를 추가하고, 키의 요소가 이미 있다면 대체합니다.

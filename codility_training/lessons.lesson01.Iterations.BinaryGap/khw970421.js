@@ -38,3 +38,10 @@ function solution(N) {
      return 0;
     //성공
 }
+
+console.log(solution(32) === 0)
+console.log(solution(1041) === 5)
+console.log(solution(9) === 2)
+console.log(solution(529) === 4)
+console.log(solution(20) === 1)
+console.log(solution(15) === 0)

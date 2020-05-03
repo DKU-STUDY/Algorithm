@@ -9,10 +9,14 @@ function solution(A) {
 }
 
 function solution2(A) {
-  return A.findIndex((v, k) => v !== k+1) + 1
+  const idx = A.sort((a, b) => a - b).findIndex((v, k) => v !== k + 1)
+  return (idx === -1 ? A.length : idx) + 1
 }
 
 console.log(
   solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12]) === 11,
   solution2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12]) === 11,
+  solution([]) === 1,
+  solution2([]) === 1,
+  solution2([3]) === 1,
 );

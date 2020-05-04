@@ -2,9 +2,9 @@ package lessons.lesson04.CountingElements.MissingInteger;
 
 import java.util.*;
 
-class Solution
+class sjjyy
 {
-    public int solution(int[] A)
+    public static int solution(int[] A)
     {
         Arrays.sort(A);
         int cnt = 1;

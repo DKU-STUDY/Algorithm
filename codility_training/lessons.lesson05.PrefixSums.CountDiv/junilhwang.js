@@ -4,8 +4,7 @@
  */
 function solution (A, B, K) {
   let cnt = 0
-  const mod = A % K
-  const start = A + (mod === 0 ? 0 : K - mod)
+  const start = A + !!(A % K !== 0)
   for (let i = start; i < B + 1; i += K) cnt += 1
   return cnt
 }

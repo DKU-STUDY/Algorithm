@@ -4,10 +4,8 @@ function solution(A, B, K) {
     const start = A % K ? A + K - A % K : A;
     // B랑 가장 가까운 범위 내 숫자
     const end = B - B % K;
-    if (end > start)
+    if (end >= start)
         return (end - start) / K + 1;
-    else if (end === start)
-        return 1;
     else
         return 0;
 }

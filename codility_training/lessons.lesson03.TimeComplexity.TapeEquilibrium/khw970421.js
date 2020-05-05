@@ -11,7 +11,6 @@ function solution(A) {
         final = Math.abs(all - sum * 2)                  //final은 뒤의값-앞의값의 절대값 | (all-sum)-sum | ,음수면 절대값을 붙인다.
         min=Math.min(min,final);            // 작은 값을 min에 넣기
      }
-    let k =[0, 1, 2, 3, 4].reduce( (pre, curr) => pre + curr );
     console.log(k);
    return min;                              //P를 만족하는 가장 작은 min return
 }

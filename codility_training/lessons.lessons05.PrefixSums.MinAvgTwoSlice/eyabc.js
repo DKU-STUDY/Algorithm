@@ -20,7 +20,7 @@ function solution2(A) {
   let min = A.reduce(([ min, minIdx ], v, k) => {
     if(!A[k+1]) return oldValue;
     const newValue = v + A[k+1];
-    const lastValue = Math.min(oldValue[0], newValue / 2);
+    const lastValue = Math.min(min, newValue / 2);
     return [lastValue, lastValue !== oldValue[0] ? k : oldValue[1]];
   }, [Infinity, Infinity]);
 

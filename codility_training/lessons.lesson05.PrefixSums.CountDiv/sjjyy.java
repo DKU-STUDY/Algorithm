@@ -9,7 +9,7 @@ class sjjyy
     
     public static int solution0(int A, int B, int K) // 문제 그대로만 풀었을 때
     {
-        int c;
+        int c = 0;
         
         for (int i = A ; i <= B ; i++)
         {

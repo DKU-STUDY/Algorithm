@@ -12,5 +12,7 @@ function solution(S, P, Q) {
   })
 }
 
-const testCase = require("./test.json")
-testCase.forEach(({ input, output }) => (console.log(input), console.log(solution(...input), output)))
+require("./test.json")
+  .forEach(({ input, output }) =>
+    console.log(solution(...input).toString() === output.toString())
+  )

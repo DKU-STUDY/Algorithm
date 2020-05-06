@@ -1,4 +1,5 @@
 [링크](https://app.codility.com/programmers/lessons/5-prefix_sums/min_avg_two_slice/)
+* 참고 https://www.youtube.com/watch?v=w0eFQwiKY7k
 
 ## 문제설명 
 * 입출력 함수

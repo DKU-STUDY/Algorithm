@@ -1,13 +1,14 @@
 let min = [Infinity, Infinity];
 let num = 1;
+
 function solution(A) {
   if (A.length === 2) return 0;
   num++;
-  min = A.reduce((oldValue, v, k) => {
-    if(!A[k+num-1]) return oldValue;
+  min = A.reduce(([min, minIdx], v, k) => {
+    if(!A[k+num-1]) return [min, minIdx];
     const newValue = v + A[k+1] + (num === 3 ? A[k+2] : 0);
-    const lastValue = Math.min(oldValue[0], newValue / num);
-    return [lastValue, lastValue !== oldValue[0] ? k : oldValue[1]];
+    const lastValue = Math.min(min, newValue / num);
+    return [lastValue, lastValue !== min ? k : minIdx];
   }, min);
 
   if (num === 2) solution(A);
@@ -17,11 +18,11 @@ function solution(A) {
 function solution2(A) {
   if (A.length === 2) return 0;
 
-  let min = A.reduce((oldValue, v, k) => {
-    if(!A[k+1]) return oldValue;
+  let min = A.reduce(([ min, minIdx ], v, k) => {
+    if(!A[k+1]) return [ min, minIdx ];
     const newValue = v + A[k+1];
-    const lastValue = Math.min(oldValue[0], newValue / 2);
-    return [lastValue, lastValue !== oldValue[0] ? k : oldValue[1]];
+    const lastValue = Math.min(min, newValue / 2);
+    return [lastValue, lastValue !== min ? k : minIdx];
   }, [Infinity, Infinity]);
 
   min = A.reduce((oldValue, v, k) => {

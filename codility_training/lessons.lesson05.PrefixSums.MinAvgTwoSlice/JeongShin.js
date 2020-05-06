@@ -10,7 +10,7 @@ function solution(A) {
             sum += A[j];
             min_avg = min_avg > sum / (j - i + 1) ? sum / (j - i + 1) : min_avg;
         }
-        glob_min = glob_min > min_avg ? min_avg : glob_min;
+        glob_min = Matn.min(glob_min, min_avg)
         min[i] = min_avg;
         i++;
     }

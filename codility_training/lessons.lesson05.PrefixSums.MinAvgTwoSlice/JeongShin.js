@@ -8,7 +8,7 @@ function solution(A) {
         let min_avg = Infinity;
         for (let j = i + 1; j < i + 3; j++) {
             sum += A[j];
-            min_avg = min_avg > sum / (j - i + 1) ? sum / (j - i + 1) : min_avg;
+            min_avg = Math.min(min_avg, sum / (j - i + 1))
         }
         glob_min = Matn.min(glob_min, min_avg)
         min[i] = min_avg;

@@ -1,0 +1,14 @@
+[
+  {
+    "input": [ "oooo" ],
+    "output": true
+  },
+  {
+    "input": [ "pPooYy" ],
+    "output": true
+  },
+  {
+    "input": [ "pPPYy" ],
+    "output": false
+  }
+]

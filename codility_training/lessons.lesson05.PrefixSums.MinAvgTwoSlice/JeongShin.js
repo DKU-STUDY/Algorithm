@@ -1,7 +1,7 @@
 function solution(A) {
     const len = A.length;
     let i = 0;
-    let min = [];
+    const min = [];
     let glob_min = Infinity;
     while (i < len - 1) {
         let sum = A[i];

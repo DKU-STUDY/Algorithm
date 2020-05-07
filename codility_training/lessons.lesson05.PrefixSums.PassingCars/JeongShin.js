@@ -1,5 +1,5 @@
 function solution(A) {
-    let othercar = A.reduce((acc, curr) => {
+    let othercar = A.reduce((acc, curr) => acc + (curr !== A[0]))
         return curr !== A[0] ? acc + 1 : acc;
     }, 0);
     let cars = 0;

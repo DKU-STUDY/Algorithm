@@ -4,7 +4,7 @@ def solution(s):
     p, y = s.count('p'), s.count('y')
     if p == y:
         return True
-    return False
+    return s.count('p') == s.count('y')
 
 print(solution("oooo") == True)
 print(solution('pPooYy') == True)

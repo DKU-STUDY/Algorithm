@@ -1,4 +1,19 @@
 https://app.codility.com/programmers/lessons/3-time_complexity/tape_equilibrium/
+
+```
+  A[0] = 3
+  A[1] = 1
+  A[2] = 2
+  A[3] = 4
+  A[4] = 3
+  
+  P = 1, difference = |3 − 10| = 7
+P = 2, difference = |4 − 9| = 5
+P = 3, difference = |6 − 7| = 1
+P = 4, difference = |10 − 3| = 7
+```
+최소 차이를 리턴하는 문제
+
 ```
 A non-empty array A consisting of N integers is given. Array A represents numbers on a tape.
 

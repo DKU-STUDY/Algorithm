@@ -1,19 +1,17 @@
 function solution (A) {
-  const arr = A.map(() => new Set())
   const len = A.length
-  return A.reduce((sum, v, i) => {
+  let sum = 0
+  for (let i = 0; i < len; i++) {
+    const v = A[i]
     for (let j = i + 1; j < len; j++) {
       const v2 = A[j]
       if (!(i-v > j+v2 || i+v < j-v2)) {
-        if (!arr[i].has(j)) {
-          arr[i].add(j)
-          arr[j].add(i)
-          sum += 1
-        }
+        sum += 1
+        if (sum > 10000000) return -1
       }
     }
-    return sum
-  }, 0)
+  }
+  return sum
 }
 
 const testCase = require("./test.json")

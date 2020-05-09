@@ -1,17 +1,10 @@
 function solution (A) {
-  const arr = []
+  const arr = A.map(() => new Set())
   const len = A.length
-  let sum = 0
-  for (let i = 0; i < len; i++) {
-    const start = i - A[i]
-    const end = i + A[i]
-    for (let j = 0; j < len; j++) {
-      if (i === j) continue;
-      const start2 = j - A[j]
-      const end2 = j + A[j]
-      if (!(start > end2 || end < start2)) {
-        arr[i] = arr[i] || new Set()
-        arr[j] = arr[j] || new Set()
+  return A.reduce((sum, v, i) => {
+    for (let j = i + 1; j < len; j++) {
+      const v2 = A[j]
+      if (!(i-v > j+v2 || i+v < j-v2)) {
         if (!arr[i].has(j)) {
           arr[i].add(j)
           arr[j].add(i)
@@ -19,8 +12,8 @@ function solution (A) {
         }
       }
     }
-  }
-  return sum
+    return sum
+  }, 0)
 }
 
 const testCase = require("./test.json")

@@ -21,16 +21,10 @@ https://jobjava00.github.io/algorithm/codility/lesson6/NumberOfDiscIntersections
 
 function solution2(A) {
     const len = A.length;
-    const lower = [];
-    const upper = [];
-    for (let i = 0; i < len; i++) {
-        lower [i] = i - A[i];
-        upper [i] = i + A[i];
-    }
-    // console.log(lower, upper);
+    const [lower, upper] = A.reduce(([l, u], i, v) => (l.push(v - i), u.push(v + i), [l, u]), [[], []]);
 
     lower.sort((a, b) => a - b);
-    upper.sort((a, b) => a - b)
+    upper.sort((a, b) => a - b);
 
     // console.log(lower, upper);
 

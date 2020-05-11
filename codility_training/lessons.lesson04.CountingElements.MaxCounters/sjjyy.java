@@ -4,7 +4,7 @@ import java.util.*;
 
 class sjjyy
 {
-	 public static int[] solution2(int N, int[] A)
+	 public static int[] solution(int N, int[] A) // 솔루션 참고
 	 {
 			int tmp = 0;
 			int fin = 0;
@@ -29,6 +29,43 @@ class sjjyy
 				B[i] = Math.max(B[i], fin);
 
 			return B;
+	 }
+	
+	 public static int[] solution2(int N, int[] A) // 솔루션
+	 {
+		int n = A.length;
+		int curr = 0;
+		int done = 0;
+		int[] counters = new int[N];
+		
+		for(int i = 0; i < n ; i++)
+		{
+			if(A[i] > N)
+				done = curr;
+			
+			else
+			{
+				
+				if (counters[(A[i] - 1)] < done)
+					counters[(A[i] - 1)] = done;
+				
+				counters[(A[i] - 1)]++;
+				
+				if (counters[(A[i] - 1)] > curr)
+					curr = counters[(A[i] - 1)];
+			}
+				
+						
+		}
+		
+		for(int i = 0; i < N ; i++)
+		{
+			if(counters[i] < done)
+				counters[i] = done;
+		}
+		
+		
+		return counters;
 	 }
 
 	 

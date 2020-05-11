@@ -1,5 +1,7 @@
 function solution(S) {
     const brackets = {"(": ")", "{": "}", "[": "]"};
+    const bracketsKeys = Object.keys(brackets);
+    const bracketsValues = Object.values(brackets);
     const open = [];
     let o_top = 0, c_top = 0;
     [...S].forEach(el => {

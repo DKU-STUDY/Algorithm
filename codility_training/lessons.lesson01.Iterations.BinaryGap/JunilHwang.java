@@ -1,6 +1,7 @@
 package lessons.lesson01.Iterations.BinaryGap;
 
 public class JunilHwang {
+
   public static int solution(int n) {
     String b = Integer.toBinaryString(n);
     int i = 0, max = 0, len = b.length(), idx; // idx는 일단 정의만

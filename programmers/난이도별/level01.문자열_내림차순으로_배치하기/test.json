@@ -1,0 +1,10 @@
+[
+  {
+    "input": [ "Zbcdefg" ],
+    "output": "gfedcbZ"
+  },
+  {
+    "input": [ "bdcaET" ],
+    "output": "dcbaTE"
+  }
+]

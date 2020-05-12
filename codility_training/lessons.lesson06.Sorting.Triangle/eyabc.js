@@ -1,6 +1,6 @@
 function solution(A) {
   A.sort((a, b) => a - b);
-  const aLen = A.length;
+  const aLen = A.length - 2;
   for (let i = 0 ; i < aLen; i++) {
     const a = A[i], b = A[i + 1], c = A[i+2];
     if (a + b > c && b + c > a && a + c > b) return 1;

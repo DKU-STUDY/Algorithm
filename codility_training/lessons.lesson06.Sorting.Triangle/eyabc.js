@@ -3,7 +3,6 @@ function solution(A) {
   const aLen = A.length - 2;
   for (let i = 0 ; i < aLen; i++) {
     const a = A[i], b = A[i + 1], c = A[i+2];
-    if (b > c  - a && b> a - c && - a - c < b) return 1;
     if (b > c - a) return 1;
   }
   return 0;

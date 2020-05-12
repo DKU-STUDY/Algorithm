@@ -7,6 +7,6 @@
   "author": "황준일 <junil.h@kakao.com>, 박은영 <bey4314@naver.com>, 김형욱 <misaka0421@naver.com>, 박유림 <pul8219@naver.com>, 신원규 <won7963kr@gmail.com>, 신정웅 <sjeong1127@gmail.com>, 심지연 <sjhy013@gmail.com>, 이노원 <leenowon97@gmail.com>, 조우상 <dkdlelk99@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^26.0.1"
+    "assert": "^2.0.0"
   }
 }

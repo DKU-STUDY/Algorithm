@@ -13,7 +13,7 @@ function solution(S) {
     if(start.test(S[i])) stack.push(S[i]);
     else if (S[i] !== brackets[stack.pop()]) return 0;
   }
-  return stack.length === 0 ? 1 : 0;
+  return !stack.length * 1
 }
 
 console.log(

@@ -5,18 +5,18 @@ function solution(S) {
     '{': '}',
     '[': ']'
   };
-  const sLen = S.length;
   const stack = [];
   const start = /\[|\(|{/;
 
-  for (let i = 0 ; i < sLen ; i++) {
-    if(start.test(S[i])) stack.push(S[i]);
-    else if (S[i] !== brackets[stack.pop()]) return 0;
+  for (const v of S) {
+    if(start.test(v)) stack.push(v);
+    else if (v !== brackets[stack.pop()]) return 0;
   }
-  return stack.length === 0 ? 1 : 0;
+  return !stack.length * 1;
 }
 
 console.log(
   solution('{[()()]}') === 1,
-  solution('([)()]') === 0
+  solution('([)()]') === 0,
+  solution('{{{{') === 0
 );

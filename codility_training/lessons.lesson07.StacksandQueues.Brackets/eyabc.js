@@ -17,6 +17,5 @@ function solution(S) {
 
 console.log(
   solution('{[()()]}') === 1,
-  solution('([)()]') === 0,
-  solution('{{{{') === 0
+  solution('([)()]') === 0
 );

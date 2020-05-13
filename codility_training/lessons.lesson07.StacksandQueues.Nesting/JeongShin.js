@@ -5,7 +5,7 @@ function solution(S) {
     for (const v of S) {
         if (top < 0)
             break;
-        S[i] === '(' ? top++ : top = S[i] === ')' ? top - 1 : top;
+        top += v === '(' ? 1 :  (v === ')') * -1
     }
     return !top*1;
 }

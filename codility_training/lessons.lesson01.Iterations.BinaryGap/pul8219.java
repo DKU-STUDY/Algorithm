@@ -1,3 +1,5 @@
+package lessons.lesson01.Iterations.BinaryGap;
+
 class Solution{
     public int solution(int N){
         int one_cnt = 0; // 변환된 이진수에서 1 count

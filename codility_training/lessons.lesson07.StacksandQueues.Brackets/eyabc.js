@@ -8,35 +8,13 @@ function solution(S) {
   const sLen = S.length;
   const stack = [];
   const start = /\[|\(|{/;
-  const end = /\]|\)|}/;
 
   for (let i = 0 ; i < sLen ; i++) {
     if(start.test(S[i])) stack.push(S[i]);
-    else if (!(end.test(S[i]) && S[i] === brackets[stack.pop()])) return 0;
+    else if (S[i] !== brackets[stack.pop()]) return 0;
   }
   return stack.length === 0 ? 1 : 0;
 }
-
-/* 내풀이 */
-function solution(S) {
-  const sLen = S.length;
-  const stack = [];
-  const start = /\[|\(|{/;
-  const end = /\]|\)|}/;
-
-  for (let i = 0 ; i < sLen ; i++) {
-    if(start.test(S[i])) stack.push(S[i]);
-    else if (!(end.test(S[i]) && S[i] === returnCouple(stack.pop()))) return 0;
-  }
-  return stack.length === 0 ? 1 : 0;
-}
-const returnCouple = (bracket) => {
-  switch (bracket) {
-    case '(': return ')';
-    case '{': return '}';
-    case '[': return ']';
-  }
-};
 
 console.log(
   solution('{[()()]}') === 1,

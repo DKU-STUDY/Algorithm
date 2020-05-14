@@ -1,10 +1,10 @@
 function solution(A) {
   const obj = { ']': '[', ')': '(', '}': '{' }
   const stack = []
-  return ![ ...A ].some(v => {
+  return (![ ...A ].some(v => {
     if ('[({'.indexOf(v) !== -1) stack.push(v)
     else if(stack.pop() !== obj[v]) return true
-  }) * 1
+  }) && stack.length !== A.length) * 1
 }
 
 const assert = require('assert').strict

@@ -1,7 +1,6 @@
 function solution(A) {
   if (A.length < 2) return 0
   let shift = A.shift()
-  const front = [ shift ]
   const FO = { [shift]: 1 }
   const BO = {}
   const capture = []
@@ -22,7 +21,6 @@ function solution(A) {
   while (A[1] !== undefined) {
 
     shift = A.shift()
-    front.push(shift)
 
     FO[shift] = (FO[shift] || 0) + 1;
     if (FO[shift] > FLMax) ([FL, FLMax] = [shift, FO[shift]]);
@@ -34,10 +32,6 @@ function solution(A) {
 
     if (FLMax <= FC / 2) continue;
 
-    for (const v of sorted) {
-      if (BO[v] > BC / 2) BL = v
-      else break
-    }
     BLMax = BO[BL]
 
     cnt += (BLMax > BC / 2 && ~~FL === ~~BL)

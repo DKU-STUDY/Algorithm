@@ -15,6 +15,8 @@ function solution(A) {
     if (BO[v] > BC / 2) BL = v
   }
 
+  const sorted = Object.keys(BO).sort((a, b) => BO[b] - BO[a])
+
   let cnt = (~~FL === ~~BL) * 1
 
   while (A[1] !== undefined) {
@@ -32,7 +34,7 @@ function solution(A) {
 
     if (FLMax <= FC / 2) continue;
 
-    BL = Object.keys(BO).find(v => BO[v] > BC / 2)
+    BL = sorted.find(v => BO[v] > BC / 2)
     if (BL === undefined) continue
     BLMax = BO[BL]
 

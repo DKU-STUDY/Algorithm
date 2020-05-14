@@ -4,7 +4,7 @@ function solution(A) {
   return (![ ...A ].some(v => {
     if ('[({'.indexOf(v) !== -1) stack.push(v)
     else if(stack.pop() !== obj[v]) return true
-  }) && stack.length !== A.length) * 1
+  }) && !stack.length) * 1
 }
 
 const assert = require('assert').strict

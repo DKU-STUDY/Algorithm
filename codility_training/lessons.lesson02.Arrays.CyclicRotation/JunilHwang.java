@@ -13,24 +13,10 @@ public class JunilHwang {
   }
 
   public static void main(String[] args) {
-    int[] A = {3,8,9,7,6};
-    int[] Sol = {9,7,6,3,8};
-    System.out.println(Arrays.equals(solution(A,3), Sol));
-
-    int[] A2 = {};
-    int[] Sol2 = {};
-    System.out.println(Arrays.equals(solution(A2,0), Sol2));
-
-    int[] A3 = {5, -1000};
-    int[] Sol3 = {-1000, 5};
-    System.out.println(Arrays.equals(solution(A3,1), Sol3));
-
-    int[] A4 = {3,8,9,7,6};
-    int[] Sol4 = {3,8,9,7,6};
-    System.out.println(Arrays.equals(solution(A4,5), Sol4));
-
-    int[] A5 = {3,8,9,7,6};
-    int[] Sol5 = {3,8,9,7,6};
-    System.out.println(Arrays.equals(solution(A5,0), Sol5));
+     System.out.println(Arrays.equals(solution(new int[]{3, 8,9,7,6},3), new int[]{9,7,6,3,8}));
+     System.out.println(Arrays.equals(solution(new int[]{},0), new int[]{}));
+     System.out.println(Arrays.equals(solution(new int[]{5, -1000},1), new int[]{-1000, 5}));
+     System.out.println(Arrays.equals(solution(new int[]{3,8,9,7,6},5), new int[]{3,8,9,7,6}));
+     System.out.println(Arrays.equals(solution(new int[]{3,8,9,7,6},0), new int[]{3,8,9,7,6}));
   }
 }

@@ -2,6 +2,7 @@
 
 https://app.codility.com/programmers/lessons/6-sorting/triangle/
 
+
 ## 번역
 ```text
 N 개의 정수로 구성된 배열 A가 제공됩니다. 삼중 항 (P, Q, R)은 0 ≤ P <Q <R <N이고 다음과 같은 경우 삼각형입니다 .
@@ -73,4 +74,5 @@ N is an integer within the range [0..100,000];
 each element of array A is an integer within the range [−2,147,483,648..2,147,483,647].
 
 ```
+=======
 

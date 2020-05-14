@@ -6,8 +6,8 @@ function solution(A) {
   const BO = {}
   const capture = []
   let FLMax = 1, BLMax = 0,
-      FC = 1, BC = A.length,
-      FL = shift, BL
+    FC = 1, BC = A.length,
+    FL = shift, BL
   for (let i = 0; A[i] !== undefined; i++) {
     const v = A[i]
     BO[v] = (BO[v] || 0) + 1
@@ -15,6 +15,7 @@ function solution(A) {
     if (BO[v] > BC / 2) BL = v
   }
 
+  const sorted = Object.keys(BO).sort((a, b) => BO[b] - BO[a])
 
   let cnt = (~~FL === ~~BL) * 1
 
@@ -28,12 +29,15 @@ function solution(A) {
     FC += 1
 
     BO[shift] -= 1
-    if (BO[shift] === 0) delete BO[shift]
-    BL = Object.keys(BO).sort((a, b) => BO[b] - BO[a])[0];
-    BLMax = BO[BL]
     BC -= 1
+    if (BO[shift] === 0) delete BO[shift]
 
-    cnt += (BLMax > BC / 2 && FLMax > FC / 2 && ~~FL === ~~BL)
+    if (FLMax <= FC / 2) continue;
+
+    BL = sorted.sort((a, b) => BO[b] - BO[a])[0]
+    BLMax = BO[BL]
+
+    cnt += (BLMax > BC / 2 && ~~FL === ~~BL)
   }
   return cnt
 }

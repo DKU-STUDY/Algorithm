@@ -1,4 +1,5 @@
 function solution(A) {
+  if (A.length < 2) return 0
   let shift = A.shift()
   const front = [ shift ]
   const FO = { [shift]: 1 }
@@ -32,9 +33,7 @@ function solution(A) {
     BLMax = BO[BL]
     BC -= 1
 
-    if (BLMax > BC / 2 && FLMax > FC / 2 && ~~FL === ~~BL) {
-      cnt += 1
-    }
+    cnt += (BLMax > BC / 2 && FLMax > FC / 2 && ~~FL === ~~BL)
   }
   return cnt
 }

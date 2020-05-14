@@ -23,17 +23,13 @@ def solution(N):
     current = 0
     last = 0
     while True:
-        current = bin_n.find('1', last + 1, -1)
+        current = bin_n.find('1', last + 1)
         # print(f'temp = {temp}')
-        if current == -1 and last == 0:
-            return -1
-        elif current == -1 and last != 0:
-            return ans
+        if current == -1:
+            return -1 if last == 0 else ans
         if current - (last + 1) > ans:
             ans = current - (last + 1)
         last = current
-
-    return ans
 
 
 N = randint(1, 2147483647)

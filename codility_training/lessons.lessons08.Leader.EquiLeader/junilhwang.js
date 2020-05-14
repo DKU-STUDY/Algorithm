@@ -34,8 +34,10 @@ function solution(A) {
 
     if (FLMax <= FC / 2) continue;
 
-    BL = sorted.find(v => BO[v] > BC / 2)
-    if (BL === undefined) continue
+    for (const v of sorted) {
+      if (BO[v] > BC / 2) BL = v
+      else break
+    }
     BLMax = BO[BL]
 
     cnt += (BLMax > BC / 2 && ~~FL === ~~BL)

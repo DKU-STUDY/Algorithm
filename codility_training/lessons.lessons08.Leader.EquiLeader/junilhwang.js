@@ -10,12 +10,14 @@ function solution(A) {
     for (let i = 0, len = arr.length; i < len; i++) {
       const v = A[i]
       obj[v] = (obj[v] || 0) + 1
-      if (obj[v] >= half) return i;
+      if (obj[v] > half) return v;
     }
   }
 
-  for (let i = 1; i < len; i++) {
-    cnt += (getLeader(A) === getLeader(back)) * 1
+  for (let i = 1; i < len - 1; i++) {
+    const FL = getLeader(A)
+    const BL = getLeader(back)
+    cnt += FL !== undefined && BL !== undefined && FL === BL
     back.push(A.pop())
   }
   return cnt
@@ -23,5 +25,5 @@ function solution(A) {
 
 const assert = require('assert').strict
 require("./test.json").forEach(({ input, output }) => {
-  assert.notEqual(solution(...input), 2)
+  assert.deepEqual(solution(...input), 2)
 })

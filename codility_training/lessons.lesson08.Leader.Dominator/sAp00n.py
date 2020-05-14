@@ -8,7 +8,13 @@ def solution(A):
     condition = len_a // 2
     dic = {}
     for i in A:
-        dic[i] = dic.get(i, 0) + 1
-        if dic[i] > condition:
-            return A.index(i)
-    return -1
+        if i in dic:
+            dic[i] += 1
+            if dic[i] > condition:
+                return A.index(i)
+        else:
+            dic[i] = 1
+    if len(list(dic.keys())) == 1:
+        return 0
+    else:
+        return -1

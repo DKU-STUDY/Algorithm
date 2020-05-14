@@ -1,41 +1,28 @@
 function solution(A) {
-  let shift = A.shift()
-  const front = [ shift ]
-  const FO = {}
-  const BO = { [shift]: 1 }
-  let BLMax = 1, FLMax = 0,
-      BC = 1, FC = A.length - 1,
-      BL = shift, FL
-  for (let i = 0; A[i] !== undefined; i++) {
+  if (A.length < 2) return 0
+  const FO = { [A[0]]: 1 }, BO = {}
+  let FLMax = 1, BLMax = 0,
+      FC = 1, BC = A.length - 1,
+      FL = A[0], BL
+  for (let i = 1; A[i] !== undefined; i++) {
     const v = A[i]
-    FO[v] = (FO[v] || 0) + 1
-    FLMax = Math.max(FLMax, FO[v])
-    if (FLMax > FC / 2) FL = v
+    BO[v] = (BO[v] || 0) + 1
+    BLMax = Math.max(BLMax, BO[v])
+    if (BO[v] > BC / 2) BL = v
   }
 
   let cnt = (~~FL === ~~BL) * 1
+  for (let i = 1; A[i] !== undefined; i++) {
+    const v = A[i]
+    FO[v] = (FO[v] || 0) + 1;
+    BO[v] -= 1
+    FC += 1
+    BC -= 1
 
+    BLMax = BO[BL]
+    if (FO[v] > FLMax) ([FL, FLMax] = [v, FO[v]]);
 
-  console.log(front, A)
-  while (A[1] !== undefined) {
-
-    shift = A.shift()
-    front.push(shift)
-
-    console.log(front, A)
-
-    BO[shift] = (BO[shift] || 0) + 1;
-    if (BO[shift] > BLMax) ([BL, BLMax] = [shift, BO[shift]]);
-    BC += 1
-
-    FO[shift] -= 1
-    if (FO[shift] === 0) delete FO[shift]
-    FL = Object.keys(FO).sort((a, b) => FO[b] - FO[a])[0];
-    FLMax = FO[FL]
-    FC -= 1
-
-    if (BLMax < BC / 2 || FLMax < FC / 2) continue
-    cnt += (~~FL === ~~BL) * 1
+    cnt += (FLMax > FC / 2 && BLMax > BC / 2 && ~~FL === ~~BL)
   }
   return cnt
 }

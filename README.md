@@ -52,3 +52,4 @@
 - 어려우면 솔루션을 찾아본다.
 - 문제 풀이의 흔적을 남기기 위해서 당신의 솔루션을 업로드
 - 가능 하면 매일 매일 풀이하여 일일커밋에 도전해보기!
+- [BTS_depth 가이드](https://dku-study.github.io/InfoBoard/BST_depth.html)

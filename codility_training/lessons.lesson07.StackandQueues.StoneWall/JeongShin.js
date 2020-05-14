@@ -1,10 +1,6 @@
 function solution(H) {
-    const len = H.length;
-    const stack = [];
-    let count = 0;
     let top = 0;
-    for (let i = 0; i < len; i++) {
-        const curr = H[i];
+    return H.reduce(([stack, count], curr) => {
         while (top > 0 && stack[top - 1] > curr) {
             top--;
         }
@@ -12,6 +8,8 @@ function solution(H) {
             stack[top++] = curr;
             count++;
         }
-    }
-    return count;
+        return [stack, count];
+    }, [[], 0])[1];
 }
+
+solution([8, 8, 5, 7, 9, 8, 7, 4, 8]);

@@ -10,58 +10,27 @@ def solution(A):
 
     else:
         eq_leadernum = 0
-        ind_list = []
         n = len(A)
-        for ind in range(n):
-            if A[ind] == leader:
-                ind_list.append(ind)
-        # print(ind_list)
-        group_dic = {}
-        for i in range(len(ind_list) - 1):
-            # print(f'left ={A[:ind_list[i]+1]},{ind_list[:i+1]}   right = {A[ind_list[i]+1:]}, {ind_list[i+1:]}')
-
-            # case 01
-            # -->
-            left_A = A[:ind_list[i] + 1]
-            left_leader_ind_list = ind_list[:i + 1]
-            right_A = A[ind_list[i] + 1:]
-            right_leader_ind_list = ind_list[i + 1:]
-
-            '''print(f'\ncase 01 -->\n left: {left_A}  right: {right_A}')
-            print(f'indl_left:{left_leader_ind_list}  indl_right:{right_leader_ind_list}')'''
-            dic_key = (str(left_A), str(right_A))
-            if dic_key not in group_dic:
-                group_dic[dic_key] = 0
-                left_condition = len(left_leader_ind_list) / (len(left_A))
-                right_condition = len(right_leader_ind_list) / len(right_A)
-                '''print(f'left_c = {len(ind_list[:i+1])}/{(ind_list[i]+1)} = {left_condition}  right_c = {len(ind_list[i+1:])}/{len(A[ind_list[i]+1:])} = {right_condition}')'''
-                if left_condition and right_condition > 1 / 2:
+        logical_list = [0 for i in range(n)]
+        temp = 0
+        for value in range(n):
+            if A[value] == leader:
+                temp += 1
+            logical_list[value] = temp
+        # print(logical_list)
+        for i in range(len(A) - 1):
+            left_ele_num = len(A[:i + 1])
+            right_ele_num = len(A[i + 1:])
+            left_condition = logical_list[i] / left_ele_num
+            if left_condition > 1 / 2:
+                right_condition = (logical_list[-1] - logical_list[i]) / right_ele_num
+                if right_condition > 1 / 2:
+                    '''print(
+                        f'left = {A[:i + 1]}len({left_ele_num})\nleft_logical = {logical_list[i]}\nright = {A[i + 1:]}len({right_ele_num})\nright_logical = {logical_list[-1] - logical_list[i]}')
+                    print(i + 1)
+                    print('\n')'''
                     eq_leadernum += 1
-                    # print('     eq +1')
-            '''else:
-                #print('redundant')'''
-        for i in range(len(ind_list) - 1, 0, -1):
-            # case 02
-            # <--
-            left_A = A[:ind_list[i]]
-            left_leader_ind_list = ind_list[:i]
-            right_A = A[ind_list[i]:]
-            right_leader_ind_list = ind_list[i:]
 
-            '''print(f'\ncase 02 <--\n left: {left_A}  right: {right_A}')
-            print(f'indl_left:{left_leader_ind_list}  indl_right:{right_leader_ind_list}')'''
-            dic_key = (str(left_A), str(right_A))
-            if dic_key not in group_dic:
-                group_dic[dic_key] = 0
-                left_condition = len(left_leader_ind_list) / (len(left_A))
-                right_condition = len(right_leader_ind_list) / len(right_A)
-                '''print(f'left_c = {len(left_leader_ind_list)}/{(len(left_A))} = {left_condition}  right_c = {len(right_leader_ind_list)}/{len(right_A)} = {right_condition}')'''
-                if left_condition > 0.5:
-                    if right_condition > 0.5:
-                        eq_leadernum += 1
-                        # print('     eq +1')
-            '''else:
-                #print('     redundant')'''
         return eq_leadernum
 
 

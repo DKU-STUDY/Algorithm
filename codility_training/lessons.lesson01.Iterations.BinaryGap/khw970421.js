@@ -1,5 +1,5 @@
 
-방법 1 (방법 2에 비해 if문대신 Math.amx,삼항연산자로 코드를 간결화 for문 대신 while문으로 대체 result라는 불필요 변수 제거) 
+//방법 1 (방법 2에 비해 if문대신 Math.amx,삼항연산자로 코드를 간결화 for문 대신 while문으로 대체 result라는 불필요 변수 제거)
 
 function solution(N) {
   const a = N.toString(2);                                  //배열생성 N이 32일경우 a는 100000
@@ -14,8 +14,8 @@ function solution(N) {
                                                     // 1과1 사이에 있는 갯수이기에  max_result - 1 로 처리
 }
 
-방법 2
-function solution(N) {
+//방법 2
+function solution1(N) {
     let a,b=[];//배열생성
     let p=0;
     let max_result=0,result=0;
@@ -39,9 +39,31 @@ function solution(N) {
     //성공
 }
 
-console.log(solution(32) === 0)
-console.log(solution(1041) === 5)
-console.log(solution(9) === 2)
-console.log(solution(529) === 4)
-console.log(solution(20) === 1)
-console.log(solution(15) === 0)
+//방법3(2020.05.15)
+function solution2(N) {
+    let k=N.toString(2);                        //문자열 2진수로 설정
+    let count=0,max=0;                          //0을세는 count, 0이연속인 최대크기 max
+    let h = [...k];                             //문자열을 배열로 변경
+    let reducer = function(accumulator,value)   // h.reduce함수에 initialvalue가 없으므로 accumulator에 배열의 첫번째값, value에 배열의 두번째값 입력
+    {
+        if(value==0)                            //배열값이 0이라면 count 증가
+            count++;
+        else {
+            max = Math.max(max, count);         //배열값이 1이되면 그때 최대치인 max와 비교하기 (1000이면 count를 세어도 max와 비교하지않는다.)
+            count = 0;                          //count를 0으로 초기화
+        }
+    }
+    h.reduce(reducer);                          //reduce함수 사용
+    return max;
+}
+
+console.log(solution(1041)===5);
+console.log(solution(15)===0);
+console.log(solution(32)===0);
+
+console.log(solution1(32) === 0)
+console.log(solution1(1041) === 5)
+console.log(solution1(9) === 2)
+console.log(solution2(529) === 4)
+console.log(solution2(20) === 1)
+console.log(solution2(15) === 0)

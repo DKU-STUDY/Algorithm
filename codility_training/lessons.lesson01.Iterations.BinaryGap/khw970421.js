@@ -60,7 +60,6 @@ function solution2(N) {
 console.log(solution(1041)===5);
 console.log(solution(15)===0);
 console.log(solution(32)===0);
-
 console.log(solution1(32) === 0)
 console.log(solution1(1041) === 5)
 console.log(solution1(9) === 2)

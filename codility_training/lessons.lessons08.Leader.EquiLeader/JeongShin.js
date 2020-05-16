@@ -15,6 +15,6 @@ function solution(A) {
         --right[el];
         left[el] = (left[el] || 0) + 1;
         const [l, r] = [getLeader(left, ++llen), getLeader(right, --rlen)];
-        return l === r && l !== -1 ? count + 1 : count;
+        return count + (l === r && != -1)
     }, 0);
 }

@@ -1,7 +1,7 @@
 function solution(A) {
     const getLeader = (obj, len) => {
         for (const [key, val] of Object.entries(obj)) {
-            if (val > ~~(len / 2))
+            if (val > len / 2)
                 return key;
         }
         return -1;

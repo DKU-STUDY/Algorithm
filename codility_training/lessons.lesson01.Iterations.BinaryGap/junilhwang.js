@@ -10,7 +10,20 @@ function solution (N) {
   return max
 }
 
+function solution2 (N) {
+  return [ ...N.toString(2) ].reduce(([ max, count ], v) => {
+    if (v === '0') {
+      count += 1
+    } else {
+      max = Math.max(max, count)
+      count = 0
+    }
+    return [ max, count ]
+  }, [0, 0])[0]
+}
+
 const assert = require('assert').strict
 require('./test.json').forEach(({ input, output }) => {
   assert.deepEqual(solution(...input), output);
+  assert.deepEqual(solution2(...input), output);
 })

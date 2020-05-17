@@ -1,10 +1,11 @@
 function solution(A) {
     const o = {}
-    if(Math.max(...A)<1) return 1
+    const mx = Math.max(...A)
+    if(m<1) return 1
     A.forEach((a) => {
         if(a>0) o[a] = true;
     })
-    var m = Math.max(...A)
+    var m = mx
     for(var j=1;j<m;j++){
         if(!o[j]) return j
     }

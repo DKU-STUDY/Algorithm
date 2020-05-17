@@ -3,8 +3,8 @@ function solution(H) {
   stack.getLast = () => stack[stack.length - 1]
   let res = 1;
   for (const v of H) {
-    while(stack[stack.length - 1] > v) stack.pop();
-    if (v > stack[stack.length - 1] || stack.length === 0) res++;
+    while(stack.getLast() > v) stack.pop();
+    res += v > stack.getLast() || !stack.length;
     stack.push(v)
   }
   return res;

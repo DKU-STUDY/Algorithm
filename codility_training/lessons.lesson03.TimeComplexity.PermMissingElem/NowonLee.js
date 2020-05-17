@@ -3,9 +3,10 @@ function solution(A) {
     var r = 0
     A.sort(function(a,b){return a-b})
     if(A[0] !== 1) return 1;
-    else if(A[A.length-1]  !== A.length+1) return A.length+1;
+    let l = A.length;
+    else if(A[l-1]  !== l+1) return l+1;
     else {
-        for(var i=0;i<A.length-1;i++){
+        for(var i=0;i<l-1;i++){
             if(A[i+1]-A[i] !== 1){
                 r = A[i]+1
             }

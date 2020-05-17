@@ -1,7 +1,7 @@
 function solution(A) {
     // write your code in JavaScript (Node.js 8.9.4)
     var r = 0
-    A.sort(function(a,b){return a-b})
+    A.sort((a,b) => a-b)
     if(A[0] !== 1) return 1;
     let l = A.length;
     else if(A[l-1]  !== l+1) return l+1;

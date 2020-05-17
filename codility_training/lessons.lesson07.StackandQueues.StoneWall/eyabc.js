@@ -1,5 +1,6 @@
 function solution(H) {
   const stack = [H[0]];
+  stack.getLast = () => stack[stack.length - 1]
   let res = 1;
   for (const v of H) {
     while(stack[stack.length - 1] > v) stack.pop();

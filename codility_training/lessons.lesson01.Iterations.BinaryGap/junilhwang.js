@@ -1,5 +1,3 @@
-const assert = require('assert').strict
-
 function solution (N) {
   const b = N.toString(2), len = b.length
   let i = 0, max = 0;
@@ -12,9 +10,7 @@ function solution (N) {
   return max
 }
 
-assert.deepStrictEqual(solution(32), 0);
-assert.deepStrictEqual(solution(1041), 5);
-assert.deepStrictEqual(solution(9), 2);
-assert.deepStrictEqual(solution(529), 4);
-assert.deepStrictEqual(solution(20), 1);
-assert.deepStrictEqual(solution(15), 0);
+const assert = require('assert').strict
+require('./test.json').forEach(({ input, output }) => {
+  assert.deepEqual(solution(...input), output);
+})

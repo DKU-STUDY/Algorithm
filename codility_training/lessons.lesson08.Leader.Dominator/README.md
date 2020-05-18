@@ -1,5 +1,8 @@
 # Leader - Dominator
 
+## About Leader 
+http://blog.naver.com/PostView.nhn?blogId=1net1&logNo=221237882968
+
 ## 출처
 
 https://app.codility.com/programmers/lessons/8-leader/dominator/

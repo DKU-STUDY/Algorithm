@@ -18,9 +18,11 @@ def solution(A):
                 temp += 1
             logical_list[value] = temp
         # print(logical_list)
+        left_ele_num = 0
+        right_ele_num = len(A)-1
         for i in range(len(A) - 1):
-            left_ele_num = len(A[:i + 1])
-            right_ele_num = len(A[i + 1:])
+            left_ele_num += 1
+            right_ele_num -= 1
             left_condition = logical_list[i] / left_ele_num
             if left_condition > 1 / 2:
                 right_condition = (logical_list[-1] - logical_list[i]) / right_ele_num

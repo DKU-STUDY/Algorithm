@@ -1,8 +1,7 @@
 function solution(A) {
   const arr = [], len = A.length;
   for (let i = 0; i < len; i++) {
-    if (!arr[A[i]]) arr[A[i]] = 1;
-    else arr[A[i]]++;
+    arr[A[i]] = ( arr[A[i]] || 0 ) + 1;
     if (arr[A[i]] > len / 2) return i;
   }
   return -1;

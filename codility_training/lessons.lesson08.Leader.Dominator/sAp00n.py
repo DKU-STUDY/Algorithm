@@ -10,5 +10,5 @@ def solution(A):
     for i in A:
         dic[i] = dic.get(i, 0)+1
         if dic[i] > condition:
-            return A.index(i)
+            return i
     return -1

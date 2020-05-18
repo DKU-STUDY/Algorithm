@@ -1,31 +1,34 @@
+/*
+* 아직 풀고 있습니다 ㅠ ㅠ
+* */
+
 function solution(A) {
-    function solution(A) {
-        // 배열 내에서 최소값을 빼고 나머지 합을 구함
-        const func = arr => {
-            return arr.reduce(([acc, min], val) => {
-                return [acc + val, Math.min(val, min)]
-            }, [0, Infinity]).reduce((acc, val) => acc - val)
-        };
-        // 음수 값중 다음에 오는 값이 양수인 인덱스는 x,z에 대한 후보가 됩니다.
-        const candidate = A.reduce((arr, val, idx) => {
-            val <= 0 && (A[idx + 1] > 0 || A[idx - 1] > 0) ? arr.push(idx) : null;
-            return arr;
-        }, []);
+    const len = A.length;
+    if (len < 4)
+        return 0;
+    A[0] = 0;
+    A[len - 1] = 0;
+    let max = -Infinity;
 
-        if (candidate.length === 0)
-            return func(A.splice(1, A.length - 2));
+    A.reduce(([acc, min], curr, index) => {
+        const next = A[index + 1];
+        if (index !== 0 && index !== len - 1) // 처음과 마지막은 최소값으로 포함될 수 없음.
+            min = Math.min(min, curr);
+        if (next === undefined)
+            max = Math.max(acc - min, max);
+        acc += curr;
+        // console.log(curr, next, acc, min, max);
+        if (curr <= 0 && next >= 0) {
+            max = Math.max(acc - min, max);
+            if (acc - min < 0)
+                return [0, Infinity];
+        }
+        if (curr >= 0 && next < 0) {
+            max = Math.max( acc,acc - min, max);
+        }
 
-        candidate.unshift(0);
-        candidate.push(A.length - 1);
-        const candidateLen = candidate.length;
-        let max = 0;
-        candidate.forEach((start, start_index) => {
-            while (start_index < candidateLen) {
-                max = Math.max(max, func(A.slice(start + 1, candidate[++start_index] - 1)))
-            }
-        });
-        return max;
-    }
+        return [acc, min];
+    }, [0, Infinity]);
+    // console.log(max);
+    return max;
 }
-
-solution([3, 2, 6, -1, -1, 4, 5, -1, 3]);

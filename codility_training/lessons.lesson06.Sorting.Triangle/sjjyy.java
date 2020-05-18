@@ -5,7 +5,7 @@ import java.util.*;
 class sjjyy
 {
 
-   public static int sol(int[] A)
+   public static int solution(int[] A)
 	 {
 		 int n = A.length;
 		 Arrays.sort(A);
@@ -20,7 +20,7 @@ class sjjyy
 	 }
 
 
-	 public static int sol(int[] A) // overflow
+	 public static int solution2(int[] A) // overflow
 	 {
 		 int n = A.length;
 		 Arrays.sort(A);
@@ -39,6 +39,7 @@ class sjjyy
 	{
 		int[] A = new int[] {2, 1, 1, 2, 3, 1};
 		System.out.println(solution(A));
+		System.out.println(solution2(A));
 	}
 
 }

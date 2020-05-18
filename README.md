@@ -23,6 +23,10 @@
 
 [네이버 폼](http://naver.me/5MParwvU) 작성 
 
+## PR 규칙
+- PR 이름은 알고리즘 푼 문제 이름
+- label 에 사용한 언어를 추가합니다
+
 ## 알고리즘 연습하기
 
 - [codility](https://app.codility.com/)

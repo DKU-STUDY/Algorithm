@@ -11,7 +11,6 @@ function solution(A, K) {
 }
 //방법2
 function solution1(A, K) {
-    const size = A.length;                          //배열의 크기 size
     const shift = K%A.length;      //움직인 횟수 shift K의값이 크기보다 클경우 반복되는 횟수 나머지만 계산
 
     for(let i=0;i<shift;i++)                        //shift횟수만큼 반복
@@ -24,19 +23,17 @@ function solution1(A, K) {
 
 //방법3
 function solution2(A, K) {
-    const size= A.length;
-    let change = K%A.length;
-    let reduced = A.splice(change*(-1));     //뒤에서부터 크기만큼 start세우고 그만큼의 갯수를 reduced에 빼온다.
+    const change = K%A.length;
+    let reduced = A.splice(-change);     //뒤에서부터 크기만큼 start세우고 그만큼의 갯수를 reduced에 빼온다.
 
     return reduced.concat(A);
 }
 
 //방법4
 function solution3(A, K) {
-    const size= A.length;
-    let change = K%A.length;
+    const change = K%A.length;
 
-    return [...A.splice(change*(-1)),...A];
+    return [...A.splice(-change),...A];
 }
 
 console.log(solution1([3,8,9,7,6],3).toString()===[9,7,6,3,8].toString());

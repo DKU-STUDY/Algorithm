@@ -12,7 +12,7 @@ function solution(A, K) {
 //방법2
 function solution1(A, K) {
     const size = A.length;                          //배열의 크기 size
-    const shift = (A.length>K)?(K):K%A.length;      //움직인 횟수 shift K의값이 크기보다 클경우 반복되는 횟수 나머지만 계산
+    const shift = K%A.length;      //움직인 횟수 shift K의값이 크기보다 클경우 반복되는 횟수 나머지만 계산
 
     for(let i=0;i<shift;i++)                        //shift횟수만큼 반복
     {

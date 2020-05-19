@@ -14,6 +14,8 @@ function solution(N) {
                                                     // 1과1 사이에 있는 갯수이기에  max_result - 1 로 처리
 }
 
+
+
 //방법 2
 function solution1(N) {
     let a,b=[];//배열생성

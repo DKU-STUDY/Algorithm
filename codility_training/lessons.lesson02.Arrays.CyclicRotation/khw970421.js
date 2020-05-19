@@ -22,6 +22,8 @@ function solution1(A, K) {
     return A;
 }
 
+
+
 console.log(solution1([3,8,9,7,6],3).toString()===[9,7,6,3,8].toString());
 console.log(solution1([0,0,0],1).toString()===[0,0,0].toString());
 console.log(solution1([1,2,3,4],4).toString()===[1,2,3,4].toString());

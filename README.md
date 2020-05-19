@@ -23,6 +23,10 @@
 
 [네이버 폼](http://naver.me/5MParwvU) 작성 
 
+## PR 규칙
+- PR 이름은 알고리즘 푼 문제 이름
+- label 에 사용한 언어를 추가합니다
+
 ## 알고리즘 연습하기
 
 - [codility](https://app.codility.com/)
@@ -52,3 +56,4 @@
 - 어려우면 솔루션을 찾아본다.
 - 문제 풀이의 흔적을 남기기 위해서 당신의 솔루션을 업로드
 - 가능 하면 매일 매일 풀이하여 일일커밋에 도전해보기!
+- [BTS_depth 가이드](https://dku-study.github.io/InfoBoard/BST_depth.html)

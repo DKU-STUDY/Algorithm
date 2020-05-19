@@ -57,40 +57,6 @@ function solution2(N) {
     return max;
 }
 
-//방법4(2020.05.17 =>준일선배 도움 reduce 및 구조분해 할당 사용)
-
-function solution(N) {
-return [ ...N.toString(2) ].reduce(([max, count], value) => {
-        if(value==0)                            //배열값이 0이라면 count 증가
-            count++;
-        else {
-            max = Math.max(max, count);         //배열값이 1이되면 그때 최대치인 max와 비교하기 (1000이면 count를 세어도 max와 비교하지않는다.)
-            count = 0;                          //count를 0으로 초기화
-        }
-        return [ max, count ];
-    }, [0, 0])[0] // max 반환
-}
-//ex) N이 1041(10000010001)일경우
-//화살표 함수 뒤의 [0,0]으로 인해 initialValue가 존재하므로 첫번째 accumulator인 [max,count]는 [0,0]이고 value는 첫번째 배열값인 1이고 
-//아무일도 없고 value가 2번째부터 6번째까지 0이므로 count++ 하다가 7번째에서 else문을 통해 max가 5가된다
-// 그후에 뒤에 000으로 인해 다시 count가 증가하지만 else문제어 max(5)>count(3)이므로 마지막에 [5,0]이 return되고 그중[0]인 5가 return된다.
-
-//방법4.1 화살표함수를 안쓸경우
-function solution(N) {
-   
-    return [ ...N.toString(2) ].reduce(function ([max, count], value){
-        if(value==0)                            //배열값이 0이라면 count 증가
-            count++;
-        else {
-            max = Math.max(max, count);         //배열값이 1이되면 그때 최대치인 max와 비교하기 (1000이면 count를 세어도 max와 비교하지않는다.)
-            count = 0;                          //count를 0으로 초기화
-        }
-        return [ max, count ];
-    }, [0, 0])[0] // max 반환
-}
-
-
-
 console.log(solution(1041)===5);
 console.log(solution(15)===0);
 console.log(solution(32)===0);

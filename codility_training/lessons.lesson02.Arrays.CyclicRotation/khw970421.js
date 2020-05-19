@@ -22,7 +22,22 @@ function solution1(A, K) {
     return A;
 }
 
+//방법3
+function solution2(A, K) {
+    const size= A.length;
+    let change = K%A.length;
+    let reduced = A.splice(change*(-1));     //뒤에서부터 크기만큼 start세우고 그만큼의 갯수를 reduced에 빼온다.
 
+    return reduced.concat(A);
+}
+
+//방법4
+function solution3(A, K) {
+    const size= A.length;
+    let change = K%A.length;
+
+    return [...A.splice(change*(-1)),...A];
+}
 
 console.log(solution1([3,8,9,7,6],3).toString()===[9,7,6,3,8].toString());
 console.log(solution1([0,0,0],1).toString()===[0,0,0].toString());

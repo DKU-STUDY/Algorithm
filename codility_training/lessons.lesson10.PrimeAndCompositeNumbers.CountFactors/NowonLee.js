@@ -1,6 +1,7 @@
 function solution(N) {
     if(N===1) return 1
-    var result = 0;
+    let result = 0;
+    /*
     for(let i = 1; i*i<=N;i++){
         if(N%i===0){
             if(i*i === N)
@@ -10,7 +11,12 @@ function solution(N) {
             }    
         }
     }
-    return result
+    */
+    let i = 1;
+    while(i ** 2 < 0){
+        result += !(N % i++) * 2
+    }
+    return result + !(N%i)
 }
 
 console.log(solution(24)===8)

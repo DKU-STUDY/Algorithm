@@ -1,6 +1,6 @@
 function solution(N) {
     let l = []
-    for(let i = 0;i*i<=N;i++){
+    for(let i = 1;i*i<=N;i++){
         if(N%i == 0) l.push(i)
     }
     const nums = l.map(el => {

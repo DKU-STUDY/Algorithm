@@ -5,12 +5,9 @@ def solution(s):
         if s[i] == ' ':
             answer += ' '
             count = 0
-        elif count%2 == 0:
+        else:
             count += 1
-            answer += s[i].upper()
-        elif count%2 == 1:
-            count += 1
-            answer += s[i].lower()
+            answer += s[i].upper() if count % 2 == 0 else s[i].lower()
     return answer
 
 print(solution('Try hard') == 'TrY HaRd')

@@ -29,7 +29,6 @@ function solution(A) {
 
     return maxSum;
 }
-ig
 //출처 : https://sustainable-dev.tistory.com/25
 solution([1, 1, 0, 10, -100, 10, 0]);
 

@@ -11,9 +11,15 @@ function solution(A) {
         return 0
     if (peeks.length === 0)
         return 1
+<<<<<<< HEAD
     let flags = new Array(peeks.length).fill(1)
     let acc = new Array(peeks.length).fill(0)
 
+=======
+
+    let flags = new Array(peeks.length).fill(1)
+    let acc = new Array(peeks.length).fill(0)
+>>>>>>> e7b78c144a7e8b11353b75bb0f559662625c9ed1
     for (const val of peeks)
         acc = acc.map((curr, idx) => (val + curr) / (idx + 1) > 1 ? (flags[idx]++, 0) : (val + curr))
     flags = flags.map((curr, idx) => Math.min(idx + 2, curr))
@@ -21,4 +27,8 @@ function solution(A) {
 }
 
 
+<<<<<<< HEAD
 solution([1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2, 4, 5, 2]);
+=======
+solution([1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2, 4, 5, 2]);
+>>>>>>> e7b78c144a7e8b11353b75bb0f559662625c9ed1

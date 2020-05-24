@@ -8,9 +8,7 @@ function divisors(n) {
       result += 2;
     i += 1;
   }
-  if (i * i == n)
-    result += 1;
-  return result;
+  return result + (i ** 2 == n);
 }
 // console.log(divisors(36));
 

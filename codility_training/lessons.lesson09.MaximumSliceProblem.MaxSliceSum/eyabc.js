@@ -1,10 +1,8 @@
 function solution(A) {
-  let max_ending = 0;
-
-  return A.reduce((max, v) => {
+  return A.reduce(([ max, max_ending ], v) => {
     max_ending = Math.max(v, max_ending + v);
-    return Math.max(max, max_ending);
-  }, -1000000)
+    return [ Math.max(max, max_ending), max_ending ];
+  }, [-Infinity, -Infinity])[0]
 }
 
 console.log(

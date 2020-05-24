@@ -1,7 +1,7 @@
 function solution(A) {
     const len = A.length;
     const peeks = A.reduce((peeks, curr, idx) => {
-        if (curr > (A[idx - 1] || curr) && curr > (A[idx + 1] || curr))
+        if (curr > A[idx - 1] && curr > A[idx + 1])
             peeks.push(idx);
         return peeks;
     }, []);
@@ -23,6 +23,3 @@ function solution(A) {
     }
     return 0;
 }
-
-const r = solution([1, 3, 2, 4, 3, 4, 3, 4, 3, 4, 3, 4])
-console.log(r)

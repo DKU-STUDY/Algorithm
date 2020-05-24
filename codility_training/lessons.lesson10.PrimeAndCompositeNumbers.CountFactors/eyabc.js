@@ -4,8 +4,7 @@ function solution(N) {
     if (N % i === 0) result += 2;
     i++;
   }
-  if (i*i === N) result++;
-  return result;
+  return result + (i*i === N);
 }
 
 console.log(solution(24) === 8);

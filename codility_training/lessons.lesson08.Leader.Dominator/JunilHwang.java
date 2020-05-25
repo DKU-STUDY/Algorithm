@@ -11,9 +11,10 @@ public class JunilHwang {
       if (stack.isEmpty() || stack.peek() == a) stack.push(a);
       else stack.pop();
     }
-    int res = stack.size() > 0 ? stack.peek() : -1;
+    if (stack.size() == 0) return -1;
+    int peek = stack.peek();
     for (int j = 0, max_cnt = 0; j < len; j++) {
-      if (res == A[j]) max_cnt++;
+      if (peek == A[j]) max_cnt++;
       if (max_cnt > len / 2) return j;
     }
     return -1;

@@ -28,7 +28,6 @@ function solution2(A) {
 //피드백 받은코드2
 function solution3(A){
     return !(A.sort((a, b) => a - b).find(function(v, k){
-        console.log(v,k);
         return (v - 1 !== k);}          //1부터 나열했을때 값 - 1 이 index값이랑 같지않은값(순열이 아닐때)이 있으면 return에 false를 만든다
     ));
 }

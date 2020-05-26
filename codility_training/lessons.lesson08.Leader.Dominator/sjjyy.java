@@ -11,10 +11,7 @@ class sjjyy
 		 
 		 for (int i = 0 ; i < len ; i++)
 		 {
-			 if (stack.isEmpty())
-				 stack.push(A[i]);
-			 
-			 if (stack.peek() == A[i])
+			 if (stack.isEmpty() || stack.peek() == A[i])
 				 stack.push(A[i]);
 			 else
 				 stack.pop();

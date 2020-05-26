@@ -20,25 +20,18 @@ class sjjyy
 				 stack.pop();
 		 }
 		 
-		 int res = -1;
+		 int res = stack.size() > 0 ? stack.peek() : -1;
 		 int max_cnt = 0;
-		 int max_num = -1;
-		 
-		if (stack.size() > 0)
-			res = stack.peek();
 		
 		for(int j = 0 ; j < len ; j++)
 		{
 			if (res == A[j])
 				max_cnt++;
 			if (max_cnt > len/2)
-			{
-				max_num = j;
-				break;
-			}
+				return j;
 		}
 
-		return max_num;
+		return -1;
 	 }
 
 	 

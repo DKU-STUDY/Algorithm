@@ -5,10 +5,13 @@ class sjjyy
 {
 	 public static int solution(int [] A)
 	 {
-		   int len = A.length;
-		   int max = Integer.MIN_VALUE;
+	     int len = A.length;
+	     int max = Integer.MIN_VALUE;
 	     int min = Integer.MAX_VALUE;
-	     
+		 
+	     if (len == 0 || len == 1)
+	    	 return 0;
+	     	     
 	     for (int i = 0 ; i < len ; i++)
 	     {
 	    	 min = Math.min(A[i], min);

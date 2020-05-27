@@ -1,9 +1,11 @@
 function solution(N, M) {
-    let count = 1;
-    let curr = M;
-    while (curr % N !== 0) {
-        curr = (curr += M) % N
-        count++;
+    const gcd = (a, b) => {
+        if (a % b === 0)
+            return b;
+        else
+            return gcd(b, a % b)
     }
-    return count;
+    return ((N * M / gcd(N, M)) / M)
 }
+
+solution(10, 4)

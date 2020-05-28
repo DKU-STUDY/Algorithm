@@ -3,9 +3,10 @@ def find_peaks(A):
     past_element = A[0]
     current_element = A[1]
     next_element = A[2]
-
+    peak_num = 0
     if past_element < current_element > next_element:
         peak_logical_list[1] = 1
+        peak_num += 1
 
     for idx in range(1, len(A) - 1):
         past_element = A[idx - 1]
@@ -13,57 +14,76 @@ def find_peaks(A):
         next_element = A[idx + 1]
         if past_element < current_element > next_element:
             peak_logical_list[idx] = 1
+            peak_num += 1
+    #print(peak_logical_list)
+    if peak_num == 0:
+        return False
     return peak_logical_list
 
-def find_min_subunit_length(logical_list):
-    list_length = len(logical_list)
-    idx = 1
-    forward_ele = logical_list[0]
-    while not(forward_ele != 1 or idx <= list_length-1):
-        forward_ele = logical_list[idx]
-        idx += 1
-    forward_candidate = logical_list.index(forward_ele) + 1
 
-    idx = -2
-    backward_ele = logical_list[-1]
-    while not(backward_ele != 1 or (idx * -1) <= list_length):
-        backward_ele = logical_list[idx]
-        idx -= 1
-    backward_candidate = list_length - logical_list.index(backward_ele)+1
+def find_Max_subunit_number(logical_list):
+    list_length = len(logical_list)
+    forward_candidate = logical_list.index(1) + 1
+    logical_list.reverse()
+    backward_candidate = logical_list.index(1) + 1
+    # print(f'for:{forward_candidate}     back: {backward_candidate}')
     return_val = min(forward_candidate, backward_candidate)
+    return_val = int(list_length / return_val)
+    # print(f'Max_subunit_num:{return_val}')
     return return_val
 
-def check_function(logical_list, subunit_len):
 
-    if len(logical_list)%subunit_len != 0:
+def check_function(logical_list, number_of_subunit):
+    if len(logical_list) % number_of_subunit != 0:
         return False
 
-    number_of_subunit = int(len(logical_list)/subunit_len)
+    subunit_len = int(len(logical_list) / number_of_subunit)
     start_slice = 0
     end_slice = subunit_len
-    for i in range(1, number_of_subunit):
-        subunit = logical_list[start_slice:end_slice]
+    if number_of_subunit == 1:
+        subunit = logical_list
         for ele in subunit:
             if ele == 1:
                 checker = True
                 break
             checker = False
-        if checker == False:
-            break
-        start_slice += subunit_len
-        end_slice += subunit_len
+        # print(f'checker :{checker}')
+    else:
+        for i in range(0, number_of_subunit):
+            subunit = logical_list[start_slice:end_slice]
+            #print(f'subunit = {subunit}')
+            for ele in subunit:
+                if ele == 1:
+                    checker = True
+                    break
+                checker = False
+            #print(f'checker :{checker}')
+            if checker == False:
+                break
+            start_slice += subunit_len
+            end_slice += subunit_len
+    #print(f'check result: {checker}')
     return checker
+
+
 def solution(A):
+    if len(A) < 3:
+        return 0
     logical_list = find_peaks(A)
-    Max_subunit_len = len(A)/2
+    if logical_list == False:
+        return 0
 
-    min_subunit_len = find_min_subunit_length(logical_list)
-    subunit_len = min_subunit_len
-    while subunit_len <= Max_subunit_len :
-        temp = check_function(logical_list, subunit_len)
+    Max_subunit_number = find_Max_subunit_number(logical_list)
+    subunit_number = Max_subunit_number
+    while subunit_number >= 1:
+        #print(f'subunit_num = {subunit_number}')
+        temp = check_function(logical_list, subunit_number)
         if temp == True:
-            return  int(len(A)/subunit_len)
-        subunit_len += 1
+            return subunit_number
+        subunit_number -= 1
+    return 0
 
-A = [1, 2, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2]
+
+#A = [1, 2, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2]
+A= [1, 2, 3, 4, 5, 6, 5, 5, 5, 6, 5, 6]
 print(solution(A))

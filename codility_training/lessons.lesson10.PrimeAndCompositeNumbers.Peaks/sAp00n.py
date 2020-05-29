@@ -37,29 +37,18 @@ def check_function(logical_list, number_of_subunit):
     start_slice = 0
     end_slice = subunit_len
     if number_of_subunit == 1:
-        subunit = logical_list
+        for ele in logical_list:
+            if ele == 1: return True
+    for i in range(0, number_of_subunit):
+        subunit = logical_list[start_slice:end_slice]
+        #print(f'subunit = {subunit}')
         for ele in subunit:
-            if ele == 1:
-                checker = True
-                break
-            checker = False
-        # print(f'checker :{checker}')
-    else:
-        for i in range(0, number_of_subunit):
-            subunit = logical_list[start_slice:end_slice]
-            #print(f'subunit = {subunit}')
-            for ele in subunit:
-                if ele == 1:
-                    checker = True
-                    break
-                checker = False
-            #print(f'checker :{checker}')
-            if checker == False:
-                break
-            start_slice += subunit_len
-            end_slice += subunit_len
+            if ele == 1: return True
+        #print(f'checker :{checker}')
+        start_slice += subunit_len
+        end_slice += subunit_len
     #print(f'check result: {checker}')
-    return checker
+    return False
 
 
 def solution(A):

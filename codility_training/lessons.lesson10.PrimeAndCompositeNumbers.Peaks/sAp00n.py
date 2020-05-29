@@ -26,9 +26,7 @@ def find_Max_subunit_number(logical_list):
     backward_candidate = logical_list.index(1) + 1
     # print(f'for:{forward_candidate}     back: {backward_candidate}')
     return_val = min(forward_candidate, backward_candidate)
-    return_val = int(list_length / return_val)
-    # print(f'Max_subunit_num:{return_val}')
-    return return_val
+    return int(list_length / return_val)
 
 
 def check_function(logical_list, number_of_subunit):

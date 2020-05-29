@@ -33,21 +33,21 @@ function solution(A) {
             curr = idx;
     })
     if (curr === -1)
-        return 0;
-
-    while (curr < len) {
-        let next = undefined;
+        return -1;
+    let count = 1;
+    let next = curr;
+    while (next) {
+        next = undefined;
         for (let idx = curr + 1; idx < len; idx++) {
-            if (A[idx] === 1 && A[idx - curr] === true)
-                next = curr;
+            if (A[idx] === 1 && fibs[idx - curr] === true)
+                next = idx;
         }
-        console.log(curr);
-
-        if (next === undefined)
-            break;
-        curr = next;
+        curr = next !== undefined ? next : curr;
+        count++;
     }
-
+    if (fibs[len - curr] === true)
+        return count;
+    return -1;
 }
 
-solution([0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0])
+solution([0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0])

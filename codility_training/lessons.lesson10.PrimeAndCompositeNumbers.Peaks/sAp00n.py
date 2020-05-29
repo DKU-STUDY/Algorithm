@@ -1,8 +1,6 @@
 def find_peaks(A):
     peak_logical_list = [0 for i in range(len(A))]  # Peak Node == 1 else == 0
-    past_element = A[0]
-    current_element = A[1]
-    next_element = A[2]
+    past_element, current_element, next_element = A[0:3]
     peak_num = 0
     if past_element < current_element > next_element:
         peak_logical_list[1] = 1
@@ -28,9 +26,7 @@ def find_Max_subunit_number(logical_list):
     backward_candidate = logical_list.index(1) + 1
     # print(f'for:{forward_candidate}     back: {backward_candidate}')
     return_val = min(forward_candidate, backward_candidate)
-    return_val = int(list_length / return_val)
-    # print(f'Max_subunit_num:{return_val}')
-    return return_val
+    return int(list_length / return_val)
 
 
 def check_function(logical_list, number_of_subunit):
@@ -41,29 +37,18 @@ def check_function(logical_list, number_of_subunit):
     start_slice = 0
     end_slice = subunit_len
     if number_of_subunit == 1:
-        subunit = logical_list
+        for ele in logical_list:
+            if ele == 1: return True
+    for i in range(0, number_of_subunit):
+        subunit = logical_list[start_slice:end_slice]
+        #print(f'subunit = {subunit}')
         for ele in subunit:
-            if ele == 1:
-                checker = True
-                break
-            checker = False
-        # print(f'checker :{checker}')
-    else:
-        for i in range(0, number_of_subunit):
-            subunit = logical_list[start_slice:end_slice]
-            #print(f'subunit = {subunit}')
-            for ele in subunit:
-                if ele == 1:
-                    checker = True
-                    break
-                checker = False
-            #print(f'checker :{checker}')
-            if checker == False:
-                break
-            start_slice += subunit_len
-            end_slice += subunit_len
+            if ele == 1: return True
+        #print(f'checker :{checker}')
+        start_slice += subunit_len
+        end_slice += subunit_len
     #print(f'check result: {checker}')
-    return checker
+    return False
 
 
 def solution(A):

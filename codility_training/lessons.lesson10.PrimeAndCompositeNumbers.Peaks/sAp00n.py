@@ -1,8 +1,6 @@
 def find_peaks(A):
     peak_logical_list = [0 for i in range(len(A))]  # Peak Node == 1 else == 0
-    past_element = A[0]
-    current_element = A[1]
-    next_element = A[2]
+    past_element, current_element, next_element = A[0:3]
     peak_num = 0
     if past_element < current_element > next_element:
         peak_logical_list[1] = 1

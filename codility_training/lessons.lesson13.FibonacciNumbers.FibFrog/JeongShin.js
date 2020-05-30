@@ -1,53 +1,45 @@
-function memoize(fn) {
-    const cache = {};
-    return function (...args) {
-        if (cache[args])
-            return cache[args]
-        const result = fn.apply(this, args);
-        cache[args] = result;
-        return result
-    }
-}
 
-function fib(n) {
-    if (n < 2) {
-        return n;
-    }
-    return fib(n - 1) + fib(n - 2);
-}
-
-fib = memoize(fib);
+/*
+* 아직 풀고 있습니다 ㅠ ㅠ
+* 어렵네요
+* */
 
 function solution(A) {
     const len = A.length;
-    const fibs = {};
-    let result = 0, i = 0
-    while (result < len) {
-        result = fib(i++)
-        fibs[result] = true;
+    let fib = [1, 1];
+    let idx = 2;
+    while (fib[idx - 1] <= len) {
+        const result = fib[idx - 1] + fib[idx - 2];
+        fib.push(result);
+        idx++;
     }
-    // 가장 첫 점프를 할 가장 큰 피보나치 수 index를 찾음
-    let curr = -1;
-    A.forEach((val, idx) => {
-        if (val === 1 && fibs[idx + 1] === true)
-            curr = idx;
-    })
-    if (curr === -1)
-        return -1;
-    let count = 1;
-    let next = curr;
-    while (next) {
-        next = undefined;
-        for (let idx = curr + 1; idx < len; idx++) {
-            if (A[idx] === 1 && fibs[idx - curr] === true)
-                next = idx;
+    fib = fib.reverse();
+    const queue = [new frog(-1, 0)]
+    const check = new Array(len + 1);
+    while (queue.length) {
+        const curr = queue.pop();
+        for (const f of fib) {
+            const next = curr.pos + f;
+            if (next === len)
+                return curr.count + 1;
+            else if (next < len && next >= 0) {
+                if (A[next] === 1 && !check[next]) {
+                    check[next] = true;
+                    queue.push(new frog(next, curr.count + 1))
+                }
+            }
         }
-        curr = next !== undefined ? next : curr;
-        count++;
     }
-    if (fibs[len - curr] === true)
-        return count;
     return -1;
 }
 
-solution([0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0])
+class frog {
+    constructor(pos, count) {
+        this.pos = pos;
+        this.count = count;
+    }
+}
+
+const ans = solution([0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0])
+
+console.log(ans);

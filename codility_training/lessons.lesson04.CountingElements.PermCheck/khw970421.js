@@ -38,3 +38,5 @@ console.log(solution3([4, 1, 3, 2])==1);
 console.log(solution([4, 1, 3])==0);
 console.log(solution2([4, 1, 3])==0);
 console.log(solution3([4, 1, 3])==0);
+
+

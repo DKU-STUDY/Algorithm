@@ -19,13 +19,13 @@ function solution(A) {
     while (queue.length) {
         const curr = queue.pop();
         for (const f of fib) {
-            const next = curr.pos + f;
+            const next = pos + f;
             if (next === len)
-                return curr.count + 1;
-            else if (next < len && next >= 0) {
+                return count + 1;
+            if (next < len && next >= 0) {
                 if (A[next] === 1 && !check[next]) {
                     check[next] = true;
-                    queue.push(new frog(next, curr.count + 1))
+                    queue.push(new frog(next, count + 1))
                 }
             }
         }

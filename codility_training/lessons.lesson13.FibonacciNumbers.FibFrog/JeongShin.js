@@ -9,8 +9,7 @@ function solution(A) {
     let fib = [1, 1];
     let idx = 2;
     while (fib[idx - 1] <= len) {
-        const result = fib[idx - 1] + fib[idx - 2];
-        fib.push(result);
+        fib.push(fib[idx - 1] + fib[idx - 2]);
         idx++;
     }
     fib = fib.reverse();

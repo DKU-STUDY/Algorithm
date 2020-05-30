@@ -17,7 +17,7 @@ function solution(A) {
     const queue = [new frog(-1, 0)]
     const check = new Array(len + 1);
     while (queue.length) {
-        const curr = queue.pop();
+        const { pos, count } = queue.pop();
         for (const f of fib) {
             const next = pos + f;
             if (next === len)

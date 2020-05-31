@@ -9,7 +9,7 @@ function solution(A) {
     const stack = [new frog(-1, 0)];
     const count = [];    // 최소 점프수만 index 별로 저장하는 배열
     A[len] = 1;
-    while (stack.length) {
+    while (stack[0] !== undefined) {
         const { pos, count } = stack.pop();
         for (const jump of fib) {
             const next = pos + jump;

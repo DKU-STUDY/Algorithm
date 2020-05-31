@@ -22,7 +22,7 @@ function solution(A) {
             }
         }
     }
-    return count[len] === undefined ? -1 : count[len];
+    return count[len] || -1;
 }
 
 class frog {

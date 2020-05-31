@@ -1,9 +1,3 @@
-
-/*
-* 아직 풀고 있습니다 ㅠ ㅠ
-* 어렵네요
-* */
-
 function solution(A) {
     const len = A.length;
     let fib = [1, 1];
@@ -12,24 +6,23 @@ function solution(A) {
         fib.push(fib[idx - 1] + fib[idx - 2]);
         idx++;
     }
-    fib = fib.reverse();
-    const queue = [new frog(-1, 0)]
-    const check = new Array(len + 1);
-    while (queue.length) {
-        const { pos, count } = queue.pop();
-        for (const f of fib) {
-            const next = pos + f;
-            if (next === len)
-                return count + 1;
-            if (next < len && next >= 0) {
-                if (A[next] === 1 && !check[next]) {
-                    check[next] = true;
-                    queue.push(new frog(next, count + 1))
+    const stack = [new frog(-1, 0)];
+    const count = [];    // 최소 점프수만 index 별로 저장하는 배열
+    A[len] = 1;
+    while (stack.length) {
+        const curr = stack.pop();
+        for (const jump of fib) {
+            const next = curr.pos + jump;
+            if (A[next] === 1) {
+                const next_count = count[next] || Infinity;
+                if (next_count > (curr.count + 1)) {
+                    stack.push(new frog(next, curr.count + 1));
+                    count[next] = curr.count + 1;
                 }
             }
         }
     }
-    return -1;
+    return count[len] === undefined ? -1 : count[len];
 }
 
 class frog {
@@ -39,6 +32,5 @@ class frog {
     }
 }
 
-const ans = solution([0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0])
+solution([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
 
-console.log(ans);

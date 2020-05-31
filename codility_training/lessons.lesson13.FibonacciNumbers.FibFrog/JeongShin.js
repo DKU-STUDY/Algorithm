@@ -10,14 +10,14 @@ function solution(A) {
     const count = [];    // 최소 점프수만 index 별로 저장하는 배열
     A[len] = 1;
     while (stack.length) {
-        const curr = stack.pop();
+        const { pos, count } = stack.pop();
         for (const jump of fib) {
-            const next = curr.pos + jump;
+            const next = pos + jump;
             if (A[next] === 1) {
                 const next_count = count[next] || Infinity;
-                if (next_count > (curr.count + 1)) {
-                    stack.push(new frog(next, curr.count + 1));
-                    count[next] = curr.count + 1;
+                if (next_count > (count + 1)) {
+                    stack.push(new frog(next, count + 1));
+                    count[next] = count + 1;
                 }
             }
         }
@@ -33,4 +33,3 @@ class frog {
 }
 
 solution([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
-

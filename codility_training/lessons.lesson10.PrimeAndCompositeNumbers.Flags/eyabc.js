@@ -52,7 +52,7 @@ const next_peak = A => {
 function solution(A) {
   const N = A.length;
   const next = next_peak(A);
-  let i = 1, jumps = 0;
+  let i = 1, result = 0;
   while((i - 1) * i <= N) {
     let pos = 0, num = 0;
     while (pos < N && num < i) {
@@ -62,10 +62,10 @@ function solution(A) {
       num += 1;
       pos += i;
     }
-    jumps = Math.max(jumps, num);
+    result = Math.max(result, num);
     i += 1
   }
-  return jumps
+  return result
 }
 
 console.log(

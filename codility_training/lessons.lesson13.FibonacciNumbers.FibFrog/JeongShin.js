@@ -7,22 +7,22 @@ function solution(A) {
         idx++;
     }
     const stack = [new frog(-1, 0)];
-    const count = [];    // 최소 점프수만 index 별로 저장하는 배열
+    const jumps = [];    // 최소 점프수만 index 별로 저장하는 배열
     A[len] = 1;
-    while (stack.length) {
-        const curr = stack.pop();
+    while (stack[0] !== undefined) {
+        const {pos, count} = stack.pop();
         for (const jump of fib) {
-            const next = curr.pos + jump;
-            if (A[next] === 1) {
-                const next_count = count[next] || Infinity;
-                if (next_count > (curr.count + 1)) {
-                    stack.push(new frog(next, curr.count + 1));
-                    count[next] = curr.count + 1;
+            const next_pos = pos + jump;
+            if (A[next_pos] === 1) {
+                const next_count = jumps[next_pos] || Infinity;
+                if (next_count > (count + 1)) {
+                    stack.push(new frog(next_pos, count + 1));
+                    jumps[next_pos] = count + 1;
                 }
             }
         }
     }
-    return count[len] === undefined ? -1 : count[len];
+    return jumps[len] || -1;
 }
 
 class frog {
@@ -32,5 +32,6 @@ class frog {
     }
 }
 
-solution([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+const r = solution([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+console.log(r)
 

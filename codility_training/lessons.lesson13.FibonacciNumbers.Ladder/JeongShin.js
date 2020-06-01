@@ -1,8 +1,7 @@
 function solution(A, B) {
     const [max_a, max_b] = [Math.max(...A), Math.max(...B)]
     const fibonacci = n => {
-        const fib = [];
-        [fib[0], fib[1]] = [0, 1];
+        const fib = [0, 1];
         for (let i = 2; i < n + 2; i++)
             fib[i] = (fib[i - 1] + fib[i - 2]) & ((1 << max_b) - 1)
         return fib

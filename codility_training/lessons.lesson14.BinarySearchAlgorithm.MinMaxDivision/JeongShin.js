@@ -1,17 +1,15 @@
-/* Not finished
-* */
 function solution(K, M, A) {
     const dividable = (sum) => {
         let max = 0;
-        const [k, m, acc] = A.reduce(([k, m, acc], curr) => {
-            if ((m + 1) === M)
-                return [k + 1, 0, 0];
-            if (acc + curr > sum)
-                return [k + 1, 1, curr];
+        const k = A.reduce(([k, acc], curr) => {
+            if (acc + curr > sum) {
+                k++;
+                acc = 0;
+            }
             max = Math.max(acc + curr, max);
-            return [k, m + 1, acc + curr];
-        }, [0, 0, 0])
-        return [k + (m !== 0) * 1, max];
+            return [k, acc + curr];
+        }, [0, 0])[0]
+        return [k + 1, max];
     };
 
     let minSum = Math.max(...A)
@@ -28,6 +26,3 @@ function solution(K, M, A) {
     }
     return min;
 }
-
-const r = solution(3, 5, [2, 1, 5, 1, 2, 2, 2])
-console.log(r)

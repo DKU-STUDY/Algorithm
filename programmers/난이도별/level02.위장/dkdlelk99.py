@@ -1,10 +1,7 @@
 def solution(clothes):
     category = {}
     for i in clothes:
-        if i[1] in category:
-            category[i[1]] += 1
-        else:
-            category[i[1]] = 1
+        category[i[1]] = category.get(i[1], 0) + 1
 
     multiply_of_list = 1
     for i in category.values():

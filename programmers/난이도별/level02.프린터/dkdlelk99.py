@@ -1,16 +1,19 @@
 def solution(priorities, location):
-    temp = []
-    for i in range(len(priorities)):
-        temp += [[i,priorities[i]]]
+    prioritiesMax = max(priorities)
+    bool_list = [False]*len(priorities)
+    bool_list[location] = True
+    count = 0
 
-    while temp[0][1] != max(priorities):
-        for i in range(1,len(priorities)):
-            if temp[0][1] < temp[i][1]:
-                temp.append(temp[0][1])
-                temp.remove(temp[0][1])
+    while True:
+        if priorities[0] < prioritiesMax:
+            priorities.append(priorities.pop(0))
+            bool_list.append(bool_list.pop(0))
+        else:
+            count += 1
+            priorities.pop(0)
+            if bool_list.pop(0):
+                return count
+            prioritiesMax = max(priorities)
 
-    for i in temp:
-        if i[0] == location:
-            return temp.index(i) + 1
-            
-# 시간초과 실패
+print(solution([2,1,3,2], 2) == 1)
+print(solution([1,1,9,1,1,1], 0) == 5)

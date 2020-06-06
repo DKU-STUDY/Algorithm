@@ -30,12 +30,11 @@ class Solution{
     // hwangjunil 풀이
     // 람다, 스트림 공부 필수
     public String solution2(String s){
-//        String answer = "";
-        int cnt = 0;
+        int[] cnt = { 0 };
 
         return Arrays.stream(s.split("")).reduce("", (answer, ss) -> {
-            cnt = ss.contains(" ") ? 0 : cnt + 1;
-            return answer + (cnt % 2 == 0) ? ss.toLowerCase() : ss.toUpperCase();
+            cnt[0] = ss.contains(" ") ? 0 : cnt[0] + 1;
+            return answer + (cnt[0] % 2 == 0 ? ss.toLowerCase() : ss.toUpperCase());
         });
     }
 }

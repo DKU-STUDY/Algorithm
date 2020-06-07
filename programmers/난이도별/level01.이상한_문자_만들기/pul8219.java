@@ -1,10 +1,11 @@
 package programmers.난이도별.level01.이상한_문자_만들기;
-// 안녕
 /*
  * 힌트 참고함
  * split()함수 사용은 생각해냈으나 공백을 기준으로 문자를 자를 생각만 했지 빈 문자열로 각 문자마다 자를 생각은 못했음
  * 공백을 만날시 cnt 변수를 0으로 초기화 함으로써 새로운 단어 시작을 알아차리는 방법 활용
  * */
+
+import java.util.Arrays;
 
 class Solution{
     public String solution(String s){
@@ -25,7 +26,20 @@ class Solution{
 
         return answer;
     }
+
+    // hwangjunil 풀이
+    // 람다, 스트림 공부 필수
+    public String solution2(String s){
+//        String answer = "";
+        int cnt = 0;
+
+        return Arrays.stream(s.split("")).reduce("", (answer, ss) -> {
+            cnt = ss.contains(" ") ? 0 : cnt + 1;
+            return answer + (cnt % 2 == 0) ? ss.toLowerCase() : ss.toUpperCase();
+        });
+    }
 }
+
 
 class pul8219{
     public static void main(String[] args){

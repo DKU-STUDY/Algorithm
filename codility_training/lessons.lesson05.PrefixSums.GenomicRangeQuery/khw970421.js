@@ -2,7 +2,6 @@
 function solution(S, P, Q) {
     let k=[];
     const o=[];
-    const q=['A','C','G','T'];
     for(let i=0;i<P.length;i++){
         k=S.split('').slice(P[i], Q[i]+1);
         if(k.sort()[0]=='A')
@@ -23,7 +22,6 @@ function solution(S, P, Q) {
 function solution(S, P, Q) {
     let k=[];
     const o=[];
-    const q=['A','C','G','T'];
     for(let i=0;i<P.length;i++){
         k=S.split('').slice(P[i], Q[i]+1);
 
@@ -35,4 +33,19 @@ function solution(S, P, Q) {
     return o;
 }
 
+
+//준일이형의 피드백 코드
+function solution(S, P, Q) {
+const o=[];
+for(let i=0, len = P.length; i< len; i++){
+    const temp = S.substring(P[i], Q[i]+1);
+    for (let j = 0, tLen = temp.length; j < tLen; j++) {
+        if ( temp.indexOf('A') !== -1 ) { o.push(1); break }
+        if ( temp.indexOf('C') !== -1 ) { o.push(2); break }
+        if ( temp.indexOf('G') !== -1 ) { o.push(3); break }
+        if ( temp.indexOf('T') !== -1 ) { o.push(4); break }
+    }
+}
+return o;
+}
 

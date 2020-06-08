@@ -1,13 +1,14 @@
 function solution(A) {
     A.sort((a,b)=>b-a);
+    const len=A.length;
     if(A[0]*A[1]*A[2]==0){
-        return A[A.length-1]*A[A.length-2]*A[0];
+        return A[len-1]*A[len-2]*A[0];
     }
-    else if(A[A.length-1]*A[A.length-2]*A[0]==0){
+    if(A[len-1]*A[len-2]*A[0]==0){
         return A[0]*A[1]*A[2];
     }
     else
-        return (A[0]*A[1]*A[2]>A[A.length-1]*A[A.length-2]*A[0])?A[0]*A[1]*A[2] : A[A.length-1]*A[A.length-2]*A[0] ;
+        return Math.min(A[0]*A[1]*A[2],A[len-1]*A[len-2]*A[0]);
 }
 
 //나열했을때 경우의수는 결국 3가지

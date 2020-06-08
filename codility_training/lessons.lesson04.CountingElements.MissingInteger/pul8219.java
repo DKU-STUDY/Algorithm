@@ -11,7 +11,7 @@ class Solution{
     public int solution(int[] A) {
         Set<Integer> set = new HashSet<>(Arrays.asList(A));
 
-        for(int i = 1; i <= Integer.MAX_VALUE; i++){ // i: 1~최대 int자료형의 최대값까지 반복
+        for(int i = 1, last = set.size(); i <= last; i++){
             // i가 set에 존재하지 않으면 아래 if 조건문을 만족시킴 -> 등장하지 않는 가장 작은 양의 정수 찾은 것!
             if(!set.contains(i)) // HashSet.contains(): Set 안에 객체가 존재하면 True 리턴하는 함수
                 return i;

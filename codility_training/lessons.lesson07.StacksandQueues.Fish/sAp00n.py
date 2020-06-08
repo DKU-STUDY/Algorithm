@@ -23,10 +23,12 @@ def fish_eat_func(fish_stack, Bi, Ai):
     if len(fish_stack) == 0:
         fish_stack.append((Bi, Ai))
         return
-    if fish_stack[-1][0] != Bi and Ai > fish_stack[-1][-1]:
-        fish_stack.pop()
-        fish_eat_func(fish_stack, Bi, Ai)
-        return
+    b, a = fish_stack[-1]
+    while b != Bi and Ai > a:
+        b, a = fish_stack.pop()
+        if len(fish_stack) == 0:
+            fish_stack.append((Bi, Ai))
+            return
 
     if fish_stack[-1][0] == Bi:
         fish_stack.append((Bi, Ai))

@@ -16,7 +16,7 @@ class Solution{
             if(!set.contains(i)) // HashSet.contains(): Set 안에 객체가 존재하면 True 리턴하는 함수
                 return i;
         }
-        return -1;
+        return set.size() + 1;
     }
 }
 

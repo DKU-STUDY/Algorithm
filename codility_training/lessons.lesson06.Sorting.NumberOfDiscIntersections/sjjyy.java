@@ -7,6 +7,7 @@ public class sjjyy
     public static int solution(int [] A) // 어려워서 Mickey0521님 참고했습니다.
     {
         int len = A.length;
+
         long [] left = new long[len];
         long [] right = new long[len];
 

@@ -28,14 +28,13 @@ public class sjjyy
         {
             while (low < len && left[i] >= right[low])
             {
-                intersection = intersection + low;
-                intersection = intersection - i;
+                intersection = intersection * 2 + low - i;
                 low++;
+
+                if(intersection > 10000000)
+                    return -1;
             }
         }
-
-        if(intersection > 10000000)
-            return -1;
 
         return intersection;
     }

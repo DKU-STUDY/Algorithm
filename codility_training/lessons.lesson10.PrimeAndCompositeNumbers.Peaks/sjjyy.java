@@ -20,7 +20,8 @@ public class sjjyy
 
         for(int num = len ; num >= 1 ; num--)
         {
-            if (len % num == 0)
+           /* 1st method
+           if (len % num == 0)
             {
                 int size = len / num;
                 int block = 0;
@@ -33,7 +34,15 @@ public class sjjyy
 
                 if(block == num)
                     return num;
-            }
+            } */
+
+            if (len % num != 0) continue;
+
+            int size = len / num;
+            int block = peaks.stream()
+                    .reduce(0, (n, j) -> n + (j / size == n ? 1 : 0));
+
+            if(block == num) return num;
         }
 
         return 0;

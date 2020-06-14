@@ -6,8 +6,8 @@ function solution(A) {
             min = curr;
             max = curr;
         }
-        depth = Math.max(Math.min(next, max) -  Math.min(curr, min), depth);
-    })
+        depth = Math.max(Math.min(next, max) - Math.min(curr, min), depth);
+    });
     return depth;
 }
 

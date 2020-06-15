@@ -9,6 +9,10 @@ public class sjjyy
 
     public static int gcd(int a, int b) // using Uclidean algorithm
     {
+    //    if(a % b == 0)
+    //        return b;
+    //    else
+    //        return gcd(b, a % b);
         return a % b == 0 ? b : gcd(b, a % b);
     }
 

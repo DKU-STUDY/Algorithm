@@ -22,3 +22,5 @@ def solution(board, moves):
                 answer += 1
                 basket.remove(basket[-1])
     return answer*2
+
+# 미완성

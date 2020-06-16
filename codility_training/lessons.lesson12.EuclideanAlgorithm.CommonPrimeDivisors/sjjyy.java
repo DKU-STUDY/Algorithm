@@ -1,10 +1,14 @@
 package lessons.lesson12.EuclideanAlgorithm.CommonPrimeDivisors;
 
+import java.util.stream.IntStream;
+
 public class sjjyy
 {
     public static int solution(int[] A, int[] B)
     {
+
         int len = A.length;
+
         int count = 0;
 
         for(int i = 0 ; i < len ; i++)
@@ -14,14 +18,21 @@ public class sjjyy
         }
 
         return count;
+
+        /*
+        // time-out error
+        return IntStream
+                .range(0, len)
+                .reduce(0, (count, i) -> count + (prime(A[i], B[i]) ? 1 : 0));
+        */
     }
 
-    public static int gcd(int a, int b) // using Uclidean algorithm
+    private static int gcd(int a, int b) // using Uclidean algorithm
     {
         return a % b == 0 ? b : gcd(b, a % b);
     }
 
-    public static boolean prime(int a, int b)
+    private static boolean prime(int a, int b)
     {
         int g = gcd(a, b);
         int gcd_A = 0, gcd_B = 0;

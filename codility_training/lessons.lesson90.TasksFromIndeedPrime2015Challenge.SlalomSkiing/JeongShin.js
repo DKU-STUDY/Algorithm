@@ -35,7 +35,6 @@ function solution(A) {
         map[i * 3 + 1] = max * 2 - A[i] + 1;
         map[i * 3 + 2] = A[i];
     }
-
     return getLongestSequence(map);
 }
 

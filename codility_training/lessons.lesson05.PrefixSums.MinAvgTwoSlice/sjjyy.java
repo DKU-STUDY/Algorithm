@@ -5,7 +5,7 @@ public class sjjyy
     public static int solution(int[] A)
     {
         int len = A.length;
-        int min = 100000;
+        double min = (A[0] + A[1]) / 2.0;
         int index = 0;
 
         // 평균은 a+...+b/n로 계산하며, a+b/2에서 a<=b이면 평균은 a보다 크거나 같다.
@@ -14,15 +14,15 @@ public class sjjyy
 
         for(int i = 2 ; i < len ; i++)
         {
-            if((A[i-1] + A[i]) / 2 < min)
+            if((A[i-1] + A[i]) / 2.0 < min)
             {
-                min = (A[i-1] + A[i]) / 2;
+                min = (A[i-1] + A[i]) / 2.0;
                 index = i-1;
             }
 
-            if((A[i-2] + A[i-1] + A[i]) / 3 < min)
+            if((A[i-2] + A[i-1] + A[i]) / 3.0 < min)
             {
-                min = (A[i-2] + A[i-1] + A[i]) / 3;
+                min = (A[i-2] + A[i-1] + A[i]) / 3.0;
                 index = i-2;
             }
         }

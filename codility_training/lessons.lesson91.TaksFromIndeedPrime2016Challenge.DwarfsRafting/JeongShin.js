@@ -7,7 +7,7 @@ each seat number can appear no more than once in the strings
 
 function solution(N, S, T) {
     const getIdx = str => {
-        const number = Array.from(str);
+        const number = [...str];
         const alphabet = number.pop();
         const [n, a] = [parseInt(number.join('')) - 1, alphabet.charCodeAt(0) - 65];
         return ~~(n / (N / 2)) * 2 + ~~(a / (N / 2));
@@ -32,12 +32,10 @@ function solution(N, S, T) {
             const opposite = Math.abs(3 - curr);
             if ((--raft[curr] > -1) * (--raft[opposite] > -1) === 1)
                 count += 2;
-            else if (raft[curr] === -1 && raft[opposite] === -1)
-                return 0;
-            else return -1;
+            else
+                return raft[curr] === -1 && raft[opposite] === -1 ? 0 : -1;
         }
     }
-
     return (Math.min(raft[0], raft[3]) + Math.min(raft[1], raft[2])) * 2 + count - dwarfOnBoardCount
 }
 

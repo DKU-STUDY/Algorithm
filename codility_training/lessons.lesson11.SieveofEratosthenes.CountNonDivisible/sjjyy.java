@@ -2,12 +2,13 @@ package lessons.lesson11.SieveofEratosthenes.CountNonDivisible;
 
 // import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class sjjyy
 {
+    /*
     public static int[] solution(int[] A) // error
     {
-        /*
         int len = A.length;
         ArrayList<Integer> div = new ArrayList<Integer>();
 
@@ -35,17 +36,24 @@ public class sjjyy
 
 
         return count;
-        */
+
+    }
+    */
+
+    public static int[] solution(int[] A)
+    {
 
         int len = A.length;
-        int max = A[0];
-        for (int i = 1 ; i < len ; i++)
-            max = Math.max(max, A[i]);
+
+       // int max = A[0];
+       // for (int i = 1 ; i < len ; i++)
+       //     max = Math.max(max, A[i]);
+
+        int max = IntStream.range(1, len).reduce(A[0], (m, i) -> Math.max(m, A[i]));
 
         int [] count = new int [max+1];
 
-        for (int i = 0 ; i < len ; i++)
-            count[A[i]]++;
+        IntStream.range(0, len).forEach(i -> count[A[i]]++);
 
         int [] nonDiv = new int [max+1];
         int len2 = nonDiv.length;
@@ -72,13 +80,15 @@ public class sjjyy
             }
         }
 
-        int [] result = new int [len];
-        for (int i = 0 ; i < len ; i++)
-        {
-            result[i] = nonDiv[A[i]];
-        }
+       // int [] result = new int [len];
+       // for (int i = 0 ; i < len ; i++)
+       // {
+       //     result[i] = nonDiv[A[i]];
+       // }
 
-        return result;
+       // return result;
+
+        return IntStream.range(0, len).map(i -> nonDiv[A[i]]).toArray();
     }
 
     public static void main(String[] args)

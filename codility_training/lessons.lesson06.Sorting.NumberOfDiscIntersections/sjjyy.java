@@ -28,7 +28,7 @@ public class sjjyy
         {
             while (low < len && left[i] >= right[low])
             {
-                intersection = intersection * 2 + low - i;
+                intersection = intersection + low - i;
                 low++;
 
                 if(intersection > 10000000)

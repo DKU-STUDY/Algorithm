@@ -2,15 +2,13 @@
 function solution (N) {
   const getPerimeter = (a, b) => 2 * (a + b);
   let a = ~~Math.sqrt(N);
-  let b;
 
   for (;a > 0; a--) {
-    if (Number.isInteger(N / a)) {
-      b = N / a;
-      break;
+    if (!(N % a)) {
+      const b = N / a;
+      return getPerimeter(a, b);
     }
   }
-  return getPerimeter(a, b);
 }
 
 console.log(solution(982451653))

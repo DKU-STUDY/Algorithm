@@ -8,7 +8,9 @@ public class sjjyy
     {
         int len = A.length;
         double max1 = Math.pow(2, 30);
-        int max = (int) max1;
+        // int max = (int) max1;
+
+        int max = Integer.parseInt(String.valueOf(Math.round(max1)));
 
         int [] P = new int[len+2];
         P[1] = 1; P[2] = 2;

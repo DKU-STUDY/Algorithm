@@ -32,7 +32,6 @@ class queue {
         if (this.front < this.rear) {
             return this.queue[this.front++];
         }
-        return undefined;
     }
 
     isEmpty() {

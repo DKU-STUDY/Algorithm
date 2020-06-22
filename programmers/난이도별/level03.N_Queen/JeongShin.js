@@ -58,15 +58,13 @@ function solution(n) {
         for (let i = 1; i <= n; i++) {
             col[level] = i;
             // if node is alive
-            if (promising(col, level)) {
-                if (level === n)
-                    result++;
-                else {
-                    Q.push(level); // push next level to queue
-                    for (let idx = 1; idx <= level; idx++)
-                        Q.push(col[idx]); // push current board to queue
-                }
-            }
+            if (!promising(col, level)) continue;
+            if (level === n) {
+                result++;
+                continue;
+            }    
+            Q.push(level); // push next level to queue
+            Q.push(...col.slice(1, level + 1)); // push current board to queue
             // else { node is dead 👉 don't push }
         }
     }

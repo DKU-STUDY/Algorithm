@@ -120,6 +120,7 @@ public class sjjyy
         int[] Q = {26, 10, 20};
         int N = 26;
 
+        System.out.println(Arrays.toString(solution(N, P, Q))); // [10, 4, 0]
         System.out.println(Arrays.toString(solution2(N, P, Q))); // [10, 4, 0]
     }
 }

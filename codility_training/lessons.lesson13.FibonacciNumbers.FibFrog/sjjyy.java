@@ -55,7 +55,12 @@ public class sjjyy
         jmp.add(1);
         jmp.add(1);
 
-        int next = 2;
+        int next = 1;
+        while (jmp.get(next) <= aLen)
+        {
+            jmp.add(jmp.get(next) + jmp.get(next-1));
+            next++;
+        }
 
         return 0;
     }

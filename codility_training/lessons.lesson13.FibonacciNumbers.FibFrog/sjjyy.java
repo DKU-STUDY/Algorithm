@@ -1,8 +1,6 @@
 package lessons.lesson13.FibonacciNumbers.FibFrog;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class sjjyy
 {
@@ -29,15 +27,15 @@ public class sjjyy
 
         for(int i = 0 ; i < mLen ; i++)
         {
-            if(i == 0 || i == mLen - 1 || A[i-1] == 1)
-            {
+            if(!(i == 0 || i == mLen - 1 || A[i-1] == 1)) continue;
+
                 for(int j : jmp)
                 {
                     if(j > i)
                         break;
                     min[i] = (int) Math.min(min[i], (long) min[i-j]+1);
                 }
-            }
+
         }
 
         if(min[mLen-1] == Integer.MAX_VALUE)
@@ -62,8 +60,37 @@ public class sjjyy
             next++;
         }
 
-        return 0;
+        // github mkki님 참고
+        Collections.reverse(jmp);
+
+        Queue<Pair> q = new LinkedList<>();
+        boolean[] check = new boolean[aLen+1];
+        q.add(new Pair(-1, 0));
+
+        while(!q.isEmpty())
+        {
+            Pair current = q.poll();
+
+            for(int f : jmp)
+            {
+                int n = current.x + f;
+
+                if(n == aLen)
+                    return current.y + 1;
+                else if(n < aLen && n >= 0)
+                {
+                    if(A[n] == 1 && !check[n] )
+                    {
+                        check[n] = true;
+                        q.add(new Pair(n, current.y + 1));
+                    }
+                }
+            }
+        }
+
+        return -1;
     }
+
 
     public static void main(String[] args)
     {
@@ -72,3 +99,16 @@ public class sjjyy
         System.out.println(solution2(A)); // 3
     }
 }
+
+
+class Pair
+{
+    int x, y;
+
+    public Pair(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+}
+

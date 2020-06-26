@@ -77,13 +77,10 @@ public class sjjyy
 
                 if(n == aLen)
                     return current.y + 1;
-                else if(n < aLen && n >= 0)
+                if(n < aLen && n >= 0 && A[n] == 1 && !check[n] )
                 {
-                    if(A[n] == 1 && !check[n] )
-                    {
                         check[n] = true;
                         q.add(new Pair(n, current.y + 1));
-                    }
                 }
             }
         }

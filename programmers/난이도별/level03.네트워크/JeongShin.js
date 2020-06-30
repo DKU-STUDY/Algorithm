@@ -2,7 +2,7 @@ function solution(n, computers) {
     let ans = 0;
     const visited = new Array(n).fill(false);
     const check_visited_all = () => {
-        return visited.every(el => el === true);
+        return visited.every(el => el);
     };
     const dfs = start => {
         const queue = [];

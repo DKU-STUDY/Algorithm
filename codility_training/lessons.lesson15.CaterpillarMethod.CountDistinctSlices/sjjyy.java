@@ -2,7 +2,7 @@ package lessons.lesson15.CaterpillarMethod.CountDistinctSlices;
 
 public class sjjyy
 {
-    public static int solution(int M, int[] A)
+    public static int solution(int M, int[] A) // performance 80%
     {
         int len = A.length;
         int [] appearence = new int[M+1];
@@ -24,11 +24,11 @@ public class sjjyy
             appearence[A[back]] = 0;
             back += 1;
 
-            if (result >= 1_000_000_000)
-                return 1_000_000_000;
+            // if (result >= 1_000_000_000)
+            //    return 1_000_000_000;
 
         }
-        return result;
+        return Math.min(result, 1000000000);
     }
 
 

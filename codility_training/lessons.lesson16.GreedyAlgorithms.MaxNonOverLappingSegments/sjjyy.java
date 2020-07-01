@@ -6,11 +6,15 @@ public class sjjyy
     {
         int len = A.length;
 
+        if(len <= 1)
+            return len;
+
         int count = 1;
         int end = B[0];
 
-        if(len <= 1)
-           return len;
+        // runtime error
+        // if(len <= 1)
+        //    return len;
 
         for(int i = 1 ; i < len ; i++)
         {

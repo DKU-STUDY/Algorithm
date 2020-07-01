@@ -11,6 +11,8 @@ function solution(A) {
         return Math.min(A[0]*A[1]*A[2],A[len-1]*A[len-2]*A[0]);
 }
 
+console.log("에러);
+
 //나열했을때 경우의수는 결국 3가지
 //
 // 순서로 나열했을때 제일큰수부터 3가지의 곱이 제일클때

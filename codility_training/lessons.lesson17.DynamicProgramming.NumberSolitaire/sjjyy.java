@@ -28,7 +28,19 @@ public class sjjyy
     {
         int len = A.length;
         int[] d = new int[len];
+        d[0] = A[0];
 
+        for(int i = 1 ; i < len ; i++)
+        {
+            int max = Integer.MIN_VALUE;
+
+            for(int j = 0 ; j < 6 ; j++)
+            {
+                if(i>=j)
+                    max = Math.max(d[i-j]+A[i], max);
+            }
+            d[i] = max;
+        }
 
         return d[len-1];
     }

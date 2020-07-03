@@ -15,13 +15,13 @@ def solution(board, moves):
         else:
             if basket == []:
                 basket.append(new_board[i-1].pop(0))
-            else:
-                element = new_board[i-1].pop(0)
-                if basket[-1] != element:
-                    basket.append(element)
-                elif basket[-1] == element:
-                    answer += 2
-                    basket.pop()
+                continue
+            element = new_board[i-1].pop(0)
+            if basket[-1] != element:
+                basket.append(element)
+            elif basket[-1] == element:
+                answer += 2
+                basket.pop()
     return answer
 
 board = [[0, 0, 0, 0, 0],

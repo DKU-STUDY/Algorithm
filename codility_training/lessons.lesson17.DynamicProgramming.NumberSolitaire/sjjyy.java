@@ -13,11 +13,10 @@ public class sjjyy
 
         for(int i = 0 ; i < len ; i++)
         {
-            for(int j = i + 1 ; j < len && j < i+1 + 6 ; j++)
+            for(int j = i + 1 ; j < len && j < i + 7 ; j++)
             {
-                int k = d[j];
                 int max = d[i] + A[j];
-                d[j] = Math.max(k, max);
+                d[j] = Math.max(d[j], max);
             }
         }
 

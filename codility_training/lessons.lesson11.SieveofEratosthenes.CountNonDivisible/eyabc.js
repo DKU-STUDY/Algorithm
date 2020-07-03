@@ -1,19 +1,26 @@
 function solution (A) {
-  const sortedA = [...A];
   const len = A.length;
-  sortedA.sort((a, b) => a - b);
+  const cnt = A.reduce((cnt, v) => {
+    cnt[v] = cnt[v] ? cnt[v] + 1 : 1;
+    return cnt;
+  }, {});
 
   return A.map(v => {
-      let index = sortedA.lastIndexOf(v);
-      let res = 0;
-      for (let i = 0 ; i < index ; i++)
-        if (v % sortedA[i] === 0) res++;
-      return len - res - 1;
-    },
-  );
+    let divisor = 0;
+    for (let j = 1 ; j * j <= v ; j++) {
+      if (v % j === 0) {
+        divisor += cnt[j] || 0;
+        if (v / j !== j)
+          divisor += cnt[v / j] || 0;
+      }
+    }
+    return len - divisor;
+  });
 }
 
 console.log(
   solution([3, 1, 2, 3, 6]),
-  // .toString() == [2, 4, 3, 2, 0].toString()
+  solution([2]),
+  solution([ 6, 7, 2, 1, 4, 7, 4, 4, 1, 8, 10, 15 ])
 );
+

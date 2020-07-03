@@ -1,9 +1,6 @@
 function solution (A) {
   const len = A.length;
-  const cnt = A.reduce((cnt, v) => {
-    cnt[v] = cnt[v] ? cnt[v] + 1 : 1;
-    return cnt;
-  }, {});
+  const cnt = A.reduce((cnt, v) => (cnt[v] = (cnt[v] || 0) + 1, cnt), {});
 
   return A.map(v => {
     let divisor = 0;
@@ -23,4 +20,3 @@ console.log(
   solution([2]),
   solution([ 6, 7, 2, 1, 4, 7, 4, 4, 1, 8, 10, 15 ])
 );
-

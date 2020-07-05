@@ -8,19 +8,27 @@ def solution(board, moves):
             if board[j][i] != 0:
                 row.append(board[j][i])
         new_board.append(row)
-
+    
     for i in moves:
         if new_board[i-1] == []:
             continue
         else:
-            element = new_board[i-1].pop(0)
             if basket == []:
-                basket.append(element)
-            elif basket[-1] != element:
+                basket.append(new_board[i-1].pop(0))
+                continue
+            element = new_board[i-1].pop(0)
+            if basket[-1] != element:
                 basket.append(element)
             elif basket[-1] == element:
-                answer += 1
-                basket.remove(basket[-1])
-    return answer*2
+                answer += 2
+                basket.pop()
+    return answer
 
-# 미완성
+board = [[0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 3],
+        [0, 2, 5, 0, 1],
+        [4, 2, 4, 4, 2],
+        [3, 5, 1, 3, 1]]
+moves = [1, 5, 3, 5, 1, 2, 1, 4]
+
+print(solution(board, moves) == 4)

@@ -37,7 +37,7 @@ function solution(n, edge) {
             const {vertex, distance} = Q.pop();
             graph[vertex].forEach((neighbor) => {
                 if (visited[neighbor] === undefined) {
-                    visited[neighbor] = distance + 1; // 이게 if 문 안으로 들어와야 정상 작동함
+                    visited[neighbor] = distance + 1;
                     Q.push({vertex: neighbor, distance: distance + 1});
                 }
             });

@@ -1,47 +1,34 @@
 function solution (N, P, Q) {
-  const 소수배열 = (() => {
-    const arr = [];
-    for (let i = 1 ; i <= N ; i++) {
-      let isPrime = true;
-      for (let j = 2; j * j <= i ; j++) {
-        if (i % j === 0) {
-          isPrime = false;
-          break;
-        }
-      }
-      if (isPrime) arr.push(i)
-    }
-    return arr;
-  })();
+  const semiCnt = new Array(N + 1).fill(0),
+    maxNum = N + 1;
 
-  const 세미프라임_판별 = (num) => 소수배열.indexOf(num) !== -1;
-
-  console.log({ 소수배열 });
-
-  const 약수배열 = (v) => {
-    let divisor = [];
-    for (let j = 2 ; j * j <= v ; j++) {
-      if (v % j === 0 && 세미프라임_판별(j) && 세미프라임_판별(v / j)) {
-        divisor.push(j);
-        divisor.push(v / j);
-      }
-    }
-    return divisor;
+  const isPrime = (i) => {
+    for (let j = 2 ; j * j <= i ; j++)
+      if (i % j === 0) return false;
+    return true;
   };
 
-  const res = P.map((start, k) => {
-    const end = Q[k];
+  // 참고함
+  const isSemi = (num) => {
     let cnt = 0;
+    for (let i = 2 ; cnt < 2 && i * i <= num ; ++i)
+      while (num % i === 0)
+        num /= i, ++cnt; // Increment count of prime numbers
 
-    for (let i = start ; i <= end ; i++) {
-      if (!소수배열.includes(i) && 약수배열(i).length) {
-        cnt++;
-      }
-    }
-    return cnt;
-  });
-  console.log({ res });
-  return res;
+    // If number is greater than 1, add it to
+    // the count variable as it indicates the
+    // number remain is prime number
+    if (num > 1)
+      ++cnt;
+
+    // 나누어 지는 수가 2개 초과면 semi 가 아니다.
+    return cnt === 2;
+  };
+
+  for (let i = 1 ; i < maxNum ; i++)
+    semiCnt[i] = semiCnt[i - 1] + (isPrime(i) ? 0 : isSemi(i) ? 1 : 0);
+
+  return P.map((start, k) => semiCnt[Q[k]] - semiCnt[start - 1]);
 }
 
 

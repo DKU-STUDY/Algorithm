@@ -1,52 +1,39 @@
 def solution(A):
-    A = [1] + A + [1]
-    print(A)
-    length_of_A = len(A)
-    leap_location = []
-    for i in range(length_of_A):
-        if A[i] != 0:
-            leap_location.append(i)
-    print(f'leap_location : {leap_location}')
+    A.append(1)
+    N = len(A)
+    fib = [0] * 27
+    fib[1] = 1
+    for i in range(2, 27):
+        fib[i] = fib[i - 1] + fib[i - 2]
+        if fib[i] > N:
+            fib = fib[2:i]
+            break
 
-    last = 0
-    current = 1
-    fibo_list = []
-    while current < length_of_A:
-        fibo_list.append(current + last)
-        temp = last
-        last = current
-        current = temp + current
+    reachable = [-1] * N
+    for jump in fib:
+        if A[jump - 1] == 1: reachable[jump - 1] = 1
 
-    #print(fibo_list)
+    for i in range(N):
+        if A[i] == 1 and reachable[i] < 0:
+            min = N + 1
+            minidx = -1
+            for jump in fib:
+                pre = i - jump
+                if pre < 0 or reachable[pre] < 0:
+                    continue
+                if min > reachable[pre]:
+                    min = reachable[pre]
+                    minidx = pre
+            if minidx != -1:
+                reachable[i] = min + 1
 
-    head_location = 0
-    jump_num = 0
-    jump_num = frog_jumping(A, fibo_list, head_location, jump_num)
-    jump_num = jump_num[0]
-
-    return jump_num
-
-
-def frog_jumping(A, fibo_list, head, jump_num):
-    for idx in range(len(A)-1, head, -1):
-        if (idx in fibo_list) and (A[idx] == 1):
-            print(f'head:{head} idx:{idx} A[idx]:{A[idx]}')
-            head = idx
-            jump_num += 1
-            if head == len(A)-1:
-                return jump_num, True
-            temp = A[idx]
-            A_02 = A[idx:]
-            head_02 = 0
-            cache = frog_jumping(A_02, fibo_list, head_02, jump_num)
-            if cache[1] == True:
-                return cache
-    return -1, False
+    return reachable[-1]
 
 
-'''A = [0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0]
+
+A = [0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0]
 print(solution(A))
-B = [0, 0, 0]
-print(solution(B))'''
+"""B = [0, 0, 0]
+print(solution(B))
 C = [1,1,0,0,0]
-print(solution(C))
+print(solution(C))"""

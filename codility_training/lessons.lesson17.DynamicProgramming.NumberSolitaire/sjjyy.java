@@ -1,6 +1,7 @@
 package lessons.lesson17.DynamicProgramming.NumberSolitaire;
 
 import java.util.Arrays;
+// IntStream 사용해보기 reduce, map
 
 public class sjjyy
 {

@@ -1,3 +1,6 @@
+
+import java.util.Arrays;
+
 public class sjjyy
 {
     public static boolean solution(int x)
@@ -5,9 +8,13 @@ public class sjjyy
         String str = Integer.toString(x);
         String [] arr = str.split("");
 
+        /*
         int sum = 0;
         for(String i : arr)
             sum += Integer.parseInt(i);
+        */
+
+        int sum = Arrays.stream(arr).map(Integer::parseInt).reduce(0, Integer::sum);
 
         return x % sum == 0;
     }

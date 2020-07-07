@@ -14,18 +14,16 @@ def solution(A):
         if A[jump - 1] == 1: reachable[jump - 1] = 1
 
     for i in range(N):
-        if A[i] == 1 and reachable[i] < 0:
-            min = N + 1
-            minidx = -1
-            for jump in fib:
-                pre = i - jump
-                if pre < 0 or reachable[pre] < 0:
-                    continue
-                if min > reachable[pre]:
-                    min = reachable[pre]
-                    minidx = pre
-            if minidx != -1:
-                reachable[i] = min + 1
+        if not (A[i] == 1 and reachable[i] < 0): continue
+        min, minidx = N + 1, -1
+        for jump in fib:
+            pre = i - jump
+            if pre < 0 or reachable[pre] < 0:
+                continue
+            if min > reachable[pre]:
+                min, minidx = reachable[pre], pre
+        if minidx != -1:
+            reachable[i] = min + 1
 
     return reachable[-1]
 

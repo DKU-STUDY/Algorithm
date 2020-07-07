@@ -1,3 +1,4 @@
+package 난이도별.level01.하샤드_수;
 
 import java.util.Arrays;
 

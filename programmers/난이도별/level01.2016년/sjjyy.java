@@ -1,4 +1,7 @@
-public class sjjyy2
+
+import java.util.Arrays;
+
+public class sjjyy
 {
     public static String solution(int a, int b)
     {
@@ -9,7 +12,8 @@ public class sjjyy2
         {
             if(i == 2)
                 days += 29;
-            else if(i == 4 || i == 6 || i == 9 || i == 11)
+           // else if(i == 4 || i == 6 || i == 9 || i == 11)
+            else if(Arrays.asList(4,6,9,11).contains(i))
                 days += 30;
             else
                 days += 31;
@@ -26,6 +30,6 @@ public class sjjyy2
     {
         int a = 5;
         int b = 24;
-        System.out.println(solution(a,b));
+        System.out.println(solution(a,b)); // TUE
     }
 }

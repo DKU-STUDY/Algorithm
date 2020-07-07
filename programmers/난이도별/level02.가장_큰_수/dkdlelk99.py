@@ -6,6 +6,8 @@ def solution(numbers):
     sorted_num = sorted(sorted_num, reverse=True)
     for num in sorted_num:
         answer += num[:int(len(num)/3)]
+    if answer[0] == '0':
+        return '0'
     return answer
 
 print(solution([6,10,2]) == '6210')

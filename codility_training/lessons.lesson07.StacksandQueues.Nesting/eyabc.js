@@ -9,6 +9,7 @@ function solution(S) {
   }
   return !stack.length * 1
 }
+
 console.log(
   solution('(()(())())') === 1,
   solution('())') === 0,

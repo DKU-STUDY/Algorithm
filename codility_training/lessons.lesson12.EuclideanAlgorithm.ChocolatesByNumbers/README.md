@@ -29,3 +29,26 @@ Write an efficient algorithm for the following assumptions:
 
 N and M are integers within the range [1..1,000,000,000].
 ```
+
+## 해석
+입력
+```javascript
+function solution(N, M) {
+    // write your code in JavaScript (Node.js 8.9.4)
+    return 0;
+}
+```
+- 입력: 양수 N, M
+- N : 0 ~ (N-1) 번호가 매겨진 원에 배치된 초콜릿의 수
+- 원이기 때문에 로테이션 가능하다.
+
+- 초콜릿을 번호0부터 먹기 시작합니다.
+- 다음 먹는 초콜릿의 번호는 (현재번호 + M ) 입니다 
+
+- 다음 먹을 번호에 초콜릿이 없을 때 중단합니다.
+
+- 예시:  N = 10 및 M = 4. 0, 4, 8, 2, 6
+
+- 반환: 먹은 초콜릿의 수
+
+

@@ -1,22 +1,9 @@
+// 초콜릿을 먹는 index만 보면 0부터 시작해서 N과 M의 최대 공약수의 배수(< N) 라고 합니다.
 function solution (N, M) {
-  const arr = new Array(N).fill(true);
-  let i = 0;
-  let cnt = 0;
-  while(arr[i]) {
-    arr[i] = false;
-    cnt++;
-    i = (i + M) % N;
-  }
-  return cnt;
+  const gcd = (a, b) => a % b === 0 ? b : gcd(b, a % b);
+  return ~~(N / gcd(N, M));
 }
-
 console.log(
-  solution(10, 4)
-  // === 5,
+  solution(10, 4),
+  solution(30, 120)
 );
-
-/*
-  i = (i + M) % N ; 이라면
-  I(0)  M(4)  N(10)  res()
-
-*/

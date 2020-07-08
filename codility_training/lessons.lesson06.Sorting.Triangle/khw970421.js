@@ -10,3 +10,4 @@ function solution(A) {
     }
     return 0;
 }
+

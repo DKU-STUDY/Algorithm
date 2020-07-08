@@ -2,10 +2,7 @@ def solution(A, B):
     # write your code in Python 3.6
     N = max(A) + 1
     fibo_list = getFibo(N)
-    return_list = [0] * len(A)
-    for idx in range(len(A)):
-        return_list[idx] = fibo_list[A[idx]] % 2 ** B[idx]
-    return return_list
+    return [ fibo_list[A[idx]] % 2 ** B[idx] for idx in range(len(A)) ]
 
 
 def getFibo(N):

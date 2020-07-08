@@ -1,8 +1,6 @@
 function solution(budgets, M) {
-    const dividable = (arr, bud) => {
-        const result = arr.reduce((acc, curr) => acc + (curr < bud ? curr : bud), 0);
-        return result <= M
-    };
+    const dividable = (arr, bud) => 
+        arr.reduce((acc, curr) => acc + Math.min(curr, bud), 0) <= M;
 
     const len = budgets.length;
     const sorted = budgets.sort((a, b) => a - b);

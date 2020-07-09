@@ -1,73 +1,33 @@
-def solution(P, Q, N):
-    max_num = N
-    prime_list = sieve(max_num)
-    print(prime_list)
-
-    for i in range(max_num):
-        start_num = find_startidx_in_logNtime(prime_list, i)
-        print(f'시작숫자:  {i}     구간 시작: {start_num}')
-
-    """for idx in range(len(P)):
-        start_num = find_startidx_in_logNtime(prime_list, P[idx])
-        print(f'시작숫자:  {P[idx]}     구간 시작: {start_num}')"""
-
-
-
-def find_startidx_in_logNtime(prime_list, Num):
-    # 가능한 가장 큰 소수보다 시작 숫자가 큰 경우 => 예외 처리
-    if Num > prime_list[-1]:
-        return False
-    # 가능한 가장 작은 소수보다 시작 숫자가 같거나 작은 경우 => 가장 작은 소수부터 시작
-    if Num <= prime_list[0]:
-        return prime_list[0]
-
-    N = len(prime_list)
-    n = int(N/2)
-
-    while not (prime_list[n - 1] < Num <= prime_list[n]):
-        print(f'n: {n}    {prime_list[n-1]} < {Num} <= {prime_list[n]}')
-        if prime_list[n] < Num:
-            if ((N-n)/2) < 1:
-                n += 1
-                continue
-            else:
-                n = n + int((N-n)/2)
-                continue
-
-        if Num <= prime_list[n-1]:
-            if (n/2) < 1:
-                n -= 1
-            else:
-                n = int(n/2)
-
-        if prime_list[n-1] < Num and prime_list[n] < Num:
-            print('2')
-            if ((n*2)-n)/2 < 1:
-                n += 1
-            else:
-                n = n+int(((n*2)-n)/2)
-
-    return prime_list[n]
-
-
-
-
-def sieve(max_num):
-    prime_list = []
-    prime_dic = {}
-    for i in range(2, max_num + 1): prime_dic[i] = [True]
-    for i in range(2, max_num + 1):
-        if prime_dic[i] == False:
-            continue
-        common = i * 2
-        while common < max_num+1:
-            prime_dic[common] = False
-            common += i
-
-    for i in range(2, max_num + 1):
-        if prime_dic[i]:
-            prime_list.append(i)
-    return prime_list
+def solution(N, P, Q):
+    from math import sqrt
+    prime_table = [False]*2+[True]*(N-1)
+    prime = []
+    prime_count = 0
+    for element in range(2, int(sqrt(N))+1):
+        if prime_table[element] == True:
+            prime.append(element)
+            prime_count += 1
+            multiple = element * element
+            while multiple <= N:
+                prime_table[multiple] = False
+                multiple += element
+    for element in range(int(sqrt(N))+1, N+1):
+        if prime_table[element] == True:
+            prime.append(element)
+            prime_count += 1
+    semiprime = [0] * (N+1)
+    for index_former in range(prime_count-1):
+        for index_latter in range(index_former, prime_count):
+            if prime[index_former]*prime[index_latter] > N:
+                break
+            semiprime[prime[index_former]*prime[index_latter]] = 1
+    for index in range(1, N+1):
+        semiprime[index] += semiprime[index-1]
+    question_len = len(P)
+    result = [0]*question_len
+    for index in range(question_len):
+        result[index] = semiprime[Q[index]] - semiprime[P[index]-1]
+    return result
 
 
 print(solution(P=[1, 4, 16], Q=[26, 10, 20], N=26))

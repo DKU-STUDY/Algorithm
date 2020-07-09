@@ -39,6 +39,7 @@ def inter(array):
             idx.append(array[i])
     return idx
 
+
 if __name__=="__main__":
     A=[2,3,4,3,5]
     B=[1,6,7]

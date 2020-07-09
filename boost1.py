@@ -13,6 +13,7 @@ def solution(name_list):
                         return True
     return False
 
+
 if __name__=="__main__":
     name_list=["가을", "우주", "너굴"]
     name_list1=["봄", "여울", "봄봄"]

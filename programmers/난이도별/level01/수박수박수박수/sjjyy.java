@@ -7,12 +7,15 @@ public class sjjyy
         StringBuilder answer = new StringBuilder();
 
         for(int i = 1 ; i <= n ; i++)
+            answer.append(i % 2 == 1 ? "수" : "박");
+        /*
         {
             if(i % 2 == 1)
                 answer.append("수");
             else
                 answer.append("박");
         }
+        */
         return answer.toString();
     }
 

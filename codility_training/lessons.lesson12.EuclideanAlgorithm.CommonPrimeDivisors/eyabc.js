@@ -2,7 +2,7 @@ function solution (A, B) {
   const getGCD = (a, b) => a % b === 0 ? b : getGCD(b, a % b);
   return A.reduce((cnt, a, k) => {
     let b = B[k];
-    let gcd = getGCD(a, b);
+    const gcd = getGCD(a, b);
     let gcdA = 0, gcdB = 0;
 
     while (gcdA !== 1) {

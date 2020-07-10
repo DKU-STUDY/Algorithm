@@ -16,9 +16,9 @@ long long solution(int a, int b) {
         for (int i = 0; i <= max - min; i++)
         answer += min + i;
     }
-    
-    // a와 b가 같은 경우는 둘 중 아무 수나 리턴
-    answer = a;
+    else
+        // a와 b가 같은 경우는 둘 중 아무 수나 리턴
+        answer = a;
     
     return answer;
 }

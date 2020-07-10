@@ -15,10 +15,10 @@ function solution(S, P, Q) {
 function solution2(S, P, Q) {
   return P.map((start, k) => {
     const str = S.substring(start, Q[k] + 1)
-    if ( str.indexOf('A') !== -1 ) return 1
-    if ( str.indexOf('C') !== -1 ) return 2
-    if ( str.indexOf('G') !== -1 ) return 3
-    if ( str.indexOf('T') !== -1 ) return 4
+    if ( str.indexOf('A') !== -1 ) return 1;
+    if ( str.indexOf('C') !== -1 ) return 2;
+    if ( str.indexOf('G') !== -1 ) return 3;
+    if ( str.indexOf('T') !== -1 ) return 4;
   })
 }
 

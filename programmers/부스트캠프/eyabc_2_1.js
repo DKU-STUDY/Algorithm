@@ -17,7 +17,6 @@ function solution (word) {
             if (res !== -1)
                 return [i, res];
 
-            continue;
         }
     });
 

@@ -39,7 +39,7 @@ function solution(A) {
 
             inv_count += merge(arr, left, mid + 1, right);
         }
-        return inv_count> 1000000000? -1: inv_count;
+        return inv_count > 1000000000 ? -1 : inv_count;
     }
 
     return mergeSort(A, 0, A.length - 1);

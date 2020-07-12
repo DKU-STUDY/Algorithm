@@ -1,8 +1,6 @@
 def solution(a, b):
 
-    day = b
-    answer = ''
-    total = 0
+    total = b
     day_list = ["THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED"]
 
     months_31 = [1, 3, 5, 7, 8, 10, 12]
@@ -17,7 +15,7 @@ def solution(a, b):
         elif i in months_29:
             total += 29
 
-    total += day
+
     rest = total % 7
     answer = day_list [rest]
 

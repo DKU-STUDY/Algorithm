@@ -2,12 +2,13 @@ package 난이도별.level01.같은_숫자는_싫어;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class sjjyy
 {
     public static int [] solution(int[] array)
     {
-        ArrayList<Integer> arrayList = new ArrayList<>();
+        List<Integer> arrayList = new ArrayList<>();
         int len = array.length - 1;
 
         for(int i = 0 ; i < len ; i++)

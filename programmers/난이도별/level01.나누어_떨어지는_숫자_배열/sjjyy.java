@@ -9,10 +9,9 @@ public class sjjyy
     public static int[] solution(int[] arr, int divisor) {
         List<Integer> List = new ArrayList<>();
 
-        for(int i = 0 ; i < arr.length ; i++)
-        {
-            if(arr[i] % divisor == 0)
-                List.add(arr[i]);
+        for (int value : arr) {
+            if (value % divisor == 0)
+                List.add(value);
         }
 
         if (List.isEmpty())

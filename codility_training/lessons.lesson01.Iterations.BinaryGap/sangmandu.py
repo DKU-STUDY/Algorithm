@@ -3,10 +3,7 @@ from random import randint
 def solution(n):
     binary = []
     while(n // 2 != 0):
-        if(n % 2 == 1):
-            binary.append(1)
-        else:
-            binary.append(0)
+        binary.append(1 if n % 2 == 1 else 0)
         n = n // 2
     binary.append(1)
     
@@ -25,7 +22,6 @@ def solution(n):
 
 n = randint(1, 2147483647)
 solution(n)
-
 
 
 

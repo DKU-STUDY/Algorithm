@@ -16,6 +16,6 @@ def solution(n):
             total += i
     return total + n
 
-#테스트를 위한 코드
+#테스트로 출력하기 위한 코드
 print(solution(12))
 

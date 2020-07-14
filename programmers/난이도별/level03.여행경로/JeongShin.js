@@ -1,80 +1,58 @@
-/* 1번 케이스 불합격 ㅠ ㅠ
-* 이 문제는 실력 더 키우고 다시 풀이 도전 해보겠습니다. 아직까진 다른 사람 solution 참고해도 잘 이해가 안가네요 ㅠ
-* */
-
-function solution(tickets) {
-    const visitable = {};
-    const graph = {};
-    const ticketsInfo = {};
-
-    const dfs = start => {
-        const route = [];
-        const visited = {};
-        const ticketUsed = {};
-        route.push(start);
-
-        (function dfs(from) {
-            graph[from].forEach((to) => {
-                if ((visited[to] || 0) < visitable[to] && (ticketUsed[from + to] || 0) < ticketsInfo[from + to]) {
-                    ticketUsed[from + to] = (ticketUsed[from + to] || 0) + 1;
-                    visited[to] = (visited[to] || 0) + 1;
-                    route.push(to);
-                    dfs(to);
-                }
-            });
-        })(start);
-
-        for (const [ticket, count] of Object.entries(ticketsInfo)){
-            if (ticketUsed[ticket] !== count)
-                route.push(ticket.slice(3))
-        }
-
-        return route;
-    }
-
-
-    for (const t of tickets) {
-        const [from, to] = t;
-        graph[from] = (graph[from] || [])
-        graph[from].push(to);
-        ticketsInfo[from + to] = (ticketsInfo[from + to] || 0) + 1;
-        visitable[from] = (visitable[from] || 0) + 1;
-    }
-
-    for (const dest of Object.values(graph))
-        dest.sort();
-
-    return dfs("ICN");
-}
-
-/* 다른 사람의 풀이 */
-
 function solution(tickets) {
     let answer = [];
-    const target_len = tickets.length - 1;
-    tickets.sort();
     let finished = false;
-    const dfs = (start, remain, route) => {
+
+    // dfs 종료조건 : 모든 티켓을 사용할 때, 즉, 현재 여행 경로의 길이가 티켓 개수 + 1
+    const len = tickets.length + 1;
+    const visitable = {};
+
+    // 1) 모든 티켓을 알파벳 순으로 정렬
+    tickets.sort();
+
+    // 2) 티켓 개수를 오브젝트에 저장
+    for (const t of tickets) {
+        const [from, to] = t;
+        visitable[from + to] = (visitable[from + to] || 0) + 1;
+    }
+
+    // 3) 깊이 우선 탐색 : (route) 를 재귀 호출
+    const dfs = route => {
+        const currLen = route.length;
+
+        // 이후에 오는 알파벳 순이 아닌 여행 경로가 answer 를 바꾸는걸 방지하기 위함
         if (finished)
             return;
-        const possibleTickets = remain.filter(v => v[0] === start)
-        possibleTickets.forEach(possibleTkt => {
-            let temp_remain = Array.from(remain);
-            let temp_route = Array.from(route);
-            const idx = temp_remain.findIndex(i => i === possibleTkt)
-            temp_remain.splice(idx, 1);
-            if (temp_route.length === target_len) {
-                temp_route = temp_route.concat(possibleTkt)
-                finished = true;
-                answer = temp_route;
-            } else {
-                temp_route.push(possibleTkt[0])
-                dfs(possibleTkt[1], temp_remain, temp_route)
+
+        // dfs 종료 조건을 만족하면 finished 를 참으로 변경
+        if (currLen === len) {
+            // console.log(route, visited, visitable);
+            finished = true;
+            answer = route;
+            return;
+        }
+
+        // 현재 route 를 기준으로 visited 정보를 구함
+        const visited = route.reduce((obj, to, idx) => {
+            const from = route[idx - 1];
+            if (from) {
+                obj[from + to] = (obj[from + to] || 0) + 1;
+            }
+            return obj
+        }, {});
+
+        // 마지막 여행지 기준으로 가능한 다음 여행지를 구함
+        const end = route[currLen - 1];
+
+        // 마지막 여행지 기준으로 visited 티켓 개수가 visitable 보다 작은 여행지를 다음 여행지로 선정
+        tickets.forEach(v => {
+            const [from, to] = v;
+            if (from === end && (visited[from + to] || 0) < visitable[from + to]) {
+                dfs([...route, to]);
             }
         })
     };
-    dfs('ICN', tickets, [])
+
+    dfs(["ICN"], {});
     return answer
 }
-
 

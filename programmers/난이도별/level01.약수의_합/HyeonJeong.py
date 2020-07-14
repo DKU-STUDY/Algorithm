@@ -1,4 +1,4 @@
-#처음에 한 코드
+#처음 코드
 '''
 def solution(n):
     total = 0

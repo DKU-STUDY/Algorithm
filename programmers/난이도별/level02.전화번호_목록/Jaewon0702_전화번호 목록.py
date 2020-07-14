@@ -1,15 +1,11 @@
 def solution(phone_book):
     phone_book.sort()
-    for j,k in enumerate(phone_book):
-        for i,v in enumerate(phone_book):
-            if j!=i :
-                if k in v :
-                    return False
-                else :
-                    return True
+    for i in range(len(phone_book)) :
+        for v in phone_book[i:] :
+            if phone_book[i]!=v :
+                return not phone_book[i] in v
+    return True
                     
-                
-
 p=['119','97674223','119']
 
 print(solution(p))

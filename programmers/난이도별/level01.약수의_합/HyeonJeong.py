@@ -8,7 +8,6 @@ def solution(n):
     return total
 '''
 
-
 #더 효율적인 코드
 def solution(n):
     total = 0

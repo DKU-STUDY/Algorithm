@@ -14,15 +14,12 @@ def solution(n):
 
     max = 0
     for i in range(len(index)-1):
-        temp = index[i+1] - index[i] - 1
-        if(max < temp):
-            max = temp
+        max = max(index[i+1] - index[i] - 1, max)
 
     return max
 
 n = randint(1, 2147483647)
 solution(n)
-
 
 
 

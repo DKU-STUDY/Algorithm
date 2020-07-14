@@ -46,8 +46,8 @@ function solution(tickets) {
         // 마지막 여행지 기준으로 visited 티켓 개수가 visitable 보다 작은 여행지를 다음 여행지로 선정
         tickets.forEach(v => {
             const [from, to] = v;
-            if (from === end && (visited[from + to] || 0) < visitable[from + to]) {
-                visited[from + to] = (visited[from + to] || 0) + 1;
+            if (from === end && (currVisited[from + to] || 0) < visitable[from + to]) {
+                currVisited[from + to] = (currVisited[from + to] || 0) + 1;
                 dfs([...route, to], currVisited);
             }
         })

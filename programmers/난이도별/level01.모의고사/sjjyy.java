@@ -77,13 +77,45 @@ public class sjjyy {
         return answer;
     }
 
+    public static int[] solution3(int[] answers) {
+        int[] ans1 = {1, 2, 3, 4, 5};
+        int[] ans2 = {2, 1, 2, 3, 2, 4, 2, 5};
+        int[] ans3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5,};
+        int a = 0, b = 0, c = 0;
+
+        int len = answers.length;
+
+        for (int i = 0; i < len; i++) {
+            if (answers[i] == ans1[i % 5])
+                a++;
+            if (answers[i] == ans2[i % 8])
+                b++;
+            if (answers[i] == ans3[i % 10])
+                c++;
+        }
+
+        int max = Math.max(a, Math.max(b, c));
+
+        List<Integer> list = new ArrayList<>();
+        if (max == a)
+            list.add(1);
+        if (max == b)
+            list.add(2);
+        if (max == c)
+            list.add(3);
+
+        return list.stream().mapToInt(i -> i).toArray();
+    }
+
     public static void main(String[] args)
     {
-        System.out.println(Arrays.toString(solution(new int[]{1, 2, 3, 4, 5})));
-        System.out.println(Arrays.toString(solution(new int[]{1, 3, 2, 4, 2})));
+        System.out.println(Arrays.toString(solution(new int[]{1, 2, 3, 4, 5}))); // [1]
+        System.out.println(Arrays.toString(solution(new int[]{1, 3, 2, 4, 2}))); // [1, 2, 3]
 
         System.out.println(Arrays.toString(solution2(new int[]{1, 2, 3, 4, 5})));
         System.out.println(Arrays.toString(solution2(new int[]{1, 3, 2, 4, 2})));
 
+        System.out.println(Arrays.toString(solution3(new int[]{1, 2, 3, 4, 5})));
+        System.out.println(Arrays.toString(solution3(new int[]{1, 3, 2, 4, 2})));
     }
 }

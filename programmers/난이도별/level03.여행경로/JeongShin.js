@@ -47,7 +47,6 @@ function solution(tickets) {
         tickets.forEach(v => {
             const [from, to] = v;
             if (from === end && (visited[from + to] || 0) < visitable[from + to]) {
-                visited[from + to] = (visited[from + to] || 0) + 1;
                 dfs([...route, to]);
             }
         })

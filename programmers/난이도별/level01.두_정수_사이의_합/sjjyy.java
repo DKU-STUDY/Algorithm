@@ -19,6 +19,17 @@ public class sjjyy
         return answer;
     }
 
+    public static long solution2(int a, int b)
+    {
+        long ans = 0;
+        int x = Math.min(a, b);
+        int y = Math.max(a, b);
+
+        for(int i = x ; i <= y ; i++)
+            ans += i;
+
+        return ans;
+    }
 
     public static void main(String [] args)
     {
@@ -26,5 +37,8 @@ public class sjjyy
         System.out.println(solution(3, 3)); // 3
         System.out.println(solution(5, 3)); // 12
 
+        System.out.println(solution2(3, 5)); // 12
+        System.out.println(solution2(3, 3)); // 3
+        System.out.println(solution2(5, 3)); // 12
     }
 }

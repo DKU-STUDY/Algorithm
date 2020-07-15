@@ -27,10 +27,22 @@ public class sjjyy
         return ans;
     }
 
+    public static int[] solution2(int[] arr, int divisor) {
+        int [] answer = Arrays.stream(arr)
+                .boxed()
+                .filter(v -> v % divisor == 0)
+                .sorted((a, b) -> a - b)
+                .mapToInt(Integer::valueOf)
+                .toArray();
+
+        return  answer.length == 0 ? new int[]{-1} : answer;
+    }
+
     public static void main(String [] args)
     {
         int[] arr = {5, 9, 7, 10};
         int divisor = 5;
         System.out.println(Arrays.toString(solution(arr, divisor))); // [5, 10]
+        System.out.println(Arrays.toString(solution2(arr, divisor))); // [5, 10]
     }
 }

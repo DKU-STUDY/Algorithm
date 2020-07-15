@@ -3,8 +3,8 @@
 
 def solution(A, K):
     # write your code in Python 3.6
-    for i in range(K):
-    	if(A = )
-        A.insert(0,A.pop())
+    if(len(A) != 0):
+        for i in range(K):
+            A.insert(0,A.pop())
     return A
     pass

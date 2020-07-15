@@ -18,9 +18,11 @@ def solution(n):
 
     return max
 
-n = randint(1, 2147483647)
-solution(n)
-
+print(
+    solution(32) == 0,
+    solution(1041) == 5,
+    solution(9) == 2,
+)
 
 
 

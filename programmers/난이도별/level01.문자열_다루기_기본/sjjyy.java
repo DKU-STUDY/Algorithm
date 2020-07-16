@@ -8,7 +8,7 @@ public class sjjyy {
         if (len == 4 || len == 6)
         {
             try {
-                int x = Integer.parseInt(s); // 문자열 -> 정수
+                Integer.parseInt(s); // 문자열 -> 정수
                 return true;
             } catch (NumberFormatException e) { // 숫자 형식 오류
                 return false;

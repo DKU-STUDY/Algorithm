@@ -1,40 +1,15 @@
 def solution(answers):
-    m1=[]; m2=[]; m3=[]
     cnt=[0, 0, 0]
     ret_value=[]
-    for i in range(1, len(answers)+1):
-        if i%5==0: #수포자1
-            m1.append(5)
-        else: m1.append(i%5)
-
-        if i%2==1: #수포자2
-            m2.append(2)
-        elif i%8==2:
-            m2.append(1)
-        elif i%8==4:
-            m2.append(3)
-        elif i%8==6:
-            m2.append(4)
-        elif i%8==0:
-            m2.append(5)
-
-        if i % 10 == 9 or i % 10 == 0: #수포자3
-            m3.append(5)
-        elif i%10<=2:
-            m3.append(3)
-        elif i%10<=4:
-            m3.append(1)
-        elif i%10<=6:
-            m3.append(2)
-        elif i%10<=8:
-            m3.append(4)
-
+    m1=[1, 2, 3, 4, 5]
+    m2=[2, 1, 2, 3, 2, 4, 2, 5]
+    m3=[3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
     for i, j in enumerate(answers):
-        if j == m1[i]:
+        if answers[i] == m1[i%5]:
             cnt[0]+=1
-        if j == m2[i]:
+        if answers[i] == m2[i%8]:
             cnt[1]+=1
-        if j == m3[i]:
+        if answers[i] == m3[i%10]:
             cnt[2]+=1
 
     for i in range(3):

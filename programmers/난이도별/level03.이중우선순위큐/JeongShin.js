@@ -1,27 +1,25 @@
 class minMaxHeap {
     constructor() {
         this.queue = [];
-        this.rear = 0;
     }
 
     push(el) {
         this.queue.push(el);
-        this.rear++;
         this.queue.sort((a, b) => b - a);
     }
 
     popMin() {
-        if (this.rear > 0) {
-            this.rear--;
-            return this.queue.pop();
+        const result = this.queue.pop();
+        if (result){
+            return result;
         }
         return 0;
     }
 
     popMax() {
-        if (this.rear > 0) {
-            this.rear--;
-            return this.queue.shift();
+        const result = this.queue.splice(0,1) * 1;
+        if (result){
+           return result
         }
         return 0;
     }

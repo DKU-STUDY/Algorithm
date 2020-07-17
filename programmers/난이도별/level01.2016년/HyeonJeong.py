@@ -1,44 +1,22 @@
 def solution(a, b):
-    answer = ''
-    day_list = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
-    i = b % 7
 
-    if ( a == 1 or a == 4 or a == 7):
-        if(4 <=i <= 6):
-            answer = day_list [i-4]
-        else:
-            answer = day_list [i+3]
+    total = b
+    day_list = ["THU", "FRI", "SAT", "SUN", "MON", "TUE", "WED"]
 
-    elif (a == 2 or a == 8):
-        if(i == 0):
-            answer = day_list [6]
-        else:
-            answer = day_list [i-1]
+    months_31 = [1, 3, 5, 7, 8, 10, 12]
+    months_30 = [4, 6, 9, 11]
+    months_29 = [2]
 
-    elif (a == 3 or a == 11):
-            answer = day_list [i]
+    for i in range (1, a):
+        if i in months_31:
+            total += 31
+        elif i in months_30:
+            total += 30
+        elif i in months_29:
+            total += 29
 
-    elif (a == 5):
-        if(0 <= i <= 1):
-            answer = day_list [i+5]
-        else:
-            answer = day_list [i-2]
 
-    elif (a == 6):
-        if(i ==  6):
-            answer = day_list [0]
-        else:
-            answer = day_list [i+1]
-
-    elif (a == 9 or a == 12):
-        if(5 <= i <= 6):
-            answer = day_list [i-5]
-        else:
-            answer = day_list [i+2]
-    elif (a == 10):
-        if(0 <= i <= 2):
-            answer = day_list [i+4]
-        else:
-            answer = day_list [i-3]
+    rest = total % 7
+    answer = day_list [rest]
 
     return answer

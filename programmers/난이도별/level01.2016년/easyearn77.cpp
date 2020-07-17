@@ -10,6 +10,5 @@ string solution(int a, int b) {
     for(int i=0;i<a-1;i++){
         day+=dom[i];
     }
-    string answer = dow[day%7];
-    return answer;
+    return dow[day%7];
 }

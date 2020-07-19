@@ -1,4 +1,5 @@
-# 방법1
+# 방법 1
+'''
 def solution(n):
     answer = ''
     word1 = '수'
@@ -9,8 +10,9 @@ def solution(n):
         else :
             answer += word2
     return answer
+'''
 
-# 방법2
+# 방법 2(더 간단하고 효율적인 코드로)
 def solution(n):
     answer = '수박' * (n//2) + '수' * (n % 2)
     return answer

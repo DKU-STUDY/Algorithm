@@ -14,7 +14,6 @@ def solution(n):
 
 # 방법 2(더 간단하고 효율적인 코드로)
 def solution(n):
-    answer = '수박' * (n//2) + '수' * (n % 2)
-    return answer
-
+    return '수박' * (n//2) + '수' * (n % 2)
+    
 print("n이 3일때 : " + solution(3))

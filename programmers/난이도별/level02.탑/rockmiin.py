@@ -1,18 +1,12 @@
 def solution(heights):
-    answer=[]
-    slen=len(heights)
-    heights.reverse()
-    for i in range(slen):
-        for j in range(i+1, slen):
-            if heights[i] < heights[j] :
-                answer.append(j); break;
-        if i+1 != len(answer):
-            answer.append(0)
-    answer.reverse()
 
-    for i in range(slen):
-        if answer[i]!=0:
-            answer[i]=slen-answer[i]
+    slen=len(heights)
+    answer=[0 for _ in range(slen)]
+    for i in range(slen-1, 0, -1):
+        for j in range(i-1, -1, -1):
+            if heights[i] < heights[j] :
+                print(i, j)
+                answer[i]=j+1; break;
     return answer
 
 print(

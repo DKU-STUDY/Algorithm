@@ -9,7 +9,7 @@ def solution(A):
     min = abs(sum - 2 * A[0])
     for n in range(len(A)-1):
         leftA += A[n]
-        min = abs(sum - 2 * leftA) if abs(sum - 2 * leftA) < min else min
+        min = min([abs(sum - 2 * leftA), min])
             
     return min
 

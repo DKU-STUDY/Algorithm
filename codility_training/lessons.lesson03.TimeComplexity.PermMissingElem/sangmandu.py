@@ -8,11 +8,8 @@ def solution(A):
     n = len(A)
     return (n + 2) * ((n + 1) // 2) + (0 if n % 2 == 1 else  (n + 2) // 2) - sum
 
-  '''
-  A[0] = 2
-  A[1] = 3
-  A[2] = 1
-  A[3] = 5
+print(
+    solution([2,3,1,5]) == 4,
+    # solution(A) == result,
+)
 
-  return 4
-  '''

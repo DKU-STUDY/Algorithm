@@ -4,9 +4,7 @@
 def solution(A):
     # write your code in Python 3.6
     pass
-    sum = leftA = 0
-    for n in A:
-       sum += n 
+    sum = leftA = sum(A)
     
     min = abs(sum - 2 * A[0])
     for n in range(len(A)-1):

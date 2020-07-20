@@ -6,10 +6,7 @@ def solution(X, Y, D):
     pass
     return (0 if (Y-X)%D == 0 else 1) + ((Y-X)//D if X < Y else 0)
 
-'''
- X = 10
- Y = 85
- D = 30
-
- return 3
- '''
+print(
+    solution(10, 85, 30) == 3,
+    # solution(X, Y, D) == result,
+)

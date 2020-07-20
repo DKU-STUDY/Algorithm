@@ -23,8 +23,16 @@ public class sjjyy
         return String.valueOf(lower.append(upper));
     }
 
+    public static String solution2(String str)
+    {
+        char[] c = str.toCharArray();
+        Arrays.sort(c);
+        return new StringBuilder(new String(c)).reverse().toString();
+    }
+
     public static void main(String[] args)
     {
         System.out.println(solution("Zbcdefg"));
+        System.out.println(solution2("Zbcdefg"));
     }
 }

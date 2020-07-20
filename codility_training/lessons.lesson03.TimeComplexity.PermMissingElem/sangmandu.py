@@ -4,9 +4,7 @@
 def solution(A):
     # write your code in Python 3.6
     pass
-    sum = 0
-    for a in A:
-        sum +=  a
+    sum = sum(A)
     n = len(A)
     return (n + 2) * ((n + 1) // 2) + (0 if n % 2 == 1 else  (n + 2) // 2) - sum
 

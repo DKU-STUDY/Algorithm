@@ -4,7 +4,7 @@
 def solution(N, A):
     # write your code in Python 3.6
     pass
-    arr = [0 for i in range(N)]
+    arr = [0] * N
     tog = 0
     mx = 0
     for i in A:
@@ -29,4 +29,3 @@ print(
     # solution(X,A) == result,
 )
 '''
-

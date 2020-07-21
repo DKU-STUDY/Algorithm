@@ -1,9 +1,6 @@
 def solution(array, commands):
-    cutter=[] ; answer=[]
-    for v in commands :
-        cutter=sorted(array[v[0]-1:v[1]]) 
-        answer.append(cutter[v[2]-1])
-    return answer
+    return [ sorted(array[v[0]-1 : v[1]])[v[2] - 1] for v in commands ]
+#
 
 #점수 : 100점
 

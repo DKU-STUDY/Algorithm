@@ -25,30 +25,46 @@
 * Dynamic Programming 을 통한 구현
 * */
 
+// function solution3(n, money) {
+//     const table = {};
+//     const len = money.length;
+//     table.fill = (row, col, num) => {
+//         table[row + ',' + col] = num;
+//     };
+//     table.get = (row, col) => {
+//         return table[row + ',' + col];
+//     };
+//
+//     // Initialize Table
+//     for (let row = 0; row <= len; row++) {
+//         table.fill(row, 0, 1);
+//     }
+//     for (let col = 1; col <= n; col++) {
+//         table.fill(0, col, 0);
+//     }
+//
+//     for (let row = 1; row <= len; row++) {
+//         for (let col = 1; col <= n; col++) {
+//             const [caseNotInclude, caseInclude] = [table.get(row - 1, col), table.get(row, col - money[row - 1])]
+//                 .map(el => el === undefined ? 0 : el)
+//             table.fill(row, col, caseInclude + caseNotInclude);
+//         }
+//     }
+//     return table.get(len, n);
+// }
+
 function solution(n, money) {
-    const table = {};
-    const len = money.length;
-    table.fill = (row, col, num) => {
-        table[row + ',' + col] = num;
-    };
-    table.get = (row, col) => {
-        return table[row + ',' + col];
-    };
-
-    // Initialize Table
-    for (let row = 0; row <= len; row++) {
-        table.fill(row, 0, 1);
+    const table = [];
+    const len = money.length
+    for (let i = 0; i <= n; i++){
+        table[i] = i % money[0] ? 0 : 1;
     }
-    for (let col = 1; col <= n; col++) {
-        table.fill(0, col, 0);
-    }
-
-    for (let row = 1; row <= len; row++) {
-        for (let col = 1; col <= n; col++) {
-            const [caseNotInclude, caseInclude] = [table.get(row - 1, col), table.get(row, col - money[row - 1])]
-                .map(el => el === undefined ? 0 : el)
-            table.fill(row, col, caseInclude + caseNotInclude);
+    for (let i = 1; i < len; i++) {
+        for (let j = money[i]; j <= n; j++) {
+            table[j] += table[j - money [i]]
         }
     }
-    return table.get(len, n);
+    return table[n] % 1000000007
 }
+
+solution(5, [1, 2, 5])

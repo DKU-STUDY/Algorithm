@@ -1,5 +1,7 @@
 package 난이도별.level01.소수찾기;
 
+import java.util.Arrays;
+
 public class sjjyy {
     public static int solution(int n) // 75/100
     {
@@ -39,13 +41,15 @@ public class sjjyy {
                 num[j]= 0;
         }
 
-        for (int i = 2 ; i <= n ; i++) // 값이 0이 아닌 수 (= 소수)의 개수 측정
-        {
-            if (num[i] != 0)
-                ans++;
-        }
+//        for (int i = 2 ; i <= n ; i++) // 값이 0이 아닌 수 (= 소수)의 개수 측정
+//        {
+//            if (num[i] != 0)
+//                ans++;
+//        }
+//
+//        return ans;
 
-        return ans;
+        return (int) Arrays.stream(num).filter(v -> v > 0).count();
     }
 
     public static void main(String[] args) {

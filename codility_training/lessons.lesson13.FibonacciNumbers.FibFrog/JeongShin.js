@@ -31,4 +31,5 @@ class frog {
         this.count = count;
     }
 }
+
 console.log(solution([1]))

@@ -1,3 +1,4 @@
+#코드1
 def solution(s):
     answer = ""
     words = s.split(" ")
@@ -13,5 +14,16 @@ def solution(s):
         if i < len(words) - 1:
             answer += " "
     return answer
+
+#코드2
+def solution(s):
+    answer = []
+    words = s.lower().split(" ")
+    for word in words:
+        newWord = ""
+        for i, c in enumerate(word):
+            newWord += c.upper() if i % 2 == 0 else c
+        answer.append(newWord)
+    return " ".join(answer)
 
 print(solution("try hello world") == "TrY HeLlO WoRlD")

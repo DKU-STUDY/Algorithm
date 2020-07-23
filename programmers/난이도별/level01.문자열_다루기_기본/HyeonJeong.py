@@ -7,3 +7,5 @@ def solution(s):
         if i not in "0123456789":
             return False
     return True
+
+    print(solution("a234"))

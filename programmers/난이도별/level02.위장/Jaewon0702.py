@@ -1,7 +1,8 @@
 def solution(clothes):
     kind_count={}
     for v in clothes :
-        kind_count[v[len(v)-1]]=kind_count.get(v[len(v)-1],0)+1
+        key=v[len(v)-1]
+        kind_count[key]=kind_count.get(key,0)+1
     combination=1
     for i in kind_count.values() :
         combination*=(i+1)

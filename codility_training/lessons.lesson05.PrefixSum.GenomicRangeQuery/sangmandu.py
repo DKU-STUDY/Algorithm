@@ -6,11 +6,12 @@ def solution(S, P, Q):
     pass
     ret = []
     for i in range(len(P)):
-        if S.find("A",P[i],Q[i]+1) != -1:
+        temp = S[P[i]:Q[i] + 1]
+        if temp.find("A") != -1:
             ret.append(1)
-        elif S.find("C",P[i],Q[i]+1) != -1:
+        elif temp.find("C") != -1:
             ret.append(2)
-        elif S.find("G",P[i],Q[i]+1) != -1:
+        elif temp.find("G") != -1:
             ret.append(3)
         else:
             ret.append(4)

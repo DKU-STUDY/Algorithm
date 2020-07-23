@@ -29,13 +29,9 @@ class priorityQueue {
 function solution(n, works) {
     const queue = new priorityQueue(works)
     while (n > 0) {
-        let curr = queue.pop();
-        const nextMax = queue.peek() - 1;
-        while (n > 0 && curr > nextMax) {
-            n--;
-            curr--;
-        }
-        queue.push(curr)
+        const curr = queue.pop();
+        n--
+        queue.push(curr - 1);
     }
     return works.reduce((acc, curr) => acc + (curr > 0 ? curr ** 2 : 0), 0)
-}
+} 

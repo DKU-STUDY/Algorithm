@@ -13,11 +13,7 @@ def solution(bridge_length, weight, truck_weight):
                 on_bridge.pop(0); pass_truck_count+=1
         total_time += 1
     return total_time+bridge_length-1
+
 print(
     solution(2, 10, [7, 4, 5, 6])==8
 )
-
-
-
-
-solution(2, 10, [7, 4, 5, 6])

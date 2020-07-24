@@ -2,10 +2,8 @@ function solution(weight) {
     weight.sort((a, b) => a - b)
     let answer = 1
     for (const w of weight) {
-        if (answer >= w)
-            answer+=w
-        else
-            break
+        if (answer < w) break;
+        answer+=w
     }
     return answer
 }

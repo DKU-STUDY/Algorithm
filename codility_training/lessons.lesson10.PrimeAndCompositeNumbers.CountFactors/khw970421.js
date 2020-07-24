@@ -19,3 +19,16 @@ function solution(N)
     return cnt;   //합친값을 return
 }
 
+//피드백 후 코드
+
+function solution1(N)
+{
+    let cnt = 0;
+    for(let i = 1; i < Math.sqrt(N) ;i++)
+        cnt += N % i == 0;      //제곱근까지 돌리면서 약수의 갯수를 구하기 N%i==0이면 결국 1이니 cnt=cnt+1이 되므로 약수희 갯수 증가
+
+    const q = Math.sqrt(N);
+    return cnt*2 + Number.isInteger(q); //제곱근 전까지의 값을 2배하고 제곱근이 정수인 값이라면 그 값도 더해야 하기때문에 1을 더한다.
+                                        // (Number.isInteger는 T/F 받으므로 T이면 더했을때 1로 처리되서 더하기 때문에 가능
+}
+

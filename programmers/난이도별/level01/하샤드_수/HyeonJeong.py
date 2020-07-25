@@ -3,6 +3,6 @@ def solution(x):
     num = x
     for i in str(x):
         if num > 0:
-            total += (num % 10)
+            total += num % 10
             num //= 10
     return x % total == 0

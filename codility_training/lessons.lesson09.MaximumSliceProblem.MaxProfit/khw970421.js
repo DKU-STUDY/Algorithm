@@ -45,3 +45,21 @@ function solution(A) {
     }
     return max;
 }
+
+//피드백 후 작성한 코드
+
+function solution(A) {
+    let len = A.length;
+    let max = -Infinity;        //max는 최대로 작은값 기준
+    let min = Infinity;         //min은 최대로 큰 값 기준
+
+    if (len < 2)
+        return 0;
+
+    return A.reduce(([min, max], v) => {
+        min = Math.min(v, min);
+        max = Math.max(max, v - min);
+        return [min ,max];
+    },[min,max])[1];
+}
+

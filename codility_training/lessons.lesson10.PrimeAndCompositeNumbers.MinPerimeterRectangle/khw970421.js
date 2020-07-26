@@ -36,6 +36,6 @@ function solution1(N)
             num.push(i);
 
     const l=num.pop();
-    let k = N/l;      //가장 마지막 값은 N의 약수의 중간값이기 때문에 그다음 값 k를구한다. ex) 8=40/5
+    const k = N/l;      //가장 마지막 값은 N의 약수의 중간값이기 때문에 그다음 값 k를구한다. ex) 8=40/5
     return 2*(k+l);   //두개를 더하고 곱한값을 return
 }

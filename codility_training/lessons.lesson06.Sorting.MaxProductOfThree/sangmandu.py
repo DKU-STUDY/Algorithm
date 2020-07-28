@@ -8,7 +8,7 @@ def solution(A):
     size = len(sA)
     mx1 = sA[size-1] * sA[size-2] * sA[size-3]
     mx2 = sA[size-1] * sA[0] * sA[1]
-    return mx1 if mx1 > mx2 else mx2
+    return max(mx1, max2)
     
     '''
     + + + 큰 수들로 곱

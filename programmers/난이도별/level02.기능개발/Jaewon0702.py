@@ -19,6 +19,9 @@ def solution(progresses, speeds):
             
     return publish
 
+p=[93,30,55]; s=[1,30,5]
+print(solution(p,s))
+
 
 #100점
 

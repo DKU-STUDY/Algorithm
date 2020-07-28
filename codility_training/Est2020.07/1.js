@@ -3,16 +3,15 @@ const validForm = (arr) => arr.toString() === [4, 9, 14].toString() || arr.lengt
 /* 카드번호가 16자리인지 체크 */
 const validLength = (number) => number.length === 16;
 
-const findHyphenIdx = () => {
-    return (arr, char, key) => {
+const findHyphenIdx = () =>
+    (arr, char, key) => {
         if (char === '-')
             arr.push(key);
         return arr;
     };
-};
 
-const processNumber = () => {
-    return ([odd, even, isEven], char) => {
+const processNumber = () =>
+    ([odd, even, isEven], char) => {
         if (isEven) {
             let num = Number(char) * 2;
             if (num > 9)
@@ -22,7 +21,6 @@ const processNumber = () => {
             odd += Number(char);
         return [odd, even, !isEven];
     };
-};
 
 function solution (card_numbers) {
     const reduce = Array.prototype.reduce;

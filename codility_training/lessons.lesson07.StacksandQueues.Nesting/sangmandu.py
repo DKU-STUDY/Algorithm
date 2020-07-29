@@ -6,10 +6,7 @@ def solution(S):
     pass
     cnt = 0
     for i in S:
-        if i == "(":
-            cnt += 1
-        else:
-            cnt -= 1
+        cnt += 1 if i == "(" else -1
 
         if (cnt < 0):
             return 0

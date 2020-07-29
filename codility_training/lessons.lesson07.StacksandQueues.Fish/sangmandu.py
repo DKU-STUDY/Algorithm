@@ -7,17 +7,17 @@ def solution(A, B):
     S = []
     cnt = 0
 
-    for i in range(len(A)):
+    for i, v in enumerate(A):
         if B[i] == 1:
-            S.append(A[i])
-        else:
-            while len(S) != 0:
-                fish = S.pop()
-                if fish > A[i]:
-                    S.append(fish)
-                    break
-            if (len(S) == 0):
-                cnt += 1
+            S.append(v)
+            continue;
+        while len(S) != 0:
+            fish = S.pop()
+            if fish > v:
+                S.append(fish)
+                break
+        if (len(S) == 0):
+            cnt += 1
 
     return cnt + len(S)
 

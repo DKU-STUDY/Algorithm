@@ -1,4 +1,4 @@
-# you can write to stdout for debugging purposes, e.g.
+# you can write to stdout for debugging purposes, e.g..
 # print("this is a debug message")
 # 좀 어렵다 문제가.. 전혀 not painless... painful..
 def solution(H):

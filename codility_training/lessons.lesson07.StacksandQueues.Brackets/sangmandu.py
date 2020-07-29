@@ -10,16 +10,12 @@ def solution(S):
             if(i == ")" or i == "]" or i == "}"):
                 return 0
             st.append(i)
-        else:
-            if(i == ")"):
-                if(st.pop() != "("):
-                    return 0
-            elif(i == "}"):
-                if(st.pop() != "{"):
-                    return 0
-            elif(i == "]"):
-                if(st.pop() != "["):
-                    return 0
-            else:
-                st.append(i)
+            continue;
+        if i == ")" and st.pop() != "(" :
+            return 0
+        if i == "}" and st.pop() != "{":
+            return 0
+        if i == "]" and st.pop() != "[" :
+            return 0
+        st.append(i)
     return 1 if len(st) == 0 else 0

@@ -5,15 +5,8 @@
 def solution(A):
     # write your code in Python 3.6
     pass
-    B = []
-    C = []
-
-    for i in range(len(A)):
-        B.append(i - A[i])
-        C.append(i + A[i])
-
-    B.sort()
-    C.sort()
+    B = sorted([ i - v for i, v in enumerate(A)  ])
+    C = sorted([ i + v for i, v in enumerate(A)  ])
 
     num = len(A)
     case = num * (num - 1) // 2

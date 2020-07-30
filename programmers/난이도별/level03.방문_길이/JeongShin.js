@@ -6,13 +6,11 @@ class player {
         this.count = 0;
     }
 
-    getPos() {
+    currPos() {
         return this.x + ',' + this.y;
     }
 
-    move(dir) {
-        const currPos = this.getPos();
-
+    getNewPos(dir) {
         switch (dir) {
             case 'U':
                 this.y++;
@@ -26,10 +24,16 @@ class player {
             case 'R':
                 this.x++;
         }
+    }
+
+    move(dir) {
+        const currPos = this.currPos();
+
+        this.getNewPos(dir);
 
         this.checkOutOfBound();
 
-        const nextPos = this.getPos();
+        const nextPos = this.currPos();
 
         if (currPos === nextPos)
             return;
@@ -44,8 +48,9 @@ class player {
     }
 
     checkOutOfBound() {
-        this.x -= (Math.sign(this.x) * (Math.abs(this.x) > 5))
-        this.y -= (Math.sign(this.y) * (Math.abs(this.y) > 5))
+        const {x, y} = this;
+        this.x -= (Math.sign(x) * (Math.abs(x) > 5))
+        this.y -= (Math.sign(y) * (Math.abs(y) > 5))
     }
 }
 

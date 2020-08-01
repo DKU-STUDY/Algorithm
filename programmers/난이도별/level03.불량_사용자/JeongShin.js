@@ -1,4 +1,20 @@
 function solution(user_id, banned_id) {
+    const cache = {'0': 1};
+    const factorial = num => {
+        let result;
+        if (cache[num])
+            result = cache[num];
+        else
+            result = cache[num] = num * factorial(num - 1);
+        return result;
+    };
+
+    const rFact = Object.values(banned_id.reduce((acc, curr) => {
+        acc[curr] = (acc[curr] || 0) + 1;
+        return acc;
+    }, {})).reduce((acc, curr) => acc * factorial(curr), 1);
+
+
     const matches = [];
     for (const s of banned_id) {
         const re = s.replace(/\*/g, "\\w") + '$';
@@ -15,23 +31,20 @@ function solution(user_id, banned_id) {
     const len = banned_id.length;
     let answer = 0;
 
-    console.log(matches);
-
-    const fill = (stack, idx) => {
+    const combination = (stack, idx) => {
         if (idx === len) {
-            console.log(stack);
             answer++;
             return;
         }
         matches[idx].forEach((str) => {
             if (stack.indexOf(str) === -1) {
-                fill([...stack, str], idx + 1)
+                combination([...stack, str], idx + 1)
             }
         })
     };
-    fill([], 0);
-    console.log(answer);
 
+    combination([], 0);
+    return answer / rFact;
 }
 
 

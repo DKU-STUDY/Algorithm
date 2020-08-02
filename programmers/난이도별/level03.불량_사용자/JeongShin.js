@@ -1,23 +1,18 @@
 function solution(user_id, banned_id) {
     const possible_id = [];
     for (const s of banned_id) {
-        const matched = (user_id.reduce((arr, str) => {
-                const r = str.match('^' + s.replace(/\*/g, ".") + '$');
+        const regEx = '^' + s.replace(/\*/g, ".") + '$';
+        possible_id.push(user_id.reduce((arr, str) => {
+                const r = str.match(regEx);
                 if (r)
                     arr.push(r.input);
                 return arr;
             }, [])
         );
-        possible_id.push(matched);
     }
 
     const answer = new Set();
-    const checkPossibleAnswer = (stack) => {
-        stack.sort();
-        const r = stack.join('');
-        if (!answer.has(r))
-            answer.add(r);
-    };
+    const checkPossibleAnswer = (stack) => answer.add(stack.sort().join(''));
 
     const len = banned_id.length;
 

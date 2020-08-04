@@ -17,7 +17,7 @@ public class sjjyy {
             if (a > budget) // 신청 금액이 예산보다 커짐
             {
                 answer = i; // 커지기 직전 개수
-                break;
+                return answer;
             }
         }
 

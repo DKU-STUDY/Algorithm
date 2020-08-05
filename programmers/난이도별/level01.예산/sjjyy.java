@@ -30,12 +30,10 @@ public class sjjyy {
     public static  int solution2(int[] d, int budget)
     {
         int answer = 0;
-        int len = d.length;
         Arrays.sort(d);
 
-        for (int i = 0 ; i < len ; i++)
-        {
-            budget -= d[i];
+        for (int i : d) {
+            budget -= i;
 
             if (budget < 0)
                 break;

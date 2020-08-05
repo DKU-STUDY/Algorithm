@@ -27,11 +27,33 @@ public class sjjyy {
         return answer;
     }
 
+    public static  int solution2(int[] d, int budget)
+    {
+        int answer = 0;
+        int len = d.length;
+        Arrays.sort(d);
+
+        for (int i = 0 ; i < len ; i++)
+        {
+            budget -= d[i];
+
+            if (budget < 0)
+                break;
+
+            answer++;
+        }
+
+        return answer;
+    }
+
     public static void main(String[] args)
     {
         int[] d1 = {1,3,2,5,4};
         int[] d2 = {2,2,3,3};
         System.out.println(solution(d1, 9)); // 3
         System.out.println(solution(d2, 10)); // 4
+
+        System.out.println(solution2(d1, 9)); // 3
+        System.out.println(solution2(d2, 10)); // 4
     }
 }

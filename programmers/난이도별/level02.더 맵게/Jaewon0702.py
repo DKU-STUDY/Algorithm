@@ -4,14 +4,9 @@ def solution(scoville, K):
     heapq.heapify(scoville)
     n=0
     while(len(scoville)>1) :
-        state=False
-        if scoville[0]<K :
-            state=True
-            heapq.heappush(scoville,heapq.heappop(scoville)+(heapq.heappop(scoville)*2))
-            n+=1
-
-        if state == False :
-            break
+        if not scoville[0]<K : break
+        heapq.heappush(scoville,heapq.heappop(scoville)+(heapq.heappop(scoville)*2))
+        n+=1
 
     return -1 if scoville[0]<K else n
 

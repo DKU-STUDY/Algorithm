@@ -30,3 +30,8 @@ Write an efficient algorithm for the following assumptions:
 
 Z is an integer within the range [1..6,000];
 each element of arrays A, B is an integer within the range [1..2,147,483,647].
+
+## 해석
+- 입력: 양수 배열 N, M
+- 각각, N의 k번째 정수 n과, M의 k번째 정수 m의
+ 제수(prime 나누는 수) 집합이 같으면 count 증가

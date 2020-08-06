@@ -29,4 +29,5 @@ for i in range(n - 7):
     for j in range(m - 7):
         ex = [z[(0 + j):(8 + j)] for z in s[(0 + i):(8 + i)]]
         check.append(check_BW(ex))
-print(min(check)
+print(min(check))
+

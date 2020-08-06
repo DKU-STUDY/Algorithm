@@ -6,23 +6,23 @@ function solution(A) {
         fib.push(fib[idx - 1] + fib[idx - 2]);
         idx++;
     }
-    const stack = [new frog(-1, 0)];
-    const count = [];    // 최소 점프수만 index 별로 저장하는 배열
     A[len] = 1;
+    const stack = [new frog(-1, 0)]
+    const count = [];
     while (stack[0] !== undefined) {
-        const { pos, count } = stack.pop();
+        const curr = stack.pop()
         for (const jump of fib) {
-            const next = pos + jump;
+            const next = curr.pos + jump;
             if (A[next] === 1) {
-                const next_count = count[next] || Infinity;
-                if (next_count > (count + 1)) {
-                    stack.push(new frog(next, count + 1));
-                    count[next] = count + 1;
+                const next_count = count[next] || Infinity
+                if (next_count > (curr.count + 1)) {
+                    stack.push(new frog(next, curr.count + 1))
+                    count[next] = curr.count + 1;
                 }
             }
         }
     }
-    return count[len] || -1;
+    return (count[len] || -1)
 }
 
 class frog {
@@ -32,4 +32,4 @@ class frog {
     }
 }
 
-solution([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+console.log(solution([1]))

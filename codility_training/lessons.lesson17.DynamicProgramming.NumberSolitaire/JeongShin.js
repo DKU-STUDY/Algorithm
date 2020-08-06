@@ -1,18 +1,17 @@
 function solution(A) {
     const len = A.length;
-    const arr = new Array(len).fill(-Infinity);
-    arr[0] = A[0];
-    for (let idx = 0; idx < len; idx++) {
+    const score = new Array(len).fill(-Infinity);
+    score[0] = A[0];
+    for (let curr = 0; curr < len; curr++) {
         for (let k = 1; k < 7; k++) {
-            const nextIdx = idx + k;
-            if (nextIdx > len)
+            const next = curr + k;
+            if (next > len)
                 break;
-            const sum = arr[idx] + A[nextIdx];
-            if (arr[nextIdx] < sum)
-                arr[nextIdx] = sum;
+            const sum = score[curr] + A[next];
+            score[next] = Math.max(sum, score[next]);
         }
     }
-    return arr[len -1];
+    return score[len -1];
 }
 
 console.log(solution([1, -2, 0, 9, -1, -2]))

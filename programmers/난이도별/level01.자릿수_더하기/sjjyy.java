@@ -1,18 +1,18 @@
 package 난이도별.level01.자릿수_더하기;
 
-
 public class sjjyy
 {
     public static int solution(int n)
     {
-        int answer = 0;
         String num = String.valueOf(n);
         int len = num.length();
+        int answer = 0;
 
         for (int i = 0 ; i < len ; i++)
             answer += Integer.parseInt(String.valueOf(num.charAt(i)));
 
         return answer;
+        // return IntStream.range(0, len).map(i -> Integer.parseInt(String.valueOf(num.charAt(i)))).sum();
     }
 
     public static int solution2(int n)
@@ -24,6 +24,7 @@ public class sjjyy
             answer += Integer.parseInt(s);
 
         return answer;
+        // return Arrays.stream(arr).mapToInt(Integer::parseInt).sum();
     }
 
     public static void main(String[] args)

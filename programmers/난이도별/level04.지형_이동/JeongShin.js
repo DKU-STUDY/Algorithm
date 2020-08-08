@@ -1,3 +1,14 @@
+class Coords {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    toString() {
+        return this.x + ',' + this.y;
+    }
+}
+
 /*
 * 현재 좌표 start 에서 탐색 가능한 모든 좌표를 방문
 * @param {object} visited : 좌표 방문 정보
@@ -8,41 +19,32 @@
 * @param {Array.<number>} start : 탐색 시작 좌표 ex) [x, y]
 * @param {Array.<Object>} edges : edge 정보를 포함한 배열
 * */
-
 function bfs(visited, set, height, bound, land, start, edges) {
-    const checkOutOfBound = (x, y) => {
-        return (x < 0 || y < 0 || x >= bound || y >= bound);
-    };
+    const checkOutOfBound = (x, y) => (x < 0 || y < 0 || x >= bound || y >= bound);
 
-    const isVisited = (x, y) => {
-        return visited[x + ',' + y];
-    };
+    const pushVisitable = (stack, curr, x = curr.x, y = curr.y) => {
+        const possibleCoords = [[x, y + 1], [x, y - 1], [x - 1, y], [x + 1, y]].map((v) => new Coords(v[0], v[1]));
 
-    const visit = (x, y) => {
-        visited[x + ',' + y] = set.number;
-    };
-
-    const pushVisitable = (stack, x, y) => {
-        const possibleCoords = [[x, y + 1], [x, y - 1], [x - 1, y], [x + 1, y]];
-        for (const coords of possibleCoords) {
-            if (checkOutOfBound(...coords) || isVisited(...coords))
+        for (const next of possibleCoords) {
+            if (checkOutOfBound(next.x, next.y) || visited[next.toString()])
                 continue;
-            const difference = Math.abs((land[x][y] - land[coords[0]][coords[1]]));
+
+            const difference = Math.abs((land[x][y] - land[next.x][next.y]));
+
             if (difference <= height) {
-                visit(...coords);
-                stack.push(coords);
+                visited[next.toString()] = set.area;
+                stack.push(next);
                 continue;
             }
-            edges.push({weight: difference, from: [x, y], to: coords});
+            edges.push({weight: difference, from: curr, to: next});
         }
     };
 
     const stack = [start];
-    visit(...start);
+    visited[start.toString()] = set.area;
 
     while (stack[0]) {
-        const coords = stack.pop();
-        pushVisitable(stack, ...coords);
+        pushVisitable(stack, stack.pop());
     }
 }
 
@@ -61,6 +63,13 @@ function find(set, child) {
     return parent;
 }
 
+/*
+* 두 집합을 부모를 똑같이 설정하여 합침
+* @param {Object} set : Set
+* @param {number} p1 : 첫번째 부모
+* @param {number} p2 : 두번째 부모
+* @returns {Boolean} 합쳤을 경우 true 를 아닐 경우 false 반환
+* */
 function union(set, p1, p2) {
     if (p1 === p2)
         return;
@@ -78,27 +87,25 @@ function solution(land, height) {
         for (let j = 0; j < n; j++) {
             if (visited[i + ',' + j])
                 continue;
-            set[num] = {number: num, parent: -1};
-            bfs(visited, set[num], height, n, land, [i, j], edges);
+            set[num] = {area: num, parent: -1};
+            bfs(visited, set[num], height, n, land, new Coords(i, j), edges);
             num++;
         }
     }
 
+    let answer = 0;
     edges.sort((a, b) => a.weight - b.weight);
 
     /* Union-find */
-    let answer = 0;
     for (const e of edges) {
-        const children = [visited[e.from], visited[e.to]];
+        const [c1, c2] = [visited[e.from.toString()], visited[e.to.toString()]];
 
-        if (children[0] === children[1])
+        if (c1 === c2)
             continue;
 
-        if (union(set, ...children.map(v => find(set, v))))
+        if (union(set, find(set, c1), find(set, c2)))
             answer += e.weight;
     }
 
     return answer;
 }
-
-// solution([[10, 11, 10, 11], [2, 21, 20, 10], [1, 20, 21, 11], [2, 1, 2, 1]], 3);

@@ -16,7 +16,7 @@ class Coords {
 * @param {number} height : 넘을 수 있는 최대 높이 (문제에서 주어진 값)
 * @param {number} bound : N * N 좌표에서 N 의 값 (문제에서 주어진 값)
 * @param {Array.<number>} land : 2차원 배열 높이 정보 (문제에서 주어진 값)
-* @param {Array.<number>} start : 탐색 시작 좌표 ex) [x, y]
+* @param {Coords} start : 탐색 시작 좌표 ex) [x, y]
 * @param {Array.<Object>} edges : edge 정보를 포함한 배열
 * */
 function bfs(visited, set, height, bound, land, start, edges) {

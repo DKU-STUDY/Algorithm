@@ -48,13 +48,6 @@ function bfs(visited, set, height, bound, land, start, edges) {
     }
 }
 
-/*
-* 자식의 최상위 부모를 찾음
-* @param {Object} set : Set
-* @param {number} child : 자식 그룹 번호
-* @returns {number} parent : 최상위 부모 그룹 번호
-* */
-
 function find(set, child) {
     let parent = child;
     while (set[parent].parent > 0) {
@@ -63,13 +56,6 @@ function find(set, child) {
     return parent;
 }
 
-/*
-* 두 집합을 부모를 똑같이 설정하여 합침
-* @param {Object} set : Set
-* @param {number} p1 : 첫번째 부모
-* @param {number} p2 : 두번째 부모
-* @returns {Boolean} 합쳤을 경우 true 를 아닐 경우 false 반환
-* */
 function union(set, p1, p2) {
     if (p1 === p2)
         return;

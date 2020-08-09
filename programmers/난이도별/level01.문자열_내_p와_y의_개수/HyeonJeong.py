@@ -6,9 +6,7 @@ def solution(s):
             p_num += 1
         elif c in 'yY':
             y_num += 1
-    if p_num != y_num:
-        return False
-    return True
+    return p_num == y_num
 
 print(
     solution("pPoooyY") == True,

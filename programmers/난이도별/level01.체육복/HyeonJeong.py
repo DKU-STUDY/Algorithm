@@ -1,16 +1,12 @@
 def solution(n, lost, reserve):
-    rest = list(lost)
-    for p in lost:
-        if p in reserve:
-            reserve.remove(p)
-            rest.remove(p)
-        elif (p - 1) in reserve:
-                reserve.remove(p - 1)
-                rest.remove(p)
-        elif (p + 1) in reserve:
-                reserve.remove(p + 1)
-                rest.remove(p)
-    return n - len(rest)
+    n_lost = set(lost) - set(reserve)
+    n_reserve = set(reserve) - set(lost)
+    for p in n_reserve:
+        if (p - 1) in n_lost:
+            n_lost.remove(p - 1)
+        elif (p + 1) in n_lost:
+            n_lost.remove(p + 1)
+    return n - len(n_lost)
 
 print(
     solution(5,[2,4],[1,3,5]) == 5,

@@ -8,4 +8,4 @@ def solution(n):
 print(
     solution(123) == 6,
     solution(987) == 24
-)
+    )

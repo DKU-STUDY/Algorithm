@@ -1,6 +1,6 @@
 function solution(food_times, k) {
-    const foods = [];
-    let len = food_times.length;
+    let foods = [];
+    const len = food_times.length;
 
     food_times.forEach((v, i) => foods.push({time: v, index: i}));
     foods.sort((a, b) => a.time - b.time);
@@ -31,10 +31,10 @@ function solution(food_times, k) {
         prevMin = currMin;
     }
 
-    const foodLeft = foods.slice(i);
-    foodLeft.sort((a, b) => a.index - b.index);
+    foods = foods.splice(i);
+    foods.sort((a,b)=> a.index - b.index);
 
-    return foodLeft[k % foodLeft.length].index + 1;
+    return foods[k % foods.length].index + 1;
 }
 
-console.log(solution([3, 5, 1, 6, 5, 4], 23));
+console.log(solution([3, 5, 1, 6, 5, 4], 20));

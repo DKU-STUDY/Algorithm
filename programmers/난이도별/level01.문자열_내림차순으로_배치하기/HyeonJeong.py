@@ -1,8 +1,5 @@
+# 정렬이 소문자 -> 대문자 됨.
 def solution(s):
-    small = []
-    capital = []
-    for x in s:
-        capital.append(x) if 65 <= ord(x) <= 90 else small.append(x)
-    return "".join(sorted(small + capital, reverse = True))
+    return "".join(sorted(s, reverse = True))
 
 print(solution("Zbcdefg") == "gfedcbZ")

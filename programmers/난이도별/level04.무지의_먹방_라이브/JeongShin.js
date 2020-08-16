@@ -37,4 +37,4 @@ function solution(food_times, k) {
     return foods[k % foods.length].index + 1;
 }
 
-console.log(solution([3, 5, 1, 6, 5, 4], 20));
+console.log(solution([3, 5, 1, 6, 5, 4], 22));

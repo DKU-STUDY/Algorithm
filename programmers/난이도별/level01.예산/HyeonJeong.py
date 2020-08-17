@@ -1,9 +1,10 @@
 def solution(d, budget):
     tries = 0
     for n in sorted(d):
-        if budget >= n:
-            budget -= n
-            tries += 1
+        if budget < n:
+            break #break는 for문에서 빠져나오게 함.
+        budget -= n
+        tries += 1
     return tries
 
 print(

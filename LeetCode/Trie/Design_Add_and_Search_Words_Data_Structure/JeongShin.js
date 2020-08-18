@@ -52,11 +52,11 @@ function find(word, idx, node) {
 
     const curr = word[idx];
 
-    // if (curr === '.' && node.children.values().find(child => find(word, idx + 1, child)))
-    if (curr === '.')
-        for (let child of node.children.values())
-            if (find(word, idx + 1, child))
-                return true;
+    if (curr === '.' && [...node.children.values()].find(child => find(word, idx + 1, child)))
+        return true;
+    // if (curr === '.')
+        // for (let child of node.children.values())
+        //     if (find(word, idx + 1, child))
 
     if (!node.children.has(curr))
         return false;

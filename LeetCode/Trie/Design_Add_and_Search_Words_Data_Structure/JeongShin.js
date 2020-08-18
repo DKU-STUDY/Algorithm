@@ -6,52 +6,53 @@ class Node {
     }
 }
 
-const WordDictionary = function () {
-    this.root = new Node(null);
-};
+const WordDictionary = class {
+    constructor() {
+        this.root = new Node(null);
+    };
 
-/**
- * @param {string} word
- * @return {void}
- */
-WordDictionary.prototype.addWord = function (word) {
-    const len = word.length;
-    let node = this.root;
+    /**
+     * @param {string} word
+     * @return {void}
+     */
+    addWord(word) {
+        const len = word.length;
+        let node = this.root;
 
-    for (let i = 0; i < len; i++) {
-        const curr = word[i];
-        if (!node.children.has(curr))
-            node.children.set(curr, new Node(curr));
-        node = node.children.get(curr);
-    }
-    node.isEnd = true;
-};
+        for (let i = 0; i < len; i++) {
+            const curr = word[i];
+            if (!node.children.has(curr))
+                node.children.set(curr, new Node(curr));
+            node = node.children.get(curr);
+        }
+        node.isEnd = true;
+    };
 
-/**
- * 단어가 Trie 에 포함 되어 있는지 판단. '.'으로 모든 단어 대체 가능
- * @param {string} word
- * @return {boolean}
- */
+    /**
+     * 단어가 Trie 에 포함 되어 있는지 판단. '.'으로 모든 단어 대체 가능
+     * @param {string} word
+     * @return {boolean}
+     */
 
-WordDictionary.prototype.search = function (word) {
-    return find(word, 0, this.root, word.length);
+    search(word) {
+        return find(word, 0, this.root, word.length);
+    };
 };
 
 /*
-* Backtracking
-* @param {string} word
-* @param {number} idx
-* @param {Node} node
-* */
-
+   * Backtracking
+   * @param {string} word
+   * @param {number} idx
+   * @param {Node} node
+   * */
 function find(word, idx, node) {
     if (idx === word.length) {
-        console.log(node);
         return node.isEnd;
     }
 
     const curr = word[idx];
 
+    // if (curr === '.' && node.children.values().find(child => find(word, idx + 1, child)))
     if (curr === '.')
         for (let child of node.children.values())
             if (find(word, idx + 1, child))
@@ -62,4 +63,3 @@ function find(word, idx, node) {
 
     return find(word, idx + 1, node.children.get(curr));
 }
-

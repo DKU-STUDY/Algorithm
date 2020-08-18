@@ -1,13 +1,13 @@
 class Node {
     constructor(key) {
         this.key = key;
-        this.children = {};
+        this.children = new Map();
+        this.isEnd = false;
     }
 }
 
 const WordDictionary = function () {
-    this.forwardRoot = {};
-    this.backwardRoot = {};
+    this.root = new Node(null);
 };
 
 /**
@@ -16,19 +16,15 @@ const WordDictionary = function () {
  */
 WordDictionary.prototype.addWord = function (word) {
     const len = word.length;
-    let fNode, bNode;
-    fNode = this.forwardRoot[len] = (this.forwardRoot[len] || new Node(null));
-    bNode = this.backwardRoot[len] = this.backwardRoot[len] || new Node(null);
+    let node = this.root;
 
-    for (let i = 0, j = len - 1; i < len; i++, j--) {
-        if (!fNode.children[word[i]])
-            fNode.children[word[i]] = new Node(word[i]);
-        fNode = fNode.children[word[i]];
-
-        if (!bNode.children[word[j]])
-            bNode.children[word[j]] = new Node(word[j]);
-        bNode = bNode.children[word[j]];
+    for (let i = 0; i < len; i++) {
+        const curr = word[i];
+        if (!node.children.has(curr))
+            node.children.set(curr, new Node(curr));
+        node = node.children.get(curr);
     }
+    node.isEnd = true;
 };
 
 /**
@@ -38,27 +34,32 @@ WordDictionary.prototype.addWord = function (word) {
  */
 
 WordDictionary.prototype.search = function (word) {
-    const len = word.length;
-    let node = word[0] === '.' ? this.backwardRoot[len] : this.forwardRoot[len];
-    word = word[0] === '.' ? word.split('').reverse().join('') : word;
-
-    if (!node)
-        return false;
-
-    for (let i = 0; i < len; i++) {
-        const curr = word[i];
-        if (curr === '.')
-            return true;
-        if (!node.children[curr])
-            return false;
-        node = node.children[curr];
-    }
-
-    return true;
+    return find(word, 0, this.root, word.length);
 };
 
-const trie = new WordDictionary();
-trie.addWord('apple');
-console.log(trie.search('..le'));
+/*
+* Backtracking
+* @param {string} word
+* @param {number} idx
+* @param {Node} node
+* */
 
+function find(word, idx, node) {
+    if (idx === word.length) {
+        console.log(node);
+        return node.isEnd;
+    }
+
+    const curr = word[idx];
+
+    if (curr === '.')
+        for (let child of node.children.values())
+            if (find(word, idx + 1, child))
+                return true;
+
+    if (!node.children.has(curr))
+        return false;
+
+    return find(word, idx + 1, node.children.get(curr));
+}
 

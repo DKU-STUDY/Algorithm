@@ -3,10 +3,9 @@ def solution(s, n):
     for i in s:
         if i == " ":
             answer += " "
-        elif ('A' <= i <= 'Z' and ord(i) + n > 90) or ('a' <= i <= 'z' and ord(i) + n > 122):
-            answer += chr(ord(i) - 26 + n)
         else:
-            answer += chr(ord(i) + n)
+            start = ord('A') if i.isupper() else ord('a')
+            answer += chr((ord(i) - start + n) % 26 + start)
     return answer
 
 print(
@@ -14,4 +13,5 @@ print(
     solution("z", 1) == "a",
     solution("a B z", 4) == "e F d"
 )
+
 

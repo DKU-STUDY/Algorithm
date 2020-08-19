@@ -3,7 +3,7 @@ from sys import stdin
 
 def solution():
     N = int(stdin.readline().strip('\n'))
-    deck = [card for card in range(1, N + 1)] + [None for _ in range(N + 1)]
+    deck = [card for card in range(1, N + 1)] + [None] * range(N + 1)
 
     fst_card = 0
     end_card = N

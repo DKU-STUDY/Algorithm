@@ -11,10 +11,7 @@ call_list = list(map(int, stdin.readline().split()))
 card_dict = {}
 
 for card in cards:
-    if card not in card_dict:
-        card_dict[card] = 1
-    else:
-        card_dict[card] += 1
+    card_dict[card] = card_dict.get(card, 0) + 1
 
 return_str = ''
 for call in call_list:

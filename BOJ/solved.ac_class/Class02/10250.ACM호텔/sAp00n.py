@@ -9,9 +9,6 @@ for i in range(T):
 
     if len(str(room_num)) < 2:
         room_num = '0' + str(room_num)
-    if N % H == 0:
-        floor_num = H
-    else:
-        floor_num = N % H
+    floor_num = min(N%H, H)
 
     print(f'{floor_num}{room_num}')

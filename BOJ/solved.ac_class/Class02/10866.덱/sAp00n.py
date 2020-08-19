@@ -14,19 +14,18 @@ class Deck:
 
     def pop_front(self):
         if self.empty():
-            print(-1)
-        else:
-            temp = self.deck_data[-1]
-            self.deck_data = self.deck_data[:-1]
-            print(temp)
+            return print(-1)
+
+        temp = self.deck_data[-1]
+        self.deck_data = self.deck_data[:-1]
+        print(temp)
 
     def pop_back(self):
         if self.empty():
-            print(-1)
-        else:
-            temp = self.deck_data[0]
-            self.deck_data = self.deck_data[1:]
-            print(temp)
+            return print(-1)
+        temp = self.deck_data[0]
+        self.deck_data = self.deck_data[1:]
+        print(temp)
 
     def size(self):
         print(len(self.deck_data))

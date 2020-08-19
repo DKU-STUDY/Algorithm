@@ -20,10 +20,7 @@ class Stack:
         print(len(self.stack_data))
 
     def empty(self):
-        if len(self.stack_data) == 0:
-            return True
-        else:
-            return False
+        return len(self.stack_data) == 0
 
     def top(self):
         if self.empty():

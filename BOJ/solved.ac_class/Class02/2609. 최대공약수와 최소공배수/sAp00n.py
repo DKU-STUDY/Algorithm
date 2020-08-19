@@ -3,13 +3,9 @@ from sys import stdin
 
 def gdc(a, b):
     if b > a:
-        temp = a
-        a = b
-        b = temp
+        a, b = b, a
     while b > 0:
-        c = b
-        b = a % b
-        a = c
+        a, b = b, a%b
     return a
 
 

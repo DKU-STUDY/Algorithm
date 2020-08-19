@@ -8,14 +8,10 @@ def checker(test_case):
         if test_case[idx] == ')':
             if '(' not in que:
                 return False
-            else:
-                que.remove('(')
+            que.remove('(')
         if test_case[idx] == '(':
             que.appendleft('(')
-    if len(que) == 0:
-        return True
-    else:
-        return False
+    return len(que) == 0
 
 
 T = int(stdin.readline())

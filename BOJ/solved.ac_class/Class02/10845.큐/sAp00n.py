@@ -20,10 +20,7 @@ class Que:
         print(len(self.que_data))
 
     def empty(self):
-        if len(self.que_data) == 0:
-            return True
-        else:
-            return False
+        return len(self.que_data) == 0
 
     def front(self):
         if self.empty():

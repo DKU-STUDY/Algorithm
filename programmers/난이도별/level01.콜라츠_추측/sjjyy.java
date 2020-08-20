@@ -17,8 +17,7 @@ public class sjjyy
 
             if (answer == 500)
             {
-                answer = -1;
-                break;
+                return -1;
             }
         }
 

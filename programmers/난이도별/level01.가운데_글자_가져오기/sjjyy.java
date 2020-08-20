@@ -6,12 +6,15 @@ public class sjjyy
     {
         int len = s.length();
 
-        if (len % 2 == 0)
-            return s.substring(len/2 -1 , len/2 + 1);
-        else
-            return s.substring(len/2, len/2 +1);
+//        if (len % 2 == 0)
+//            return s.substring(len/2 - 1 , len/2 + 1);
+//        else
+//            return s.substring(len/2, len/2 + 1);
+
 
 //        return len % 2 == 0 ? s.substring(len/2 -1 , len/2 + 1) : s.substring(len/2, len/2 +1);
+
+        return s.substring(len/2 - (len % 2 == 0 ? 1 : 0), len/2 + 1);
     }
 
     public static void  main(String[] args){

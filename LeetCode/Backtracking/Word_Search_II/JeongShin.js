@@ -26,6 +26,7 @@ class Trie {
 
     checkOutOfBound = (i, j) => (i >= this.row || i < 0 || j >= this.col || j < 0);
 
+    // dfs 알고리즘
     find(board, i, j, answer, node = this.root) {
         if (this.checkOutOfBound(i, j))
             return false;
@@ -33,19 +34,24 @@ class Trie {
         const char = board[i][j];
         const child = node.children.get(char);
 
+        // Visited 거나 Trie 에 자식이 없는 경우 리턴
         if (char === '#' || !child)
             return;
 
+        // 단어를 끝까지 찾은 경우 단어를 정답에 add
         if (child.isEnd) {
             answer.add(child.isEnd);
             child.isEnd = null;
         }
 
+        // Visited 객체를 사용하는 대신 # 을 배치하여 중복 선택 방지
         board[i][j] = '#';
         this.find(board, i - 1, j, answer, child);
         this.find(board, i + 1, j, answer, child);
         this.find(board, i, j + 1, answer, child);
         this.find(board, i, j - 1, answer, child);
+
+        // 탐색 후 다시 원래 단어 배치
         board[i][j] = char;
     }
 }

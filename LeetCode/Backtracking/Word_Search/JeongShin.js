@@ -13,18 +13,20 @@ const exist = function (board, word) {
     };
 
     const search = (i, j, idx) => {
+        const key = `${i},${j}`;
+
         if (idx === target)
             return true;
 
-        if (checkOutOfBound(i, j) || board[i][j] !== word[idx] || visited[i + ',' + j] === true)
+        if (checkOutOfBound(i, j) || board[i][j] !== word[idx] || visited[key] === true)
             return false;
 
-        visited[i + ',' + j] = true;
+        visited[key] = true;
         if (search(i - 1, j, idx + 1) || search(i + 1, j, idx + 1)
             || search(i, j - 1, idx + 1) || search(i, j + 1, idx + 1))
             return true;
 
-        visited[i + ',' + j] = false;
+        visited[key] = false;
         return false;
     };
 

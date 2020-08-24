@@ -1,18 +1,17 @@
+import heapq
 def solution(scoville, K):
     answer = 0
-    # for i in range(len(n for n in scoville if n < K)):
-    while K > min(scoville):
-        # scoville[1] = scoville[0] + (2 * scoville[1])
-        mix = scoville.pop(scoville.index(min(scoville))) + 2*scoville.pop(scoville.index(min(scoville)))
-        scoville.append(mix)
-        answer += 1
-        if len(scoville) == 1 and scoville[0] < K:
-            return -1
-    return answer
+    heap = []
+    for i in scoville:
+        heapq.heappush(heap, i)
+    
+    while heap != []:
+        if heap[0] >= K:
+            return answer
+        most_not_spicy = heapq.heappop(heap)
+        if heap != []:
+            heapq.heappush(heap, most_not_spicy + (2 * heapq.heappop(heap) ))
+            answer += 1
+    return -1 if heap == [] else answer
 
 print(solution([1, 2, 3, 9, 10, 12], 7), solution([1, 2, 3, 9, 10, 12], 7) == 2)
-#1st try fail
-#1, 3, 8, 14 런타임 에러, 효율성 0점
-
-#2nd try fail
-#런타임 에러 해결, 효율성 0점

@@ -1,16 +1,18 @@
-
 def solution(num):
     num= list(map(str, num))
-    for i in range(len(num)): #숫자가 하나인 수를 범위 1000이상인 수로 만들어 주기 위해 4를 곱함
-        if len(num[i])==1:
-            num[i]*=4
+    slen= len(num)
 
-    num = sorted(num, reverse=True)
-    for i in range(len(num)): #다시 원래의 크기로 변환해 줌
-        if len(num[i]) == 4:
-            num[i] =num[i][0]
+    for i in range(slen):
+        num[i]*=3
+    # print(num)
+
+    num.sort(reverse=True)
+    for i in range(slen):
+        num[i]=num[i][:len(num[i])//3]
+    if num[0]=='0': return '0'
     return ''.join(num)
 
+
 print(
-    solution([3, 30, 34, 5, 9]),
+    solution([6, 2, 10])
 )

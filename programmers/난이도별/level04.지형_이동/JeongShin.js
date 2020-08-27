@@ -27,20 +27,19 @@ function bfs(land, visited, start, height, edges, idx) {
     }
 }
 
-// return {boolean} 만약 union 할 시 true, 넘어갈 시 false 반환
-function union_find(areas, c1, c2) {
-    let [p1, p2] = [c1, c2];
-    while (areas[p1].parent > 0)
-        p1 = areas[p1].parent;
-
-    while (areas[p2].parent > 0)
-        p2 = areas[p2].parent;
-
-    if (p1 !== p2) {
-        areas[p1].parent = p2;
-        return true;
+function find(areas, child) {
+    let parent = child;
+    while (areas[parent].parent > 0) {
+        parent = areas[parent].parent;
     }
-    return false;
+    return parent;
+}
+
+function union(areas, p1, p2) {
+    if (p1 === p2)
+        return false;
+    areas[p1].parent = p2;
+    return true;
 }
 
 function solution(land, height) {
@@ -63,7 +62,7 @@ function solution(land, height) {
         const [from, to] = [visited.get(edge.from), visited.get(edge.to)];
         if (from === to)
             continue;
-        answer += (union_find(areas, from, to) * edge.weight);
+        answer += (union(areas, find(areas, from), find(areas, to)) * edge.weight);
     }
 
     return answer;

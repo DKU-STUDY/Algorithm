@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 class Solution {
     public boolean checkPossible(List<Integer> rocksList, int min, int len, int n) {
@@ -16,16 +18,16 @@ class Solution {
     }
 
     public int solution(int distance, int[] rocks, int n) {
-        List<Integer> rocksList = new ArrayList<>();
-        for (int r : rocks)
-            rocksList.add(r);
+        List<Integer> rocksList = IntStream.range(0, rocks.length)
+                .map(i -> rocks[i])
+                .sorted()
+                .boxed()
+                .collect(Collectors.toList());
 
         int answer = 0;
         int low = 1;
         int high = distance;
         int size = rocksList.size();
-
-        Collections.sort(rocksList);
 
         while (low <= high) {
             int mid = (high + low) / 2;

@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 class Solution {
     public long find(Map<Long, Long> rooms, long num) {
@@ -14,12 +16,8 @@ class Solution {
 
     public long[] solution(long k, long[] room_number) {
         Map<Long, Long> rooms = new HashMap<Long, Long>();
-        int len = room_number.length;
-        long[] answer = new long[len];
-
-        for (int i = 0; i < len; i++)
-            answer[i] = find(rooms, room_number[i]);
-
-        return answer;
+        return IntStream.range(0, room_number.length)
+                .mapToLong(i -> find(rooms, room_number[i]))
+                .toArray();
     }
 }

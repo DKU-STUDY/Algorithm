@@ -47,3 +47,40 @@ class Solution {
     }
 }
 
+// https://leveloper.tistory.com/152 풀이 참고
+
+class Solution {
+    private String[] u_id;
+    private String[] b_id;
+    private int len;
+    private int target;
+    private boolean[] visited;
+    private HashSet<HashSet<Integer>> resultSet;
+
+    public int solution(String[] user_id, String[] banned_id) {
+        u_id = user_id;
+        visited = new boolean[user_id.length];
+        resultSet = new HashSet<>();
+        b_id = Arrays.stream(banned_id).map(v -> "^" + v.replace("*", ".") + "$").toArray(String[]::new);
+        target = b_id.length;
+        len = user_id.length;
+        dfs(0, new HashSet<>());
+        return resultSet.size();
+    }
+
+    private void dfs(int index, HashSet<Integer> set) {
+        if (index == target) {
+            resultSet.add(set);
+            return;
+        }
+        for (int i = 0; i < len; i++) {
+            if (Pattern.matches(b_id[index], u_id[i]) && !visited[i]) {
+                visited[i] = true;
+                set.add(i);
+                dfs(index + 1, new HashSet<>(set));
+                visited[i] = false;
+                set.remove(i);
+            }
+        }
+    }
+}

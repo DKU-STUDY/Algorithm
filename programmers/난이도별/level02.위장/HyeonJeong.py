@@ -1,0 +1,20 @@
+def solution(clothes):
+    answer = 1
+    list = []
+    num = 0
+    length = len(clothes)
+    for i in range(length):
+        if clothes[i][1] not in list:
+            list.append(clothes[i][1])
+    for n in list:
+        for m in range(length):
+            if n == clothes[m][1]:
+                num += 1
+        answer *= num + 1 # 그 옷을 입지 않는 경우로 + 1
+        num = 0
+    return answer - 1 # 전부 입지 않는 경우로 -1
+
+print(
+    solution([['yellow_hat', 'headgear'], ['blue_sunglasses', 'eyewear'], ['green_turban', 'headgear']]) == 5,
+    solution([['crow_mask', 'face'], ['blue_sunglasses', 'face'], ['smoky_makeup', 'face']]) == 3
+)

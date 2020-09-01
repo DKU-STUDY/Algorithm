@@ -14,8 +14,7 @@ def solution(A):
         mn = min(mn, i)
         B.append(i - mn)
 
-    B.sort()
-    return B[-1]
+    return sorted(B)[-1]
 
 print(
     solutiion(23171, 21011, 21123, 21366, 21013, 21367) == 356

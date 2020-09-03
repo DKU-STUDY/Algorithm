@@ -1,85 +1,61 @@
-/* Solution 2. 효율성 불합격 */
-// function solution2(words, queries) {
-//     return queries.map((query) => {
-//         const regEx = '^' + query.replace(/\?/g, '.') + '$';
-//         const filtered = words.reduce((acc, curr) => {
-//             const r = curr.match(regEx);
-//             if (r)
-//                 acc.add(r);
-//             return acc;
-//         }, new Set());
-//         return filtered.size;
-//     })
-// }
-
-// Solution 1. Trie 자료구조로 풀이
-
-class TrieNode {
+// 2020.08.25 코드 복습 및 수정
+class Node {
     constructor(key) {
         this.key = key;
         this.count = 0;
-        this.children = {};
-    };
+        this.children = new Map();
+    }
 }
 
-const Trie = function (type) {
-    this.root = new TrieNode();
-    this.type = type;
-    this.insert = function (word, target, idx, node = this.root) {
-        while (idx !== target) {
-            const curr = word[idx];
-            if (!node.children[curr]) {
-                node.children[curr] = new TrieNode(curr);
-            }
-            node.count++;
-            node = node.children[curr];
-            this.type ? idx++ : idx--;
-        }
-    };
+class Trie {
+    constructor() {
+        this.root = new Node(null);
+    }
 
-    this.find = function (word, len = word.length) {
+    // @param {boolean} reverse : 단어를 거꾸로 넣을 것인지 (true) 순서대로 넣을 것인지 (false)
+    insert(word, reverse, len) {
         let node = this.root;
-        let idx = 0;
-        while (idx < len) {
-            const curr = word[idx];
-            if (!node.children[curr]) {
+        for (let i = 0; i < len; i++) {
+            const curr = word[reverse ? len - i - 1 : i];
+            if (!node.children.has(curr))
+                node.children.set(curr, new Node(curr));
+            node = node.children.get(curr);
+            node.count = (node.count || 0) + 1;
+        }
+    }
+
+    search(word, reverse, len = word.length, node = this.root) {
+        for (let i = 0; i < len; i++) {
+            const curr = word[reverse ? len - i - 1 : i];
+            node = node.children.get(curr);
+            if (!node)
                 return 0;
-            }
-            node = node.children[curr];
-            idx++;
         }
         return node.count;
     }
-};
-
-const reverse = function (str) {
-    return str.split('').reduce((reversed, character) => character + reversed, '')
-};
-
-function solution(words, queries) {
-    const forward = {}, backward = {}, exceptions = {};
-
-    for (const word of words) {
-        const len = word.length;
-        exceptions[len] = (exceptions[len] || 0) + 1;
-        forward[len] = forward[len] || new Trie(true);
-        backward[len] = backward[len] || new Trie(false);
-        forward[len].insert(word, len, 0);
-        backward[len].insert(word, -1, len - 1);
-    }
-
-    return queries.map((el)=> {
-        const len = el.length;
-        const str = el.replace(/\?/g, '');
-        if (!forward[len] || !backward[len])
-            return 0;
-        if (el[len - 1] ==='?' && el[0] ==='?')
-            return exceptions[len];
-        if (el[len - 1] ==='?')
-            return forward[len].find(str);
-        if (el[0]=== '?')
-            return backward[len].find(reverse(str));
-    });
 }
 
-console.log(solution(["frodo", "front", "frost", "frozen", "frame", "kakao"], ["fro??", "?????", "fr???", "fro???", "pro?"]))
+function solution(words, queries) {
+    const regEx = /\?/g;
+    const [forward, backward, exceptions] = words.reduce(([f, b, e], word) => {
+        const len = word.length;
+        [f[len], b[len]] = [f[len] || new Trie(), b[len] || new Trie()];
+        f[len].insert(word, false, len);
+        b[len].insert(word, true, len);
+        e[len] = (e[len] || 0) + 1;
+        return [f, b, e];
+    }, [{}, {}, {}]);
+
+    return queries.map((query) => {
+        const len = query.length;
+        const str = query.replace(regEx, '');
+        if (!forward[len])
+            return 0;
+        if (query[0] === '?' && query[len - 1] === '?')
+            return exceptions[len];
+        if (query[0] === '?')
+            return backward[len].search(str, true);
+        return forward[len].search(str, false);
+    })
+}
+

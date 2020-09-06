@@ -9,7 +9,7 @@ char* solution(const char* phone_number) {
     char* answer = (char*)malloc(1); //char size 할당
     strcpy(answer, phone_number);
     
-    for(int i=0; i<strlen(phone_number)-4; i++)
+    for(int i = 0, len = strlen(phone_number); i < len - 4; i++)
         answer[i] = '*';
     
     return answer;

@@ -4,11 +4,10 @@ def solution(s):
         if n == '(':
             stack.append('(')
         elif n == ')':
-            if stack != []:
-                stack.pop()
-            else:
+            if stack == []:
                 return False
-    return True if stack == [] else False
+            stack.pop()
+    return stack == []
 
 print(
     solution('()()') == True,

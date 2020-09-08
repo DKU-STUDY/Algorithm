@@ -5,10 +5,8 @@ def solution(n):
         total = 0
         for j in range(i, n):
             total += j
-            if total >= n:
-                if total == n:
-                    answer += 1
-                break
+            if total == n: answer += 1
+            if total >= n: break
     return answer + 1 # n = n
 
 print(solution(15) == 4)

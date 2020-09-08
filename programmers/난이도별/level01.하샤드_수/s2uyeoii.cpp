@@ -17,10 +17,6 @@ bool solution(int x) {
 
         }
 
-    if (x % sum == 0)
-    return  true;
-
-    else
-    return false;
+    return x % sum == 0;
 
 }

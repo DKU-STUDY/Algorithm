@@ -42,8 +42,9 @@ const getCloseHand = (number, leftCurr, rightCurr, hand) => {
 
     const diff = diffFromLeft - diffFromRight;
     // 차이가 같을떄는 거리가 같으므로, hand (R, L) 를 리턴하고, 좌키패드가 더 멀면 오른손을, 우키패드가 더 멀면 왼손을 리턴한다.
-    return (diff === 0) ? hand :
-        (diff > 0) ? 'R' : 'L';
+    if (diff === 0) return hand;
+    if (diff > 0) return 'R';
+    if (diff < 0) return 'L';
 };
 
 function solution (numbers, hand) {

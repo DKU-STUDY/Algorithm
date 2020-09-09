@@ -10,9 +10,7 @@ def solution(A):
     if size == 0:
         return 0
 
-    C = []
-    for i in range(1, size):
-        C.append(B[i] - B[i - 1])
+    C = [ B[i] - B[i - 1] for i in range(1, size) ]
 
     maxFlags = 1
     for i in range(2, size + 1):

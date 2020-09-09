@@ -6,16 +6,12 @@ def solution(N):
     pass
 
     i = 1
-    limit = 0
-    while i * i <= N:
-        limit += 1
-        i += 1
-
+    while i * i <= N: i += 1
     i -= 1
+    
     cnt = 0
-    for j in range(1, limit + 1):
-        if N % j == 0:
-            cnt += 1
+    for j in range(1, i + 1):
+        cnt += 1 if N % j == 0 else 0
         j += 1
 
     return (cnt * 2 if i * i != N else cnt * 2 - 1)

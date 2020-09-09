@@ -1,10 +1,7 @@
 def solution(A):
     # write your code in Python 3.6
     pass
-    B = []
-    for i in range(1, len(A) - 1):
-        if A[i - 1] < A[i] and A[i] > A[i + 1]:
-            B.append(i)
+    B = [ i for i in range(1, len(A) - 1) if max(A[i - 1], A[i + 1]) < A[i]  ]
 
     size = len(B)
     if size == 0:

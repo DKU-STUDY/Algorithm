@@ -3,7 +3,6 @@
 
 def solution(A):
     # write your code in Python 3.6
-    pass
     B = [i for i in range(1, len(A) - 1) if max(A[i - 1], A[i + 1]) < A[i]]
 
     sizeB = len(B)

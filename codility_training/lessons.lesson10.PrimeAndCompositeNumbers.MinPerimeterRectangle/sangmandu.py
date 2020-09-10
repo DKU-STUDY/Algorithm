@@ -3,7 +3,6 @@
 
 def solution(N):
     # write your code in Python 3.6
-    pass
 
     M = N ** (1 / 2)
     M = int(M)

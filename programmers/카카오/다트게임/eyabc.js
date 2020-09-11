@@ -37,10 +37,7 @@ function solution (dartResult) {
             i += 2;
         }
     }
-    return answer.reduce((sum, value) => {
-        sum += value;
-        return sum;
-    }, 0);
+    return answer.reduce((sum, value) => sum + value);
 };
 
 JSTestModule('/Users/ey/DKU/Algorithm/programmers/카카오/다트게임/test.json', solution);

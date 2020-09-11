@@ -12,7 +12,7 @@ const getPrefixSum = (count, allSolved) =>
     count.reduceRight((arr, value, key) => {
         let newVal = (key === (count.length - 1)) ?
             allSolved + (value || 0) :
-            (value ? value : 0) + (arr[arr.length - 1]);
+            (value || 0) + (arr[arr.length - 1]);
         arr.push(newVal);
         return arr;
     }, []);

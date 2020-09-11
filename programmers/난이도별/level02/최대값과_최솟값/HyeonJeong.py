@@ -1,6 +1,6 @@
 def solution(s):
-    list = [int(i) for i in s.split(' ')]
-    return str(min(list)) + ' ' + str(max(list))
+    splitted_list = sorted(map(int, s.split()))
+    return f'{splitted_list[0]} {splitted_list[-1]}'
 
 print(
     solution("1 2 3 4") == "1 4",

@@ -24,18 +24,18 @@ function solution (board, moves) {
         machine[pick].find((dol, idx) => {
             const result = dol !== 0;
             // 해당 열에서 인형이 존재하면
-            if (result) {
-                // 바구니 최상위의 인형과 동일한 종류일 때, deleteCnt 을 추가해 준다.
-                if (basket[basket.length - 1] === dol) {
-                    deleteCnt += 2;
-                    machine[pick][idx] = 0;
-                    basket.pop();
-                    return true;
-                }
-                basket.push(dol);
+            if (!result) return result;
+            // 바구니 최상위의 인형과 동일한 종류일 때, deleteCnt 을 추가해 준다.
+            if (basket[basket.length - 1] === dol) {
+                deleteCnt += 2;
                 machine[pick][idx] = 0;
+                basket.pop();
+                return true;
             }
-            return result;
+            basket.push(dol);
+            machine[pick][idx] = 0;
+            
+            
         });
         return { basket, deleteCnt };
     }, { basket: [], deleteCnt: 0 }).deleteCnt;

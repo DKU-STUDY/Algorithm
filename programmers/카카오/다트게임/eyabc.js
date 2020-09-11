@@ -31,11 +31,10 @@ function solution (dartResult) {
             if (!Squared) {
                 answer[a] = (currChar + nextChar) ** englishToNumber[dartResult.charAt(i + 2)];
                 i += 3;
+               continue;
             }
-            else {
-                answer[a] = currChar ** Squared;
-                i += 2;
-            }
+            answer[a] = currChar ** Squared;
+            i += 2;
         }
     }
     return answer.reduce((sum, value) => {

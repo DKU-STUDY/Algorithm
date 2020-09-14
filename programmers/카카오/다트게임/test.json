@@ -1,0 +1,40 @@
+[
+  {
+    "input": ["1S2D*3T"],
+    "output": 37
+  },
+  {
+    "input": ["10S2D*3T"],
+    "output": 55
+  },
+  {
+    "input": ["1D2S#10S"],
+    "output": 9
+  },
+  {
+    "input": ["1D2S0T"],
+    "output": 3
+  },
+  {
+    "input": ["1S*2T*3S"],
+    "output": 23
+  },
+  {
+    "input": ["1D#2S*3S"],
+    "output": 5
+  },
+  {
+    "input": ["1T2D3D#"],
+    "output": -4
+  },
+  {
+    "input": ["1D2S3T*"],
+    "output": 59
+  }
+]
+
+
+
+
+
+

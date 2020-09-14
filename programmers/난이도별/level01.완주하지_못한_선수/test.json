@@ -1,0 +1,14 @@
+[
+  {
+    "input": [["leo", "kiki", "eden"], ["eden", "kiki"]],
+    "output": "leo"
+  },
+  {
+    "input": [["marina", "josipa", "nikola", "vinko", "filipa"],["josipa", "filipa", "marina", "nikola"]],
+    "output": "vinko"
+  },
+  {
+    "input": [["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"]],
+    "output": 	"mislav"
+  }
+]

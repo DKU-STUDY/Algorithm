@@ -21,13 +21,13 @@ const numIslands = function (grid) {
     for (let i = 0; i < row; i++) {
         for (let j = 0; j < col; j++) {
             const key = i + ',' + j;
-            if (!visited[key]) {
-                visited[key] = true;
-                if (grid[i][j] === '1') {
-                    dfs(grid, visited, i, j, row, col);
-                    answer++;
-                }
-            }
+            if (visited[key])
+                continue;
+            visited[key] = true;
+            if (grid[i][j] !== '1')
+                continue;
+            dfs(grid, visited, i, j, row, col);
+            answer++;
         }
     }
     return answer;
@@ -46,3 +46,4 @@ const dfs = (grid, visited, i, j, row, col) => {
         }
     }
 };
+

@@ -5,7 +5,7 @@ def solution(number, k):
             number = number[:i] + number[i + 1:]
             k -= 1
             if i ! = 0:
-                i -= 1 # i=0을 하면 많이 틀림 왜?
+                i -= 1
         else:
             i += 1
             if i == len(number)-1:

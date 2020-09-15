@@ -50,7 +50,7 @@ BOJ 문제가 가끔 좀 별로인것도 있지만 한국어화 되어 있다는
 
   
 
-  ex)  터미널에 > **test input**  을 입력했을떄,  **'test input\n'**으로 가져옵니다
+  ex)  터미널에 > **test input**  을 입력했을떄,  **'test input\n'** 으로 가져옵니다
 
   
 

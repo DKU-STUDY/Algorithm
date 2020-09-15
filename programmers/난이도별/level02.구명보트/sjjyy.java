@@ -7,9 +7,9 @@ public class sjjyy {
         int answer = people.length;
 
         Arrays.sort(people);
-        int j = people.length - 1;
+        int i = 0, j = people.length - 1;
 
-        for (int i = 0 ; i < j ;) {
+        while (i < j) {
             if (people[i] + people[j] <= limit) {
                 answer--;
                 i++;

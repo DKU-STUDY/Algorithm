@@ -1,18 +1,18 @@
 def solution(number, k):
-    number = list(map(int, number))  # number = [int(x) for x in number]
-    answer=[]
-    for i in range(len(number)):
-        index_of_max_value = number.index(max(number[:k+1]))
-        k -= index_of_max_value
-        number = number[index_of_max_value:]
-        if index_of_max_value == 0:
-            answer.append(number.pop(0))
-            continue
-        answer.append(number.pop(0))
+    i = 0
+    while k > 0:
+        if number[i] < number[i + 1]:
+            number = number[:i] + number[i + 1:]
+            k -= 1
+            if i ! = 0:
+                i -= 1 # i=0을 하면 많이 틀림 왜?
+        else:
+            i += 1
+            if i == len(number)-1:
+                return number[:-k]
+    return number
 
-        if k == 0:
-            return "".join(map(str, answer + number))
-
-    return "".join(map(str, answer + number))
-
-print(solution("314161592",5))
+print(solution("1924", 2), solution("1924", 2) == "94")
+print(solution("1231234", 3), solution("1231234", 3) == "3234")
+print(solution("4177252841", 4), solution("4177252841", 4) == "775841")
+print(solution("100000", 2) ,solution("100000", 2) == "1000")

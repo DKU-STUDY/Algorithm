@@ -1,14 +1,13 @@
+package 난이도별.level01.문자열_내_p와_y의_개수;
+
 public class HyeonJeong {
     public static boolean solution(String s) {
-        int count = 0;
-        char[] array = s.toUpperCase().toCharArray();
-        for (int i = 0; i < s.length(); i++) {
-            if (array[i] == 'P')
-                count += 1;
-            else if (array[i] == 'Y')
-                count -= 1;
-        }
-        return count == 0;
+        return s.chars()
+                .reduce(0, (count, c) -> {
+                    if (c == 'P' || c == 'p') return count + 1;
+                    if (c == 'Y' || c == 'y') return count - 1;
+                    return count;
+                }) == 0;
     }
 
     public static void main(String[] args) {

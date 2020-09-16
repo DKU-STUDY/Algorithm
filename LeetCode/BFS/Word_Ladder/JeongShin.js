@@ -3,8 +3,9 @@
  * @param {string} endWord
  * @param {string[]} wordList
  * @return {number}
- * 시작 단어와 끝 단어가 주어질 때 하나의 단어씩 바꾸어 가면서 최소 바꾸는 경로 길이 구하기
  */
+
+// 나의 처음 풀이 👉 시간 초과
 const ladderLength = function (beginWord, endWord, wordList) {
     const graph = {};
     const len = beginWord.length;
@@ -24,10 +25,6 @@ const ladderLength = function (beginWord, endWord, wordList) {
     return bfs(graph, beginWord, endWord)
 };
 
-/* currWord 기준으로 가능한 모든 단어 스택에 푸쉬 */
-
-
-/* endWord 로 가는 최단 경로 길이 반환, 방법이 없을 시 -1 반환 */
 const bfs = function (graph, beginWord, endWord) {
     const visited = new Map();
     visited.set(beginWord, true);
@@ -54,8 +51,42 @@ const bfs = function (graph, beginWord, endWord) {
             }
         })
     }
-
     return answer === Infinity ? 0 : answer;
 };
 
-ladderLength("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]);
+// 그래프를 사용하지 않는 풀이
+
+const ladderLength2 = function (beginWord, endWord, wordList) {
+    return wordList.includes(endWord) ? bfs(beginWord, endWord, wordList) : 0;
+};
+
+function bfs(beginWord, endWord, wordList) {
+    const listLen = wordList.length;
+    const wordLen = beginWord.length;
+    const visited = new Array(listLen).fill(true);
+    let queue = [];
+
+    queue.push({word: beginWord, count: 1});
+
+    while (queue[0]) {
+        const {word, count} = queue.pop();
+        if (word === endWord)
+            return count;
+
+        for (let i = 0; i < listLen; i++) {
+            if (!visited[i])
+                continue;
+
+            let difference = 0;
+
+            for (let j = 0; j < wordLen; j++)
+                difference += (wordList[i][j] !== word[j]);
+
+            if (difference === 1) {
+                queue.unshift({word: wordList[i], count: count + 1});
+                visited[i] = false;
+            }
+        }
+    }
+    return 0;
+}

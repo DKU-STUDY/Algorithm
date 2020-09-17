@@ -63,7 +63,7 @@ const ladderLength2 = function (beginWord, endWord, wordList) {
 function bfs(beginWord, endWord, wordList) {
     const listLen = wordList.length;
     const wordLen = beginWord.length;
-    const visited = new Array(listLen).fill(true);
+    const visited = new Array(listLen).fill(false);
     let queue = [];
 
     queue.push({word: beginWord, count: 1});
@@ -74,7 +74,7 @@ function bfs(beginWord, endWord, wordList) {
             return count;
 
         for (let i = 0; i < listLen; i++) {
-            if (!visited[i])
+            if (visited[i])
                 continue;
 
             let difference = 0;
@@ -84,7 +84,7 @@ function bfs(beginWord, endWord, wordList) {
 
             if (difference === 1) {
                 queue.unshift({word: wordList[i], count: count + 1});
-                visited[i] = false;
+                visited[i] = true;
             }
         }
     }

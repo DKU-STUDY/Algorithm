@@ -26,7 +26,6 @@ function solution(nums) {
 //피드백 후 가능한 코드
 function solution(nums) {
     const set = new Set(nums);     //중복된 것을 제거한 set1 설정
-    const n_divide_length = nums.length / 2;  // N/2만큼 가져가도 좋은 크기 설정
     return Math.min(nums.length / 2, set.size);
 }
 

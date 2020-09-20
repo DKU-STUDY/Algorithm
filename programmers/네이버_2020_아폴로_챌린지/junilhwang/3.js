@@ -1,17 +1,25 @@
 function solution(play_list, listen_time) {
-  const arr = [];
-  for (const [k, v] of Object.entries(play_list)) {
-    arr.push(...Array(v).fill(Number(k)));
-  }
-  const arr2 = [ ...arr.slice(-listen_time), ...arr.slice(0, listen_time) ];
   let max = 0;
-  for (let i = 0, len = arr.length; i < len; i++) {
-    max = Math.max(max, new Set(arr.slice(i, i + listen_time)).size);
+  for (let i = 0, len = play_list.length; i < len; i++) {
+    let cnt = 1;
+    let n = listen_time - 1;
+    for (let j = i + 1; j < len && n > 0; j++) {
+      const v = play_list[j];
+      if (n >= 1) {
+        n -= v;
+        cnt += 1;
+      }
+    }
+    for (let j = 0; j < len && n > 0 && cnt < len; j++) {
+      const v = play_list[j];
+      if (n >= 1) {
+        n -= v;
+        cnt += 1;
+      }
+    }
+    max = Math.max(cnt, max);
   }
-  for (let i = 0, len = arr2.length; i < len; i++) {
-    max = Math.max(max, new Set(arr2.slice(i, i + listen_time)).size);
-  }
-  return max;
+  return Math.min(max, play_list.length);
 }
 
 console.log(

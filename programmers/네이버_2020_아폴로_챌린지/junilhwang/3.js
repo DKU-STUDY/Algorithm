@@ -1,8 +1,11 @@
 function solution(play_list, listen_time) {
   let max = 0;
+  const maxListenTime = play_list.reduce((a, b) => a+ b);
+  if (maxListenTime <= listen_time) return play_list.length;
+  const time = Math.min(maxListenTime, listen_time);
   for (let i = 0, len = play_list.length; i < len; i++) {
     let cnt = 1;
-    let n = listen_time - 1;
+    let n = time - 1;
     for (let j = i + 1; j < len && n > 0; j++) {
       const v = play_list[j];
       if (n >= 1) {
@@ -17,9 +20,10 @@ function solution(play_list, listen_time) {
         cnt += 1;
       }
     }
-    max = Math.max(cnt, max);
+    max = Math.min(Math.max(cnt, max), len);
+    if (max === len) break;
   }
-  return Math.min(max, play_list.length);
+  return max;
 }
 
 console.log(

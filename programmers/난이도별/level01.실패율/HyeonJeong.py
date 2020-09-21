@@ -1,18 +1,10 @@
 def solution(N, stages):
     answer = []
     nlist = []
-    failure = [[0]*2 for i in range(N)]
-    for j in range(0, N): #stages는 1부터 시작하지만 failure 리스트는 0부터 시작하므로 s-1
-        for s in stages:
-            if j <= s-1:
-                failure[j][1] += 1
-                if j == s-1:
-                    failure[j][0] += 1
 
-        if failure[j][1] == 0: #스테이지에 도달한 유저가 없는 경우에는 실패율 0
-            nlist += [0]
-            continue
-        nlist += [failure[j][0]/failure[j][1]]
+    for j in range(0, N):
+        nlist += [stages.count(j+1)/sum([1 if j <= s-1 else 0 for s in stages])]
+        #stages는 1부터 시작하지만 failure 리스트는 0부터 시작하므로 s-1
 
     for j in range(N):
         m = max(nlist)

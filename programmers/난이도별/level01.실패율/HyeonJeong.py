@@ -4,8 +4,7 @@ def solution(N, stages):
     for j in range(0, N):
         player = sum([1 if j <= s-1 else 0 for s in stages])
         if player != 0:
-            nlist += [stages.count(j+1)/player]
-        #stages는 1부터 시작하지만 nlist는 0부터 시작하므로 j+1
+            nlist += [stages.count(j+1)/player] #stages는 1부터 시작하지만 nlist는 0부터 시작하므로 j+1
         else:
             nlist += [0]
 

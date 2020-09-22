@@ -1,10 +1,13 @@
 def solution(N, stages):
     answer = []
     nlist = []
-
     for j in range(0, N):
-        nlist += [stages.count(j+1)/sum([1 if j <= s-1 else 0 for s in stages])]
-        #stages는 1부터 시작하지만 failure 리스트는 0부터 시작하므로 s-1
+        player = sum([1 if j <= s-1 else 0 for s in stages])
+        if player != 0:
+            nlist += [stages.count(j+1)/player]
+        #stages는 1부터 시작하지만 nlist는 0부터 시작하므로 j+1
+        else:
+            nlist += [0]
 
     for j in range(N):
         m = max(nlist)

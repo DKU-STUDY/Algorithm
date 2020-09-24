@@ -1,24 +1,51 @@
 from sys import stdin
-from collections import deque
 
-def dfs(graph):
-    que = deque()
-    visit = {}
-    que.append(1)
-    while len(que) > 0:
-        current_node = que.pop()
-
-
-
+global N
 N = int(stdin.readline())
 
-graph = {}
 
-for i in range(1, N+1):
-    graph[i] = []
-    input_list = list(map(int, stdin.readline().split()))
-    for ele_idx in range(len(input_list)):
-        if input_list[ele_idx] == 1:
-            graph[i].append(ele_idx + 1)
+def DFS(start_node, graph):
+    visit_list = []
+    dfs_visit(start_node, visit_list, graph)
+    return visit_list
 
-print(graph)
+
+def dfs_visit(node, visit_list, graph):
+    current_ad_mat = graph[node - 1]
+    if sum(current_ad_mat) == 0:
+        visit_list.append(node)
+
+    for idx in range(N):
+        if current_ad_mat[idx] >= 1:
+            graph[node - 1][idx] -= 1
+            graph[idx][node - 1] -= 1
+            dfs_visit(idx + 1, visit_list, graph)
+    if len(visit_list) == 0:
+        visit_list.append(node)
+    elif visit_list[-1] != node:
+        visit_list.append(node)
+
+
+def solution():
+    ad_mat = []
+    state = True
+    for _ in range(N):
+        node_admat = list(map(int, stdin.readline().split()))
+        if sum(node_admat) % 2 == 1:
+            state = False
+        ad_mat += [node_admat]
+    visit_list = DFS(1, ad_mat)
+
+    if not state:
+        print(-1)
+        return
+
+    for j in ad_mat:
+        if sum(j) > 0:
+            print(-1)
+            return
+
+    print(str(visit_list)[1:-1])
+
+
+solution()

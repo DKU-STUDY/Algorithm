@@ -14,7 +14,8 @@ public class sjjyy {
                 progresses[i] += speeds[i]; // 하루 작업 진도
 
             if (progresses[index] >= 100) // 작업 배포가 가능할 때
-            {
+                continue;
+
                 while (index < len && progresses[index] >= 100) // 같이 배포가 가능한 개수
                 {
                     count++;
@@ -23,7 +24,6 @@ public class sjjyy {
 
                 queue.offer(count); // 배포된 개수 저장
                 count = 0;
-            }
         }
 
         int[] answer = new int[queue.size()];

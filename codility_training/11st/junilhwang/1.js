@@ -9,8 +9,8 @@ function solution (S) {
   }
   for (const [k, v] of Object.entries(map)) {
     if (v.length === 1) continue;
-    const z = k.split('')[1];
-    return [ ...v, z ];
+    const z = k.split(',')[1];
+    return [ ...v, z ].map(Number);
   }
   return [];
 }

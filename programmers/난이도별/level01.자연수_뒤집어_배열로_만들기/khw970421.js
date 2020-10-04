@@ -16,3 +16,18 @@ function solution(n) {
         h[i]=Number(h[i]);      //뒤집어 나타내는것을 문자에서 숫자로 변환
     return h;
 }
+
+//좀더 간단히 만든 코드
+function solution(n) {
+    let answer = [];
+    answer.push(String(n));
+    return answer[0].split('').reverse().map(x=>Number(x));
+    //문자를 글자마다 분리하고 위치를 뒤집은 후 문자를 숫자로 변환후 반환
+}
+
+// 더 간단히 만들기
+function solution(n)
+{
+    return n.toString().split('').reverse().map(x=>Number(x));
+}
+

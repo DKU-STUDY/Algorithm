@@ -10,18 +10,18 @@ public class sjjyy {
         {
             while (true)
             {
-                if (queue.isEmpty()) {
+                if (queue.isEmpty()) { // 큐가 비었을 때 트럭의 무게 삽입
                     queue.offer(i);
                     max += i;
                     answer++;
                     break;
-                } else if (queue.size() == bridge_length)
+                } else if (queue.size() == bridge_length) // 트럭이 다리를 다 건너면 큐에서 꺼내 최대 무게에서 뺌
                     max -= queue.poll();
-                else {
-                    if (max + i > weight) {
+                else { // 큐가 비어있지 않을 때
+                    if (max + i > weight) { // 무게가 초과되면 0 삽입
                         queue.offer(0);
                         answer++;
-                    } else {
+                    } else { // 무게가 초과되지 않으면 트럭의 무게 삽입
                         queue.offer(i);
                         max += i;
                         answer++;

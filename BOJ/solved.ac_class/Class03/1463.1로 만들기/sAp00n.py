@@ -25,10 +25,8 @@ def sol():
         # print(f'temp : {temp}   result : {result}')
         n += 1
         if 1 in result:
-            print(n)
-            return
-        else:
-            que += [result]
+            return print(n)
+        que += [result]
 
 
 sol()

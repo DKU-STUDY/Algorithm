@@ -1,8 +1,10 @@
+package programmers.난이도별.level03.불량_사용자;
+
 import java.util.regex.*;
 import java.util.stream.*;
 import java.util.*;
 
-class Solution {
+class Solution1 {
     private boolean[] visited;
     private HashSet<String> set;
     private int target;
@@ -49,7 +51,7 @@ class Solution {
 
 // https://leveloper.tistory.com/152 풀이 참고
 
-class Solution {
+class Solution2 {
     private String[] u_id;
     private String[] b_id;
     private int len;

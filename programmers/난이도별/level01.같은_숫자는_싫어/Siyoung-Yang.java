@@ -1,6 +1,8 @@
+package programmers.난이도별.level01.같은_숫자는_싫어;
+
 import java.util.*;
 
-public class Solution {
+class SiyoungYang {
     public int[] solution(int []arr) {
         List<Integer> list = new ArrayList<Integer>();
         if(arr.length > 0) list.add(arr[0]); 

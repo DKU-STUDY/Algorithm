@@ -1,4 +1,4 @@
-package 난이도별.level02.가장_큰_수
+package 난이도별.level02.가장_큰_수;
 
 import java.util.Arrays;
 import java.util.Comparator;

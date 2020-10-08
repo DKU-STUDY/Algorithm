@@ -11,6 +11,7 @@
  * https://www.youtube.com/watch?v=9nqiphzFbFc
  * 2968 ms	52 MB
  */
+// 두 단어를 합쳤을 때 회귀문이 되는지 판별 한다.
 const recursion = (word1, word2) => {
   const combined = word1 + word2;
   const combinedLen = combined.length;
@@ -24,9 +25,11 @@ const recursion = (word1, word2) => {
   }
   return true;
 };
+
 const palindromePairs0 = function(words) {
   const result = [];
   const len = words.length;
+
   words.forEach((word1, i) => {
     for (let j = i + 1 ; j < len ; j++) {
       const word2 = words[j];

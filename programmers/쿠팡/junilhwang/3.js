@@ -1,4 +1,21 @@
 function solution (k, score) {
+  const subMap = {};
+  const subMapCnt = {};
+  let iterated = 0;
+  for (let i = 1, len = score.length; i < len; i++) {
+    const key = score[i - 1] - score[i];
+    subMap[key] = subMap[key] || new Set();
+    subMap[key].add(i);
+    subMap[key].add(i - 1);
+    subMapCnt[key] = (subMapCnt[key] || 0) + 1;
+  }
+
+  return score.length - Object.entries(subMapCnt).reduce((set, [key, cnt]) => {
+    if (cnt >= k) {
+      return new Set([ ...set, ...subMap[key] ])
+    }
+    return set;
+  }, new Set()).size;
 }
 
 

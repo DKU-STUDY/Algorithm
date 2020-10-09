@@ -1,5 +1,27 @@
 function solution (n, customers) {
+  const kiosks = Array(n).fill(0);
+  const matches = Array(n).fill(0);
 
+  let beforeDate = null;
+  let year = 2020;
+  for (const customer of customers ) {
+    const [date, start, minute] = customer.split(' ');
+    if (beforeDate && beforeDate !== date && date === '01/01') {
+      year += 1;
+    }
+    const timestamp = new Date(`${year}/${date} ${start}`).getTime();
+    const end = timestamp + (1000 * 60 * minute);
+    const selectedIndex = kiosks.reduce(([min, minK], v, k) => {
+      return v < min ? [v, k] : [min, minK];
+    }, [Infinity, -1])[1];
+
+    kiosks[selectedIndex] = end;
+    matches[selectedIndex] += 1;
+
+    beforeDate = date;
+  }
+
+  return Math.max(...matches);
 }
 
 console.log(

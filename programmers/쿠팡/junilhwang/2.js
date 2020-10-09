@@ -3,7 +3,7 @@ function solution (n, customers) {
   const matches = Array(n).fill(0);
 
   let beforeDate = null;
-  let year = 2020;
+  let year = 1970;
   for (const customer of customers ) {
     const [date, start, minute] = customer.split(' ');
     if (beforeDate && beforeDate !== date && date === '01/01') {
@@ -34,8 +34,15 @@ console.log(
       '10/01 23:55:45 20',
       '10/01 23:59:39 03',
       '10/02 00:10:00 10']), 4);
+
 console.log(
   solution(2,
     ['02/28 23:59:00 03',
       '03/01 00:00:00 02',
       '03/01 00:05:00 01']), 2);
+
+console.log(
+  solution(2,
+    ['12/31 23:59:00 03',
+      '01/01 00:00:00 02',
+      '01/01 00:05:00 01']), 2);

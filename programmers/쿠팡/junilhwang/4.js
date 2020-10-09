@@ -8,7 +8,6 @@ function solution (depar, hub, dest, roads) {
   let result = 0;
   const f = (paths, last) => {
     if (last === dest) {
-      console.log(paths);
       result += paths.includes(hub);
       return;
     }

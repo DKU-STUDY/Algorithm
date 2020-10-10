@@ -1,0 +1,33 @@
+[
+  {
+    "input": [
+      "aabbaccc"
+    ],
+    "output": 7
+  },
+  {
+    "input": [
+      "ababcdcdababcdcd"
+    ],
+    "output": 9
+  },
+  {
+    "input": [
+      "abcabcdede"
+    ],
+    "output": 8
+  },
+  {
+    "input": [
+      "abcabcabcabcdededededede"
+    ],
+    "output": 14
+  },
+  {
+    "input": [
+      "xababcdcdababcdcd"
+    ],
+    "output": 17
+  }
+]
+

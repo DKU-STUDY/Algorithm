@@ -1,3 +1,5 @@
+package programmers.난이도별.level04.징검다리;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

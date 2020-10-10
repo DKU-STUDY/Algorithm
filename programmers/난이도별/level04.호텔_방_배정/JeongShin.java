@@ -1,3 +1,5 @@
+package programmers.난이도별.level04.호텔_방_배정;
+
 import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;

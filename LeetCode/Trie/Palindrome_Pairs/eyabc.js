@@ -27,17 +27,16 @@ const recursion = (word1, word2) => {
 };
 
 const palindromePairs0 = function(words) {
-  const result = [];
   const len = words.length;
 
-  words.forEach((word1, i) => {
+  return words.reduce((result, word1, i) => {
     for (let j = i + 1 ; j < len ; j++) {
       const word2 = words[j];
       if (recursion(word1, word2)) result.push([i, j]);
       if (recursion(word2, word1)) result.push([j, i]);
     }
+    return result;
   });
-  return result;
 };
 
 

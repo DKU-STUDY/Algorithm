@@ -111,9 +111,7 @@ class Trie {
   add(word) {
     let currNode = this.head;
     for (const char of word) {
-      if (currNode[char] === undefined) {
-        currNode[char] = {};
-      }
+      currNode[char] = currNode[char] || {};
       currNode = currNode[char];
     }
     currNode['*'] = true;
@@ -136,5 +134,4 @@ console.log(palindromePairs(['abcd', 'dcba', 'lls', 's', 'sssll']) === [[0, 1], 
 // console.log(palindromePairs(['bat', 'tab', 'cat']) === [[0, 1], [1, 0]]);
 // console.log(palindromePairs(['a', '']) === [[0, 1], [1, 0]]);
 // console.log(palindromePairs(['a', 'abc', 'aba', '']) === [[0, 3], [3, 0], [2, 3], [3, 2]]);
-
 

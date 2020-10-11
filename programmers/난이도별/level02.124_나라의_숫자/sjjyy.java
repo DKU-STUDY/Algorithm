@@ -1,3 +1,5 @@
+package programmers.난이도별.level02.prefix_124_나라의_숫자;
+
 public class sjjyy {
 
     // 3진법 활용, 몫 + 나머지

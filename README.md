@@ -56,6 +56,34 @@
   - 예시 02: [/codility_training/lesson.02.Arrays.CyclicRotation/junilhwang.js](codility_training/lesson02.Arrays.CyclicRotation/junilhwang.js)
   - 예시 03: [/programmers/코딩테스트_고득점kit/2_스택,큐.기능개발/junilhwang.js](./programmers/코딩테스트_고득점kit/2_스택,큐.기능개발/junilhwang.js)
 
+## PR 양식
+
+### PR 제목
+![image](https://user-images.githubusercontent.com/31977543/94366306-44307e80-0112-11eb-80d3-95a5e4998e64.png)
+
+제목: [알고리즘분류]알고리즘제목 
+label: 문제푼 곳, 언어, 난이도(옵션)
+
+#### PR 본문
+1. 문제 출처
+2. input 과 output 설명
+3. 풀이 아이디어
+
+#### label
+- asignee : 내 아이디
+- reviewer : 이미 문제를 풀었거나, 같은 언어를 쓰는 사람
+- label: 문제 출처(Programmers, BOJ, leetcode, codility... ), 푼 언어(Javascript, python, java, c++, c, ...) , 난이도(HARD, EASY, NOMAL)
+
+#### Merge 기준
+a. assignee 모두 리뷰를 남겼을 때
+b. 다음 문제를 풀기 직전
+기준 a 혹은 b 둘중 하나만 만족하면됩니다!
+
+## 리뷰 하는 방법
+자신의 의견을 망설이지 않고 표출하는것이 가장 중요하다.
+개선점, 칭찬, 이모티콘 등 자유롭게 의견을 표현할 수 있다.
+
+
 ## tip
 
 - 한 문제를 여러가지 방법으로 풀도록 탐구해보기

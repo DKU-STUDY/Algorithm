@@ -31,3 +31,9 @@ function solution(n)
     return n.toString().split('').reverse().map(x=>Number(x));
 }
 
+// 더욱 간단히
+
+function solution(n)
+{
+    return n.toString().split('').reverse().map(Number);
+}

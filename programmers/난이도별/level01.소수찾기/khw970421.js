@@ -38,17 +38,17 @@ function solution(n) {
 //다른사람 코드를 확인후 수정
 function solution(n) {
     const s = new Set();
-    for(let i=1; i<=n; i+=2){
+    for(let i=2; i<=n; i+=2){
         s.add(i);
     }
     s.delete(1);
     s.add(2);   // n보다 작거나 같은 개수중 짝수2와 1을제외한 나머지 홀수들을 s에 넣는다.
 
     for(let j=3; j<Math.sqrt(n); j++){     // 3부터 n의 루트의 크기까지 반복한다.
-        if(s.has(j)){                       // 맞는 값이 있다면
-            for(let k=j*2+j; k<=n; k=k+2*j){    // n보다 작은 자신의 원래값보다 배수에 만족하는 홀수들을 전부 없앤다
-                s.delete(k);
-            }
+        if(!s.has(j)) continue;                      // 맞는 값이 없다면 다시반복
+
+        for(let k=j*2+j; k<=n; k=k+2*j){    // n보다 작은 자신의 원래값보다 배수에 만족하는 홀수들을 전부 없앤다
+            s.delete(k);
         }
     }
     return s.size;

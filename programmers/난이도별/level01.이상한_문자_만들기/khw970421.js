@@ -1,7 +1,7 @@
 function solution(s) {
     let h =s.split(' ');        //공백에따라 분리하기
-    let p=[];
-    let q = [];
+    const p=[];
+    const q = [];
     const h_length=h.length;
 
     for(let i=0;i<h_length;i++)
@@ -24,3 +24,12 @@ function solution(s) {
 
     return q.join('');
 }
+
+
+//준일이형 피드백으로 수정
+
+function solution(s) {
+    return s.toUpperCase().split(' ').map(e=>e.split('').map((q,k)=>(k%2==1)?q.toLowerCase():q).join('')).join(' ')
+}
+
+//map을 마치 for문으로 생각하면 map안에 map이 있으므로 이중 for문에 대해 안에서 처리하고 join 후 밖의 map에서 다시 배열을 join

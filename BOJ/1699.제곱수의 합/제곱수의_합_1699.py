@@ -3,9 +3,8 @@ dp=[0]*(n+1)
 s=[]
 dp[1]=1
 for i in range(1, 400):
-    if i**2<100000:
-        s.append(i)
-    else: break;
+    if i**2 >= 100000: break
+    s.append(i)
 for i in range(1, n+1):
     q=[]
     for j in s:

@@ -28,11 +28,17 @@ function solution(bridge_length, weight, truck_weights) {
 
   // 마지막 truck 이 건널 때 소요되는 시간으로 초기화를 해준다.
   let time = bridge_length;
-  const standing = truck_weights;
+
+  // 대기중인 트럭의 배열
+  const standing = [...truck_weights];
+
+  // 다리위의 트럭의 배열
   const bridge = [];
+
+  // 다리 위의 트럭의 총 무게
   let bridgeWeight = 0;
 
-
+  // 대기 중인 트럭이 모두 다리위에 올라갈 때 까지 반복한다
   while (standing.length !== 0) {
     const targetTruck = standing[0];
 
@@ -42,10 +48,14 @@ function solution(bridge_length, weight, truck_weights) {
     }
 
     let put = 0;
+
+    // 다리 위에 올라갈 수 있다면 다리위의 무게에 합산하고, 대기중인 트럭 배열에서 해당 트럭을 제거한다.
     if (bridgeWeight + targetTruck <= weight) {
       put = targetTruck;
       standing.shift();
     }
+
+    // 다리위에 트럭을 올린다.
     bridge.unshift(put);
     bridgeWeight += put;
     time += 1;

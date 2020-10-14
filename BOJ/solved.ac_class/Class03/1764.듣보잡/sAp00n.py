@@ -10,11 +10,7 @@ for i in range(M):
     non_seen_dict[name] = True
 
 #print(f'non_seen: {non_seen_dict}   non_heard: {non_heard_list}')
-for name in non_heard_list:
-    temp = non_seen_dict.get(name)
-    if temp:
-        return_list.append(name)
-return_list.sort()
+return_list = [ name for name in non_heard_list if non_seen_dict.get(name) ].sorted()
 print(len(return_list))
 for name in return_list:
     print(name)

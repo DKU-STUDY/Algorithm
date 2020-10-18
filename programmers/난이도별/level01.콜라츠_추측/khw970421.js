@@ -1,4 +1,5 @@
-function solution(num) {
+function solution(num)
+{
     let a=0;
     if(num==1)
         return 0;

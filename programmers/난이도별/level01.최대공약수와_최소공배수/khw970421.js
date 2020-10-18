@@ -11,6 +11,9 @@ function solution(n, m) {
 
     return [a].concat([m*n/a])    // a%b가 0이되었을때의 나누는수 b는 a=b로 인해 a이므로 최대공약수는 a 최소공배수는 m*n/a이다.
 }
+// 문제 출처 : https://programmers.co.kr/learn/courses/30/lessons/12940
+
+//최소공배수 최대공배수 관련내용
 //2개의 자연수  a, b에 대해서 a를 b로 나눈 나머지를 r이라 하면 (단 a>b),
 // a와 b의 최대공약수는 b와 r의 최대공약수와 같다. 이 성질에 따라, b를 r로 나눈 나머지 r0를 구하고,
 // 다시 r을 r0로 나눈 나머지를 구하는 과정을 반복하여 나머지가 0이 되었을 때 나누는 수가 a와 b의 최대공약수이다.
@@ -18,4 +21,4 @@ function solution(n, m) {
 
 //출처 : https://myjamong.tistory.com/138
 
-// 문제 출처 : https://programmers.co.kr/learn/courses/30/lessons/12940
+

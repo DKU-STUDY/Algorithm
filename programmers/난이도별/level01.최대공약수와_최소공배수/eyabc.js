@@ -13,7 +13,7 @@
  * b를 r로 나눈 나머지 r'를 구하고, 다시 r을 r'로 나눈 나머지를 구하는 과정을 반복하여 나머지가 0이 되었을 때 나누는 수가 a와 b의 최대공약수이다.
  */
 const getGCD = (n, m) => {
-  let [q, r] = [n, m].sort((a, b) => b - a);
+  let [q, r] = n > m ? [n, m] : [m, n];
 
   while (true) {
     const [newQ, newR] = [r, (q % r)];

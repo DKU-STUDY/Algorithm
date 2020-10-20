@@ -14,8 +14,7 @@ def recursion(mat, return_list):
         return_list.append(mat)
         return
     sliced_mat = slicer(mat)
-    return recursion(sliced_mat[0],return_list), recursion(sliced_mat[1],return_list), recursion(sliced_mat[2],return_list), recursion(sliced_mat[3],return_list)
-
+    return [ recursion(sliced, return_list) for sliced in sliced_mat[:3]]
 
 def slicer(mat):
     len_of_mat = len(mat)

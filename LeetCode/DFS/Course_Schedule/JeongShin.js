@@ -7,9 +7,8 @@ const canFinish = function (numCourses, prerequisites) {
     const graph = new Map();
     const visited = new Map();
 
-    for (const p of prerequisites) {
-        const [course, prerequisite] = p;
-        const courseArr = graph.has(course) ? graph.get(course) : graph.set(course, []).get(course);
+    for (const [course, prerequisite] of prerequisites) {
+        const courseArr = graph.get(course) || graph.set(course, []).get(course);
         courseArr.push(prerequisite);
     }
 

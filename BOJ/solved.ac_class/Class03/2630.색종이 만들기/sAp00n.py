@@ -1,7 +1,7 @@
 from sys import stdin
 
 
-def recursion(mat,return_list):
+def recursion(mat, return_list):
     blue_count = 0
     white_count = 0
     for rows in mat:
@@ -13,9 +13,8 @@ def recursion(mat,return_list):
     if blue_count == 0 or white_count == 0:
         return_list.append(mat)
         return
-    else:
-        sliced_mat = slicer(mat)
-        return recursion(sliced_mat[0],return_list), recursion(sliced_mat[1],return_list), recursion(sliced_mat[2],return_list), recursion(sliced_mat[3],return_list)
+    sliced_mat = slicer(mat)
+    return recursion(sliced_mat[0],return_list), recursion(sliced_mat[1],return_list), recursion(sliced_mat[2],return_list), recursion(sliced_mat[3],return_list)
 
 
 def slicer(mat):

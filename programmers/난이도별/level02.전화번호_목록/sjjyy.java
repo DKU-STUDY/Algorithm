@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class sjjyy {
 
     /*
@@ -11,6 +13,7 @@ public class sjjyy {
     public static boolean solution(String[] phone_book) {
         boolean answer = true;
         int len = phone_book.length;
+        Arrays.sort(phone_book); // 좀 더 빠르게
 
         for (int i = 0 ; i < len ; i++) {
             for (int j = 0 ; j < len ; j++) {

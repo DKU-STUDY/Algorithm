@@ -11,6 +11,5 @@ def solution(arr, divisor):
 '''
 배울 점이 있는 코드
 def solution(arr, divisor): return sorted([n for n in arr if n%divisor == 0]) or [-1]
-
 len == 0 을 비교할 때는 if else 대신 False or True 를 이용할 수 있음
 '''

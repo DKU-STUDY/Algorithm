@@ -1,13 +1,13 @@
 function solution(num)
 {
     let a=0;
-    if(num==1)
+    if(num===1)
         return 0;
     do {
-        num=(num%2==0)?(num/2):(num*3+1);
+        num=(num%2===0)?(num/2):(num*3+1);
         a++;
     }
-    while(num!=1)
+    while(num!==1)
     return (500>a)?a:-1;
 }
 

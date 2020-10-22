@@ -7,7 +7,7 @@ function solution(n, m) {
         a=b;        //a를 b로 변환
         b=r;        //b를 r로 변환
     }
-    while(r!=0)
+    while(r!==0)
 
     return [a].concat([m*n/a])    // a%b가 0이되었을때의 나누는수 b는 a=b로 인해 a이므로 최대공약수는 a 최소공배수는 m*n/a이다.
 }

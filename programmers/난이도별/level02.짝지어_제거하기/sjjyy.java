@@ -2,6 +2,7 @@ import java.util.Stack;
 
 public class sjjyy {
     /*
+        https://programmers.co.kr/learn/courses/30/lessons/12973
         @param s : 알파벳 소문자로 이루어진 문자열
         문자열에서 같은 알파벳이 2개 붙어있는 짝을 찾아 제거한 뒤, 앞뒤로 문자열을 이어 붙임
         해당 과정을 반복해서 문자열을 모두 제거하면 종료

@@ -10,15 +10,15 @@ public class sjjyy {
     public static int[] solution(int brown, int yellow) {
         int width = 0, height = 0;
 
-        for (int i = 1 ; i <= yellow / 2 + 1 ; i++) {
+        for (int i = 1 ; i <= yellow / 2 + 1 ; i++) { // 노란색을 기준으로 탐색, 카펫이 직사각형이므로 yellow/2+1까지 탐색.
             width = i ;
             height = (yellow % i == 0) ? yellow / i : yellow / i + 1;
 
-            if (2 * width + 2 *height + 4 == brown)
+            if (2 * width + 2 *height + 4 == brown) // 테두리의 갈색은 노란색의 가로*2, 세로*2 + 모서리 4개의 개수와 같음
                 break;
         }
 
-        return new int[]{Math.max(width, height) + 2, Math.min(width, height) + 2};
+        return new int[]{Math.max(width, height) + 2, Math.min(width, height) + 2}; // 가로가 세로보다 길거나 같음
     }
 
     public static void main(String [] args) {

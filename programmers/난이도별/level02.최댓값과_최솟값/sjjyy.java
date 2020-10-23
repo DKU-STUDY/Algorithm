@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class sjjyy {
     /*
@@ -20,9 +22,23 @@ public class sjjyy {
         return numbers[0] + " " + numbers[len - 1]; // 최소값 최대값 형태로 반환
     }
 
+    public static String solution2(String s) {
+        List<Integer> numbers = Arrays.stream(s.split(" "))
+                .map(Integer::parseInt)
+                .sorted((a, b) -> a - b)
+                .collect(Collectors.toList());
+
+        return String.format("%d %d", numbers.get(0), numbers.get(numbers.size() -1));
+    }
+
+
     public static void main(String [] args) {
         System.out.println(solution("1 2 3 4")); // 1 4
         System.out.println(solution("-1 -2 -3 -4")); // -4 -1
         System.out.println(solution("-1 -1")); // -1 -1
+
+        System.out.println(solution2("1 2 3 4")); // 1 4
+        System.out.println(solution2("-1 -2 -3 -4")); // -4 -1
+        System.out.println(solution2("-1 -1")); // -1 -1
     }
 }

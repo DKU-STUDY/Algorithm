@@ -1,32 +1,36 @@
 '''
 https://www.acmicpc.net/problem/7662
 이중 우선순위 큐 : minheap과 maxheap에서 pop하기
-maxheap을 구현하는 대신, rid 리스트를 생성하여 결과 도출 시 예외해야 할 값들을 저장
+exist 배열을 둬서, minheap과 max
 '''
-# Unsolved
 from sys import stdin
 import heapq as h
 
 def solution(k):
-    min_h = []
-    rid = []
+    exist = [0] * k
+    min_h, max_h = [], []
     for i in range(k):
         a, b = stdin.readline().split()
         if a == "I":
             h.heappush(min_h, (int(b), i))
-            continue
-        if len(min_h) == len(rid):
+            h.heappush(max_h, (-int(b), i))
+            exist[i] = 1
             continue
         if b == "-1":
-            h.heappop(min_h)
+            while min_h and not exist[min_h[0][1]]: h.heappop(min_h)
+            if min_h:
+                exist[min_h[0][1]] = 0
+                h.heappop(min_h)
         else:
-            rid.append(sorted(list(min_h)).pop())
-    if len(min_h) == len(rid):
-        print("EMPTY")
-    else:
-        ret = list(set(min_h)-set(rid))
-        ret.sort()
-        print(ret[-1][0], ret[0][0])
+            while max_h and not exist[max_h[0][1]]: h.heappop(max_h)
+            if max_h:
+                exist[max_h[0][1]] = 0
+                h.heappop(max_h)
+
+    while min_h and not exist[min_h[0][1]]: h.heappop(min_h)
+    while max_h and not exist[max_h[0][1]]: h.heappop(max_h)
+    if min_h and max_h: print(-max_h[0][0], min_h[0][0])
+    else: print("EMPTY")
 
 T = int(stdin.readline())
 for _ in range(T):

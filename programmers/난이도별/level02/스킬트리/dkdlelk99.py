@@ -11,13 +11,13 @@ def solution(skill, skill_trees):
                 order.pop()
             else:
                 break
-
-        if order[0] == -1:
-            if sum(order) == -len(order): #선후수 스킬과 관계 없는 스킬만 찍을 경우
-                answer += 1
-        else:
-            if order == sorted(order):
-                answer += 1
+        if order != []: # 런타임 에러 해결
+            if order[0] == -1:
+                if sum(order) == -len(order): #선후수 스킬과 관계 없는 스킬만 찍을 경우
+                    answer += 1
+            else:
+                if order == sorted(order):
+                    answer += 1
     return answer
     
   print(solution("abc", ["adbic", "bcida","aicls"]), solution("abc", ["adbic", "bcida","aicls"]) == 1)

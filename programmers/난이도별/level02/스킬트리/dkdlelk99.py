@@ -18,15 +18,13 @@ def solution(skill, skill_trees):
             else:
                 break
 
-        if order != []:
-            if order[0] == -1:               # 첫번째 스킬 안찍으면 뒷 스킬은 하나도 찍으면 안됨
-                if sum(order) == -len(order):# 의도 : order의 모든 요소가 -1 일때
-                    answer += 1
-            else:
-                if order == sorted(order):   # 모두 -1이 아니라면 순서대로 찍혀있어야됨
-                    answer += 1
-        else:                                # skill에 있는 스킬 하나도 안찍었을때
-            answer += 1                      # 윗부분(line23)이랑 겹치는데 이상함 둘중에 하나라도 빠지면 안됨
+        if order == []:
+            answer += 1
+        else:
+            if order[0] == -1:
+                continue
+            elif order == sorted(order):
+                answer += 1
 
     return answer
     

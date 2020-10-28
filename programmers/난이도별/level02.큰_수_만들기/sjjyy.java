@@ -1,5 +1,6 @@
 public class sjjyy {
     /*
+        https://programmers.co.kr/learn/courses/30/lessons/42883
         @param number : 1자리 이상, 1,000,000자리 이하의 숫자 문자열
         number에서 k개의 수를 제거했을 떄 얻을 수 있는 가장 큰 숫자 구하기
         @return 가장 큰 숫자 문자열

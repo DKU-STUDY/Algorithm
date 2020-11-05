@@ -10,7 +10,7 @@ def sol():
     for row in range(N):
         warehouse.append(list(map(int, stdin.readline().split())))
 
-    # print(warehouse)
+    print(warehouse)
     num_of_green_tomato = 0
     que = deque()
     next_append = []
@@ -18,9 +18,8 @@ def sol():
         for ele_idx in range(len(warehouse[row_idx])):
             if warehouse[row_idx][ele_idx] == 1:
                 next_append.append((ele_idx, row_idx))
-            else:
-                if warehouse[row_idx][ele_idx] == 0:
-                    num_of_green_tomato += 1
+            elif warehouse[row_idx][ele_idx] == 0:
+                num_of_green_tomato += 1
     que.append(next_append)
 
     # print(f'que : {que}     ngt : {num_of_green_tomato}\n')

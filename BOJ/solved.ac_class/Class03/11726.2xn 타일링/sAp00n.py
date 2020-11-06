@@ -31,9 +31,8 @@ def cal(n):
     global memo
     if n in memo:
         return memo[n]
-    else:
-        memo[n] = cal(n - 1) + cal(n - 2)
-        return memo[n]
+    memo[n] = cal(n - 1) + cal(n - 2)
+    return memo[n]
 
 
 sol()

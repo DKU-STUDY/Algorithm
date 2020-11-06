@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class sjjyy {
     /*
         https://programmers.co.kr/learn/courses/30/lessons/42883
@@ -27,12 +29,37 @@ public class sjjyy {
             stringBuilder.append(max);
         }
 //        return answer;
-         return stringBuilder.toString(); // 시간 초과 처리
+        return stringBuilder.toString(); // 시간 초과 처리
     }
 
-    public static void main(String [] args) {
+    public static String solution2(String number, int k) {
+        int len = number.length();
+        char[] result = new char[len - k];
+        Stack<Character> stack = new Stack<>();
+
+        for (int i = 0; i < len ; i++) {
+            char c = number.charAt(i);
+
+            while (!stack.isEmpty() && stack.peek() < c && k-- > 0)
+                stack.pop();
+
+            stack.push(c);
+        }
+
+        for (int i = 0 ; i < result.length ; i++) {
+            result[i] = stack.get(i);
+        }
+
+        return new String(result);
+    }
+
+    public static void main(String[] args) {
         System.out.println(solution("1924", 2)); // 94
         System.out.println(solution("1231234", 3)); // 3234
         System.out.println(solution("4177252841", 4)); // 775841
+
+        System.out.println(solution2("1924", 2)); // 94
+        System.out.println(solution2("1231234", 3)); // 3234
+        System.out.println(solution2("4177252841", 4)); // 775841
     }
 }

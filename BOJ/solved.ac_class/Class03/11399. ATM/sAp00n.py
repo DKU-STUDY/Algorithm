@@ -37,9 +37,7 @@ from sys import stdin
 
 N = int(stdin.readline())
 
-time_list = list(map(int, stdin.readline().split()))
-
-time_list.sort()
+time_list = sorted(list(map(int, stdin.readline().split())))
 
 temp = 0
 return_value = 0

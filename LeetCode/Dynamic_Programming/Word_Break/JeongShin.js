@@ -56,12 +56,14 @@ const wordBreak = function (s, wordDict) {
     for (let endIdx = 1; endIdx <= len; endIdx++) {
         for (let startIdx = 0; startIdx < endIdx; startIdx++) {
             if (answer[startIdx] && trie.findWord(s, startIdx, endIdx)) {
+                if (endIdx === len)
+                    return true;
                 answer[endIdx] = true;
                 break;
             }
         }
     }
 
-    return answer[len] || false;
+    return false;
 };
 

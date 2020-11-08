@@ -9,9 +9,7 @@ function solution(v) {
             if (!visited.has(`${i},${j}`)) {
                 val = v[i][j];
                 dfs(v, i, j, val, visited);
-                if (area[val] === undefined)
-                    area[val] = 0;
-                area[val]++;
+                area[val] = (area[val] || 0) + 1;
             }
         }
     }

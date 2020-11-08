@@ -47,7 +47,7 @@ class Trie {
 const wordBreak = function (s, wordDict) {
     const len = s.length;
     const trie = new Trie();
-    const answer = {0: true};
+    const memo = {0: true};
 
     for (const word of wordDict) {
         trie.addWord(word);
@@ -55,10 +55,10 @@ const wordBreak = function (s, wordDict) {
 
     for (let endIdx = 1; endIdx <= len; endIdx++) {
         for (let startIdx = 0; startIdx < endIdx; startIdx++) {
-            if (answer[startIdx] && trie.findWord(s, startIdx, endIdx)) {
+            if (memo[startIdx] && trie.findWord(s, startIdx, endIdx)) {
                 if (endIdx === len)
                     return true;
-                answer[endIdx] = true;
+                memo[endIdx] = true;
                 break;
             }
         }

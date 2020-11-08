@@ -10,12 +10,11 @@ public class sjjyy {
     }
 
     private static int DFS(int[] numbers, int target, int index, int num) { // 깊이 우선 탐색으로 모든 경우의 수를 구함
-        if (index == numbers.length) {
+        if (index == numbers.length)
             return num == target ? 1 : 0; // 타겟넘버와 같으면 + 1
-        } else {
-            return DFS(numbers, target, index + 1, num + numbers[index]) // 왼쪽 노드
-                    + DFS(numbers, target, index + 1, num - numbers[index]); // 오른쪽 노드
-        }
+
+        return DFS(numbers, target, index + 1, num + numbers[index]) // 왼쪽 노드
+                + DFS(numbers, target, index + 1, num - numbers[index]); // 오른쪽 노드
     }
 
     public static void main(String[] args) {

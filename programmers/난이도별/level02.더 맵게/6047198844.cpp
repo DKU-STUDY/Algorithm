@@ -32,7 +32,3 @@ int solution(vector<int> scoville, int K) {
     answer = cnt;
     return answer;
 }
-
-int main() {
-    cout << solution({ 0,0,0,0,0,0,0,0,0,0,1,1 }, 7);
-}

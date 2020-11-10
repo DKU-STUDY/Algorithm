@@ -52,7 +52,3 @@ int solution(string name) {
     answer = name_cnt + cursor_cnt;
     return answer;
 }
-
-int main() {
-    cout << solution("ABABAAAAABA");
-}

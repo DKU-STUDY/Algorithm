@@ -10,12 +10,12 @@ int solution(string name) {
     int left_cursor = name_size - 1;
     int right_cursor = 999999;
     if (name_size >= 2) {
-        //Ä¿¼­¸¦ ¿ÞÂÊÀ¸·Î ÀÌµ¿ÇÏ´Â °æ¿ìÀÇ ¼ö
+        //ì»¤ì„œë¥¼ ì™¼ìª½ìœ¼ë¡œ ì´ë™í•˜ëŠ” ê²½ìš°ì˜ ìˆ˜
         for (int i = 1; name[i] == 'A'&&i<name_size; i++) {
             --left_cursor;
         }
 
-        //Ä¿¼­¸¦ ¿ÞÂÊÀ¸·Î °¬´Ù°¡ ¿À¸¥ÂÊÀ¸·Î ´Ù½Ã ÀÌµ¿ÇÏ´Â °æ¿ìÀÇ¼ö
+        //ì»¤ì„œë¥¼ ì™¼ìª½ìœ¼ë¡œ ê°”ë‹¤ê°€ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ë‹¤ì‹œ ì´ë™í•˜ëŠ” ê²½ìš°ì˜ìˆ˜
         int a_count = 0; int max_a_count = 0; int start_a = 0; int end_a = 0;
         for (int i = 1; i < name_size; i++) {
             if (name[i] == 'A') {
@@ -28,7 +28,7 @@ int solution(string name) {
             }
         }
 
-        ////Ä¿¼­¸¦ ¿À¸¥ÂÊÀ¸·Î ÀÌµ¿ÇÏ´Â °æ¿ìÀÇ ¼ö
+        ////ì»¤ì„œë¥¼ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™í•˜ëŠ” ê²½ìš°ì˜ ìˆ˜
         //for (int i = name_size - 1; name[i] == 'A'&&i>0; i--) {
         //    --right_cursor;
         //}

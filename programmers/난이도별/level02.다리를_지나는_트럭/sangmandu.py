@@ -30,9 +30,7 @@ def solution(bridge_length, weight, truck_weights):
             wsum.popleft()
         time.append(b - sum(time))
         wsum.append(i)
-    for i in time:
-        sec += i
-    return sec + b
+    return sum(time) + b
 
 
 '''

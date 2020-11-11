@@ -9,14 +9,16 @@
   
   
 
-## 알고리즘을 준비의 중요성
+## 알고리즘 준비의 중요성
 
 ### eyabc
 
 첫 회사를 2019년 10월에 다니게 되었는데요 스타트업입니다.
 알고리즘...프로그래밍 공부를 안했어요. 공부 하는 방법도 아주 잘 몰랐죠. 그래서 작은 스타트업에 갔어요.
 스타트업에서 기능을 구현하면서 고민하는 과정이 마치 알고리즘 문제를 푸는 느낌과 비슷했어요. 
-퇴사 이후 좋은 기업에 들어가야겠다 마음먹고 이후로 알고리즘 문제를 거부감 없이 풀게되었습니다.
+퇴사 이후 좋은 기업에 들어가야겠다 마음먹고 ~~이후로 알고리즘 문제를 거부감 없이 풀게되었습니다.~~
+취업한다고 알고리즘을 급하게 풀려고하면 스트레스를 급격히 받을 가능성이 큽니다.
+여유있을 때 미리미리 준비하여 알고리즘에 맛을 들여보는 것이 중요하다고 생각합니다. 
 
 ### junilhwang
 
@@ -55,6 +57,34 @@
   - 예시 01: [/codility_training/lesson.01.Iterations.BinaryGap/eyabc.js](./codility_training/lesson.01.Iterations.BinaryGap/eyabc.js)
   - 예시 02: [/codility_training/lesson.02.Arrays.CyclicRotation/junilhwang.js](codility_training/lesson02.Arrays.CyclicRotation/junilhwang.js)
   - 예시 03: [/programmers/코딩테스트_고득점kit/2_스택,큐.기능개발/junilhwang.js](./programmers/코딩테스트_고득점kit/2_스택,큐.기능개발/junilhwang.js)
+
+## PR 양식
+
+### PR 제목
+![image](https://user-images.githubusercontent.com/31977543/94366306-44307e80-0112-11eb-80d3-95a5e4998e64.png)
+
+제목: [알고리즘분류]알고리즘제목 
+label: 문제푼 곳, 언어, 난이도(옵션)
+
+#### PR 본문
+1. 문제 출처
+2. input 과 output 설명
+3. 풀이 아이디어
+
+#### label
+- asignee : 내 아이디
+- reviewer : 이미 문제를 풀었거나, 같은 언어를 쓰는 사람
+- label: 문제 출처(Programmers, BOJ, leetcode, codility... ), 푼 언어(Javascript, python, java, c++, c, ...) , 난이도(HARD, EASY, NOMAL)
+
+#### Merge 기준
+a. assignee 모두 리뷰를 남겼을 때
+b. 다음 문제를 풀기 직전
+기준 a 혹은 b 둘중 하나만 만족하면됩니다!
+
+## 리뷰 하는 방법
+자신의 의견을 망설이지 않고 표출하는것이 가장 중요하다.
+개선점, 칭찬, 이모티콘 등 자유롭게 의견을 표현할 수 있다.
+
 
 ## tip
 

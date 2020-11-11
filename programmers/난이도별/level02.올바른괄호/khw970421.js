@@ -44,6 +44,6 @@ function solution(s){
             return false;
     }
 
-    return answer>0 ? false: true;
+    return answer>0 ? false: true;  //return answer === 0;
 }
 //출처 : https://programmers.co.kr/learn/courses/30/lessons/12909

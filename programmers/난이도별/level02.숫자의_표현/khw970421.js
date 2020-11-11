@@ -21,3 +21,20 @@ function solution(n) {
 
 //출처 : https://programmers.co.kr/learn/courses/30/lessons/12924
 // 이게 가장 효율도 문제없이 한것 같습니다....
+
+
+//피드백 받아서 수정
+function solution(n) {
+    let answer=0;
+    let count=0;
+    for(let i=1;i<=n;i++)
+    {
+        answer=0;
+        for(let j=i;j<=n && n > answer; j++) {
+            answer+=j;      // i부터 하나씩 계속 더하기
+            if (answer === n)
+                count += 1;
+        }
+    }
+    return count;
+}

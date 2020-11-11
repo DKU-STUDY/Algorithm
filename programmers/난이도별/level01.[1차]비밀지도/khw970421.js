@@ -1,6 +1,6 @@
 //처음 성공한 코드 (for문에 난잡)
 function solution(n, arr1, arr2) {
-    var answer = [];
+    let answer = [];
     let number,length=arr1.length;
     let Sarr1 =[];
     let Sarr2 = [];

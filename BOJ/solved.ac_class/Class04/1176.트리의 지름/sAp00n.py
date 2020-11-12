@@ -43,7 +43,7 @@ def BFS(que, graph):
             if current_cost > md:
                 md = current_cost
                 md_node = current_node
-                
+
             for idx in range(0, len(graph[current_node]), 2):
                 que += [graph[current_node][idx], graph[current_node][idx + 1] + current_cost]
     return md, md_node

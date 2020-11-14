@@ -20,7 +20,3 @@ int solution(vector<int> people, int limit) {
 
     return answer;
 }
-
-int main() {
-    cout << solution({ 100,100,100,100,100,100 }, 100);
-}

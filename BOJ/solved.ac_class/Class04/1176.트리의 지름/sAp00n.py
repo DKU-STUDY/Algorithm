@@ -37,15 +37,16 @@ def BFS(que, graph):
         current_node = que.popleft()
         current_cost = que.popleft()
 
-        if current_node not in result:
-            result[current_node] = current_cost
+        if current_node in result: continue
 
-            if current_cost > md:
-                md = current_cost
-                md_node = current_node
+        result[current_node] = current_cost
 
-            for idx in range(0, len(graph[current_node]), 2):
-                que += [graph[current_node][idx], graph[current_node][idx + 1] + current_cost]
+        if current_cost > md:
+            md = current_cost
+            md_node = current_node
+
+        for idx in range(0, len(graph[current_node]), 2):
+            que += [graph[current_node][idx], graph[current_node][idx + 1] + current_cost]
     return md, md_node
 
 
@@ -58,9 +59,7 @@ def sol():
         input_list = list(map(int, stdin.readline().split()))
         node = input_list[0]
         node_list.append(node)
-        graph[node] = []
-        link_list = input_list[1:-1]
-        graph[node] += link_list
+        graph[node] = input_list[1:-1]
 
     que = deque([node_list[0], 0])
     fst_max_distance, fst_node = BFS(que, graph)

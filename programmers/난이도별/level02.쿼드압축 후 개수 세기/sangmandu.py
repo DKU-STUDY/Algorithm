@@ -30,7 +30,9 @@ def solution(arr):
             for j in range(2**m-1, size, 2**m):
                 if arr[i-2**(m-1)][j-2**(m-1)] == arr[i-2**(m-1)][j] == arr[i][j-2**(m-1)] == arr[i][j]:
                     arr[i-2**(m-1)][j-2**(m-1)] = arr[i-2**(m-1)][j] = arr[i][j-2**(m-1)] = -1
-                    arr[i][j] = str(arr[i][j])
+                    arr[i][j] = str(arr[i][j]) * m
+
+    arr = [[(j if type(j) == int else j[0]) for j in i] for i in arr]
     return [sum([i.count(0) + i.count('0') for i in arr]), sum(i.count(1) + i.count('1') for i in arr)]
 
 '''

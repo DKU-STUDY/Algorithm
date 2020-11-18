@@ -31,9 +31,24 @@ def solution(arr):
                 if arr[i-2**(m-1)][j-2**(m-1)] == arr[i-2**(m-1)][j] == arr[i][j-2**(m-1)] == arr[i][j]:
                     arr[i-2**(m-1)][j-2**(m-1)] = arr[i-2**(m-1)][j] = arr[i][j-2**(m-1)] = -1
                     arr[i][j] = str(arr[i][j]) * m
+                else:
+                    arr[i][j] = str(arr[i][j])+str(i)+str(j)
 
     arr = [[(j if type(j) == int else j[0]) for j in i] for i in arr]
     return [sum([i.count(0) + i.count('0') for i in arr]), sum(i.count(1) + i.count('1') for i in arr)]
 
 '''
+작은 문제를 모아서 큰 문제를 해결하는 것보다 그 반대가 좀 더 간단했던 것 같다.
+다음은 array를 1/4하여 4개의 재귀함수 꼴로 해결한 풀이
+import numpy as np
+def solution(arr):
+    # 재귀함수 구현
+    def fn(a):
+        if np.all(a == 0): return np.array([1, 0])
+        if np.all(a == 1): return np.array([0, 1])
+        n = a.shape[0]//2
+        return fn(a[:n, :n]) + fn(a[n:, :n]) + fn(a[:n, n:]) + fn(a[n:, n:])
+
+    # 결과 리턴
+    return fn(np.array(arr)).tolist()
 '''

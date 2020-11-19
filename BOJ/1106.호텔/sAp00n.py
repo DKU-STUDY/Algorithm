@@ -20,22 +20,16 @@
 출력
     첫째 줄에 문제의 정답을 출력한다.
 """
-# from random import randint
 from sys import stdin
 
 C, N = map(int, stdin.readline().split())
-# C, N = randint(1, 50), randint(2, 3)
 cost_list = []
 dp = [0] * 1101
 max_output = 0
 for _ in range(N):
     cost, output = map(int, stdin.readline().split())
-    # cost, output = (randint(1, 20) for _ in range(2))
-    cost_list.append((cost, output, output / cost))
-    max_output = max(max_output, output)
-cost_list.sort(key=lambda x: -x[2])
-# print(f'C: {C}  N: {N}\ncost_list : {cost_list}')
-for idx in range(1, C + 1 + max_output):
+    cost_list.append((cost, output))
+for idx in range(1, C + 1):
     possible_case_list = []
     for case in cost_list:
         if case[1] > idx:
@@ -44,5 +38,4 @@ for idx in range(1, C + 1 + max_output):
         possible_case_list.append(dp[idx - case[1]] + case[0])
     if len(possible_case_list) > 0:
         dp[idx] = min(possible_case_list)
-# print(f'dp: {dp}')
-print(min(dp[C:C + 1 + max_output]))
+print(dp[C])

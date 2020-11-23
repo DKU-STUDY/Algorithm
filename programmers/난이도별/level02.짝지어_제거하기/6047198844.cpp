@@ -17,6 +17,5 @@ int solution(string s)
             st.push(a_or_b);
         }
     }
-    int answer;
-    return answer = st.empty() ? 1 : 0;
+    return !st.size();
 }

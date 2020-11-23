@@ -16,7 +16,7 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
     int sec = 0;
     do {
         sec++;
-        if (on_deq.empty() || wait_q.size()&&(weight >= on_weight + wait_q.front())) {
+        if (wait_q.size()&&(weight >= on_weight + wait_q.front())) {
             on_deq.push_back({ wait_q.front(),0 }); wait_q.pop();
             on_weight += on_deq.back().first;
         }
@@ -33,4 +33,4 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 
 int main() {
     cout << solution(2, 10, {7,4,5,6});
-}
+} 

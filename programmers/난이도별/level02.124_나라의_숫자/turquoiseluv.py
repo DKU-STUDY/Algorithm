@@ -46,11 +46,7 @@ def solution(n):
         x = x[1:]
 
     for i in range(len(x)):
-        if x[i] == 1:
-            x[i] = '1'
-        elif x[i] == 2:
-            x[i] = '2'
-        elif x[i] == 3:
+        if x[i] == 3:
             x[i] = '4'
 
     return ''.join(x)

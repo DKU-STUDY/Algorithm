@@ -29,8 +29,7 @@ def convert(n, base):
     q, r = divmod(n, base)
     if q == 0:
         return T[r]
-    else:
-        return convert(q, base) + T[r]
+    return convert(q, base) + T[r]
 
 def solution(n):
     x = convert(n, 3)
@@ -49,6 +48,6 @@ def solution(n):
         if x[i] == 3:
             x[i] = '4'
 
-    return ''.join(x)
+    return ''.join(map(str,x))
 
 print(solution(n))

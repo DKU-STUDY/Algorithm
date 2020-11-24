@@ -37,14 +37,12 @@ def convert(m,n):
     i,j = divmod(m,n)
     if i ==0:
         return total[j]
-    else : 
-        return convert(i,n)+total[j]
+    return convert(i,n)+total[j]
 
 def solution(n, t, m, p):
     total = ''
     answer=''
-    for i in range(t*m):
-        total+=convert(i,n)
+    total = sum([convert(i,n) for i in range(t*m)])
     for i in range(t):
         idx = p-1 + i*m
         answer +=total[idx]

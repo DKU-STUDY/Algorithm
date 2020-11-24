@@ -24,9 +24,6 @@ def solution(strings, n):
     alphabet = [[] for _ in range(26)]
     for string in strings:
         alphabet[ord(string[n])-ord("a")].append(string)
-    x = list(map(lambda x : x.sort(), alphabet))
-    for x in alphabet:
-        ans += x
-    return ans
+    return sum(list(map(lambda x : x.sort(), alphabet)))
 
 print(solution(strings, n))

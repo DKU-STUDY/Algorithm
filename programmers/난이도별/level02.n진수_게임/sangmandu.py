@@ -37,8 +37,7 @@ def convert(m,n):
     i,j = divmod(m,n)
     if i ==0:
         return total[j]
-    else : 
-        return convert(i,n)+total[j]
+    return convert(i,n)+total[j]
 
 def solution(n, t, m, p):
     total = ''

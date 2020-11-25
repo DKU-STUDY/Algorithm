@@ -19,10 +19,9 @@ class Solution:
             if n == len(s): # s의 길이만큼 s의 문자들이 들어갈 수 있게 함
                 break
 
-        answer = ""
-        for string in alist:
-            for c in string:
-                answer += c
+        answer = []
+        for s in alist:
+                answer += s
                 # 지그재그로 정리된 문자들이 answer에 담기게 됨
 
-        return answer
+        return ''.join(answer)

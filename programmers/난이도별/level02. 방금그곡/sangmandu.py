@@ -5,7 +5,11 @@ replace로 대문자#을 소문자로 변경.
 '''
 
 def solution(m, musicinfos):
-    m = m.replace('C#', 'c').replace('D#','d').replace('F#','f').replace('G#','g').replace('A#','a')
+    m = m.replace('C#', 'c')
+        .replace('D#','d')
+        .replace('F#','f')
+        .replace('G#','g')
+        .replace('A#','a')
     answer = []
     for i in musicinfos:
         start, end, title, score = i.split(',')

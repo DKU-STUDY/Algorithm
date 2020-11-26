@@ -7,7 +7,7 @@ https://programmers.co.kr/learn/courses/30/lessons/42579
 def solution(genres, plays):
     rank, chart = {}, {}
     for idx, val in enumerate(zip(genres, plays)):
-        a, b = val[0], val[1]
+        a, b = val
         rank.setdefault(a, 0)
         rank[a] += b
         chart.setdefault(a, [])

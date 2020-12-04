@@ -15,9 +15,9 @@ vertex = [[3, 6], [4, 3], [3, 2], [1, 3], [1, 2], [2, 4], [5, 2]]
 
 def solution(n, vertex):
     graph = [[]for i in range(n+1)]
-    for i in vertex:
-        graph[i[0]].append(i[1])
-        graph[i[1]].append(i[0])
+    for st, ed in vertex:
+          graph[st].append(ed)
+          graph[ed].append(st)
 
     visited = [1] + [0]*(n)
     save = []
@@ -26,15 +26,14 @@ def solution(n, vertex):
     now = [start]
     visited[start] = 1
 
-    while now:
+    while now or not all(visited):
+        if not now:
+            now, save = save, now
         start = now.pop()
         for v in graph[start]:
             if not visited[v]:
                 visited[v] = 1
                 save.append(v)
-        if all(visited):
-            return len(save)
-        if not now:
-            now, save = save, now
+    return len(save)
 
 print(solution(n, vertex))

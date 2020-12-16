@@ -17,10 +17,7 @@ def solution(m, n, puddles):
             if b[i][j] == -1:
                 b[i][j] = 0
                 continue
-            if i != 1:
-                b[i][j] += b[i - 1][j]
-            if j != 1:
-                b[i][j] += b[i][j - 1]
+            b[i][j] += (b[i - 1][j] + b[i][j - 1])
 
     return b[n][m] % 1000000007
 

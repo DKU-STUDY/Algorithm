@@ -45,6 +45,5 @@ int main() {
 	cin >> n >> k;
 	for (int i = 0; i < n; i++)
 		cin >> coin[i];
-	sort(coin, coin + n);
 	cout << dp(n, k);
 }

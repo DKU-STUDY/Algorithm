@@ -4,12 +4,12 @@ class Solution {
         intervals.sortWith(compareBy { it[0] })
 
         var temp: IntArray = intervals[0]
-        for (i in 1 until intervals.size) {
-            if (temp[1] >= intervals[i][0]) {
-                temp[1] = temp[1].coerceAtLeast(intervals[i][1])
-            } else {
+        for (interval in intervals) {
+            if (temp[1] >= interval[0])
+                temp[1] = temp[1].coerceAtLeast(interval[1])
+            else {
                 answer.add(temp)
-                temp = intervals[i]
+                temp = interval
             }
         }
         answer.add(temp)

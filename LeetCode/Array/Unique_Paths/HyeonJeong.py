@@ -1,6 +1,6 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        # m-1개의 '아래'와 n-1개의 '오른쪽'의 순서를 정하는 순열
+        # m-1개의 '아래'와 n-1개의 '오른쪽'의 순서를 정하는 순열(nCr)
         num = 1 # num은 nCr에서 n!
         for i in range(2,m+n-1):
             num *= i

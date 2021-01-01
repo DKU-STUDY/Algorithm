@@ -11,7 +11,7 @@ def solution(brown, yellow):
         if (answer[i][0] + answer[i][1]) * 2 + 4 == brown:
             return [answer[i][0] + 2, answer[i][1] + 2]
 
-print(solution(12,4) == 3, solution(12,4))
-print(solution(14,4) == 3, solution(14,4))
-print(solution(18,6) == 4, solution(18,6))
-print(solution(14,6) == 5, solution(14,6))
+print(solution(12,4) == [4, 4], solution(12,4))
+print(solution(14,4) == [6, 3], solution(14,4))
+print(solution(18,6) == [8, 3], solution(18,6))
+print(solution(14,6) == [5, 4], solution(14,6))

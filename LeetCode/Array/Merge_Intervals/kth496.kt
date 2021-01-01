@@ -1,3 +1,5 @@
+import kotlin.math.max
+
 class Solution {
     fun merge(intervals: Array<IntArray>): Array<IntArray?> {
         val answer: MutableList<IntArray?> = ArrayList();

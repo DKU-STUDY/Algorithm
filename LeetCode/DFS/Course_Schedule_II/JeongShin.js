@@ -42,3 +42,33 @@ const dfs = function (graph, course, num, visited, answer) {
     return true;
 };
 
+
+// Kahn's algorithm
+const findOrder2 = function (numCourses, prerequisites) {
+    const graph = new Array(numCourses).fill(null).map((v)=> []);
+    const edges = new Array(numCourses).fill(0);
+    const sorted = [];
+
+    for (const [course, prerequisite] of prerequisites) {
+        graph[prerequisite].push(course);
+        edges[course]++;
+    }
+
+    const queue = [];
+
+    // 선수 과목이 없는 과목을 시작으로
+    for (let i = 0; i < numCourses; i++)
+        edges[i] === 0 ? queue.push(i) : null;
+
+    while (queue[0] !== undefined){
+        const curr = queue.shift();
+        sorted.push(curr);
+
+        for (const next of graph[curr]){
+            edges[next]--;
+            edges[next] === 0 ? queue.push(next) : null;
+        }
+    }
+
+    return sorted.length === numCourses ? sorted : [];
+};

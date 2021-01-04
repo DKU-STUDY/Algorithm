@@ -28,8 +28,6 @@ for i in range(1, m+1):
     adj[x].append(y)
     adj[y].append(x)
 
-for i in adj:
-    i.sort()
 
 # print(adj)
 

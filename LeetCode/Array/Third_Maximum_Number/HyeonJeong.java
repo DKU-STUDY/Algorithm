@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 class HyeonJeong {
     public int thirdMax(int[] nums) {
-        Arrays.sort(nums); // 배열을 정렬
+        Arrays.sort(nums);
         int tmp = 1, n = nums[nums.length-1];
         for (int i = nums.length-2; i >= 0; i--) {
             if (n > nums[i]) {

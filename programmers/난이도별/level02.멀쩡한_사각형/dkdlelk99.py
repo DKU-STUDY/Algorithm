@@ -3,6 +3,7 @@
 # output 멀쩡한 사각형의 갯수
 # 가로 길이 W, 세로 길이 H인 사각형을 대각선으로 자를 때, 가로 세로가 1cm인 사각형이 몇개인가?
 
+import math
 def solution(w,h):
     answer = 0
     all = w * h
@@ -16,13 +17,11 @@ def solution(w,h):
         return all - w
     elif h > w:
         for i in range(w // x):
-            a = (h * (i + 1) / w)
-            answer += a // 1 + (a % 1 != 0) - int(h * i / w)
+            answer += math.ceil(h*(i+1)/w) - int(h * i / w)
     else:
-        for i in range(w // x):
-            a = (w * (i + 1) / h)
-            answer += a // 1 + (a % 1 != 0) - int(w * i / h)
-    answer = all - int(answer) * x
-    return all - answer
+        for i in range(h // x):
+            answer += math.ceil(w*(i + 1)/h) - int(w * i / h)
+
+    return all - answer * x
 
 print(solution(8, 12) == 80, solution(8, 12))

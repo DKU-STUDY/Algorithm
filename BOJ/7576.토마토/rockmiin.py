@@ -1,10 +1,10 @@
 import sys
-
+from collections import deque
 def bfs(q):
-    tmp= []
+    tmp= deque()
     # print(q)
     while q:
-        x, y= q.pop(0)
+        x, y= q.popleft()
         for dx, dy in [[1, 0], [0, 1], [-1, 0], [0, -1]]:
             tmp_x, tmp_y= x+ dx, y+ dy
             if 0<=tmp_x<n and 0<=tmp_y<m and not visited[tmp_x][tmp_y] and adj[tmp_x][tmp_y]==0:
@@ -18,7 +18,7 @@ m, n= map(int, sys.stdin.readline().split())
 
 adj=[list(map(int, sys.stdin.readline().split())) for _ in range(n)]
 visited=[[0 for _ in range(m)] for _ in range(n)]
-tomato= []
+tomato= deque()
 cnt= -1
 # for i in adj:
 #     print(i)

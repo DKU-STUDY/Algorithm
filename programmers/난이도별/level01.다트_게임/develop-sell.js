@@ -8,12 +8,14 @@ function solution(dartResult) {
   
   //삼항연산자로 3개의 조건을 걸 수 있는 방법은 없는가? 
   function pow_num (num, char){
-      if(char === 'S')
-          return num
-      else if (char === 'D')
-          return pow(num, 2)
-      else
-          return pow(num, 3)
+      if(char === 'S') {
+          return num;
+       }
+      if (char === 'D') {
+          return pow(num, 2);
+       }
+      
+       return pow(num, 3)
   }
   
   function option_num(num, char){

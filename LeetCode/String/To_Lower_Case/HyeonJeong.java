@@ -6,7 +6,7 @@ class HyeonJeong {
         int n;
         for (int i = 0; i < str.length(); i++) {
             n = str.charAt(i);
-            if (65 <= n && n <= 90)
+            if (65 <= n && n <= 90) // 대문자인 경우
                 sb.append((char)(n + 32));
             else
                 sb.append((char)n);

@@ -44,7 +44,6 @@ char* solution(int numbers[], size_t numbers_len) {
     }
 
     if (isZeroCheck) {
-        isZeroCheck = false;
         return "0";
     }
 

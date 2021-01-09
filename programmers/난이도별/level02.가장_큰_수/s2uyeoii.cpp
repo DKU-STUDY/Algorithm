@@ -11,8 +11,8 @@ int str_compare(int* num1, int* num2) {
     sprintf(num_cmp2, "%d%d", *num2, *num1);
 
     if (strcmp(num_cmp1, num_cmp2) < 0) return 1; 
-    else if (strcmp(num_cmp1, num_cmp2) == 0) return 0;
-    else return -1;
+    if (strcmp(num_cmp1, num_cmp2) == 0) return 0;
+    return -1;
 }
 
 // numbers_len은 배열 numbers의 길이입니다.

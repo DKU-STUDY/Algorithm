@@ -1,14 +1,22 @@
 from collections import deque
 import copy
+import time
 
+# st= time.time()
 def bfs():
     # 함수 안에서 전역 변수의 값을 변경하려면 global 키워드를 사용
     global res
 
     # adj, real_q값을 변경하면 안되니까 깊은 복사를 사용하여 구현
     adj_copy= copy.deepcopy(adj)
-    q= copy.deepcopy(real_q)
+    # q= copy.deepcopy(real_q)
     cnt= 0
+
+    q = deque()
+    for i in range(n):
+        for j in range(m):
+            if adj[i][j] == 2:
+                q.append([i, j])
 
     while q:
         x, y= q.popleft()
@@ -59,11 +67,11 @@ for i in range(n):
     adj.append(list(map(int, input().split())))
 
 # 바이러스가 있는 위치를 real_q에 담아놓음음
-real_q=deque()
-for i in range(n):
-    for j in range(m):
-        if adj[i][j]== 2:
-            real_q.append([i, j])
+# real_q=deque()
+# for i in range(n):
+#     for j in range(m):
+#         if adj[i][j]== 2:
+#             real_q.append([i, j])
 # for i in adj:
 #     print(i)
 # print()
@@ -71,6 +79,7 @@ for i in range(n):
 search_wall(0)
 print(res)
 
+# print("time :", time.time()-st)
 # 입력 예시
 # 4 6
 # 0 0 0 0 0 0

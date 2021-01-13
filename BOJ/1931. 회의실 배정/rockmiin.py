@@ -8,9 +8,7 @@ for i in range(n):
 
 # 첫번째 원소 기준으로 정렬을 해준 뒤 두번째 원소 기준으로 정렬을 해주는 것이 핵심
 # print(arr)
-arr.sort()
-# print(arr)
-arr.sort(key= lambda x: x[1])
+arr.sort(key = lambda x : (x[1], x[0]))
 # print(arr)
 
 start, end= 0, 0

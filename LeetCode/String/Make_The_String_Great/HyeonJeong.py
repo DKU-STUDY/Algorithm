@@ -4,7 +4,7 @@ class Solution:
         i = 0
         while i < len(result)-1:
             if ord(result[i])-32 ==  ord(result[i+1]) or ord(result[i]) ==  ord(result[i+1])-32:
-            # 앞 뒤가 같은 알파벳의 대문자와 소문자인 경우
+            # 연속된 인덱스에 같은 알파벳의 대문자와 소문자인 경우
                 result.pop(i+1)
                 result.pop(i)
                 if i != 0:

@@ -20,7 +20,7 @@ class HyeonJeong {
         }
         System.out.println(start);
         System.out.println(s_len-(1));
-        int c = 0;
+        int c = 0; // s 배열에서 사용될 수 있는 최대 값의 인덱스를 가리키기 위해 사용
         for (int i = start; i > -1; i--) {
             if (s_len == c) {
                 break;

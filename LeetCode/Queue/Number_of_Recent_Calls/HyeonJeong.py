@@ -1,9 +1,8 @@
 class RecentCounter:
-# 3000밀리 초 내에 요청된 수를 계산하는 클래스
+# 최근 3000밀리 초 이내에 요청된 개수를 계산하는 클래스
     def __init__(self):
         self.time = []
         self.t = 0
-
 
     def ping(self, t: int) -> int:
         newTime = []

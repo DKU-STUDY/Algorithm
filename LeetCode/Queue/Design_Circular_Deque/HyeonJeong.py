@@ -1,7 +1,7 @@
 from collections import deque
 
 class MyCircularDeque:
-
+# 순환 양방향 큐 구현을 설계
     def __init__(self, k: int):
         self.q = deque()
         self.k = k

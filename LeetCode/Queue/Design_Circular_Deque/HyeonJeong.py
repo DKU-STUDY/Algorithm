@@ -35,7 +35,6 @@ class MyCircularDeque:
             return -1
         return self.q[len(self.q)-1]
 
-
     def getRear(self) -> int:
         if self.isEmpty():
             return -1
@@ -45,7 +44,6 @@ class MyCircularDeque:
         if len(self.q) == 0:
             return True
         return False
-
 
     def isFull(self) -> bool:
         if len(self.q) == self.k:

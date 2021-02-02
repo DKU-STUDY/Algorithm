@@ -17,3 +17,7 @@ def solution(n: int):
                 check[j] = 1
     # print(f"Primse is {pn}")
     return pc
+
+
+print(solution(10))
+print(solution(5))

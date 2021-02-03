@@ -10,7 +10,7 @@ class Solution(object):
                     break
             state = 1
             for x in word[1:]:
-                if x not in alpha[i]:
+                if x not in alpha[index]:
                     state = 0
                     break
             if state == 1:

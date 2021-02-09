@@ -11,7 +11,7 @@ class ListNode {
 class HyeonJeong {
     public ListNode swapPairs(ListNode head) {
         ListNode node = head;
-        int state = 0, tmp;
+        int tmp;
         while (node != null && node.next != null) {
             tmp = node.val;
             node.val = node.next.val;

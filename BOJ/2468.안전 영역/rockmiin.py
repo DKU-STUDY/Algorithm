@@ -37,3 +37,5 @@ for h in range(height):
     res= max(res, cnt)
 print(res)
 
+# 시간복잡도를 계산할 때 높이가 1이상 100이하라는 작은 범위였기 때문에 완전탐색이 가능했다.
+

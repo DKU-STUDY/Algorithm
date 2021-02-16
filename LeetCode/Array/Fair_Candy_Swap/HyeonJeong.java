@@ -12,7 +12,7 @@ class HyeonJeong {
         }
         for (int j = 0; j < A.length; j++) {
             for (int i = 0; i < B.length; i++) {
-                if (sumA + 2*B[i] == sumB + 2*A[j]) { // 값이 변경된 경우에 두 사람의 캔디량이 같은지 확인
+                if (sumA + 2*B[i] == sumB + 2*A[j]) { // 값의 변경 후 합이 같은지
                     result[0] = A[j];
                     result[1] = B[i];
                     break;

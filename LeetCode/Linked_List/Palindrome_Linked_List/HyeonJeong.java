@@ -14,7 +14,7 @@ class HyeonJeong {
             len++;
         }
         for (int i = 0; i < len/2; i++) {
-            if ((int)list.get(i) != (int)list.get(len-(i+1))) {
+            if ((int)list.get(i) != (int)list.get(len-(i+1))) { // 회문 확인을 위해서 중간을 기준으로 확인
                 return false;
             }
         }

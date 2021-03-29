@@ -1,40 +1,43 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
-char arr[6562][6562];
 
-void dac(int start_y, int end_y, int start_x, int end_x)
-{
-	int q = (end_y - start_y + 1) / 3;
-	if (q != 1)
-	{
-		for (int i = start_y; i < end_y; i += q) for (int j = start_x; j < end_x; j += q)
-		{
-			dac(i, i + q - 1, j, j + q - 1);
-		}
-		for (int i = start_y + q; i < start_y + q + q; i++) for (int j = start_x + q; j < start_x + q + q; j++)
-		{
-			arr[i][j] = ' ';
-		}
-	}
-	else
-	{
-		for (int i = start_y; i <= end_y; i++)for (int j = start_x; j <= end_x; j++)
-			arr[i][j] = '*';
-		arr[(start_y + end_y) / 2][(start_x + end_x) / 2] = ' ';
-	}
-}
+void printStar(vector<vector<char>>& arr) {
+	int x_size = arr[0].size();
+	int y_size = arr.size();
 
-int main()
-{
-	int N;
-	cin >> N;
-	dac(1, N, 1, N);
-	for (int i = 1; i <= N; i++)
-	{
-		for (int j = 1; j <= N; j++)
-			printf("%c", arr[i][j]);
+	for (int y = 0; y < y_size; y++) {
+		for (int x = 0; x < x_size; x++)
+			printf("%c", arr[y][x]);
 		printf("\n");
 	}
 
+	return;
+}
+
+void makeStar(vector<vector<char>>& arr, int y, int x, int size) {
+	if (size == 1) {
+		arr[y][x] = '*';
+		return;
+	}
+
+	int resize = size / 3;
+
+	for (int dy = 0; dy < 3; dy++) {
+		for (int dx = 0; dx < 3; dx++) {
+			if (dy == 1 && dx == 1)
+				continue;
+			makeStar(arr, y + dy * resize, x + dx * resize, resize);
+		}
+	}
+}
+
+
+int main() {
+	int N;
+	cin >> N;
+	vector < vector<char>> arr(N, vector<char>(N, ' '));
+	makeStar(arr, 0, 0, N);
+	printStar(arr);
 }

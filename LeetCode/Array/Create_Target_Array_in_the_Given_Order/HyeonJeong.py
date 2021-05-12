@@ -3,9 +3,5 @@ class Solution:
     def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
         target = []
         for i, n in enumerate(index):
-            if n == len(target): # 리스트 끝에 값을 넣는 경우
-                target += [nums[i]]
-                continue
-            # 리스트 사이에 값을 넣는 경우
             target = target[:n] + [nums[i]] + target[n:]
         return target

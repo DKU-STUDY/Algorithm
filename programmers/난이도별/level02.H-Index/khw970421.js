@@ -2,19 +2,17 @@
 
 function solution(citations) {
     var answer = 0;
-    let a=[];
-    let b=[];
-    citations.sort((A,B)=>A-B);
+    let a = [];
+    let b = [];
+    citations.sort((A, B) => A - B);
 
-    for(let i=citations.length;i>0;i--)
-    {
-        for(let j=0;j<citations.length;j++)
-        {
-            if(citations[j]>=i){
-                a = citations.slice(0,j);
-                b = citations.slice(j,citations.length);
+    for (let i = citations.length; i > 0; i--) {
+        for (let j = 0; j < citations.length; j++) {
+            if (citations[j] >= i) {
+                a = citations.slice(0, j);
+                b = citations.slice(j, citations.length);
 
-                if(a.length<=i&&b.length>=i){
+                if (a.length <= i && b.length >= i) {
                     return i;
                 }
             }
@@ -29,13 +27,13 @@ function solution(citations) {
 function solution(citations) {
     citations = citations.sort(sorting);
     var i = 0;
-    while(i + 1 <= citations[i]){
+    while (i + 1 <= citations[i]) {
         i++;
     }
     return i;
 
 
-    function sorting(a, b){
+    function sorting(a, b) {
         return b - a;
     }
 }

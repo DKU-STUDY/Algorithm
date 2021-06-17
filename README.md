@@ -30,7 +30,7 @@
 
 ## 가입 문의 
 
-[네이버 폼](http://naver.me/5MParwvU) 작성 
+[구글 폼](https://docs.google.com/forms/d/1nYX8pMOVEE8nhOZG3g__JGdcKOcom0Mqxvvry1LsIiU/edit) 작성 
 
 ## PR 규칙
 - PR 이름은 알고리즘 푼 문제 이름

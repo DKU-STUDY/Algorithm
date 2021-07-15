@@ -1,7 +1,9 @@
-#https://programmers.co.kr/learn/courses/30/lessons/12901
-# 2016년 a월 b일의 요일 구하기
-# datetime 사용
-
+'''
+https://programmers.co.kr/learn/courses/30/lessons/12901
+2016년
+0. a월 b일의 요일 구하기
+1. datetime 사용
+'''
 import datetime
 def solution(a, b):
     answer = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]

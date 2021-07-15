@@ -1,9 +1,9 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/17682
-다트 게임 : 숫자, 보너스, 옵션에 대한 점수 계산
-정규식 사용
+다트 게임
+0. 숫자, 보너스, 옵션에 대한 점수 계산
+1. 정규식 사용
 '''
-
 import re
 
 def solution(dartResult):
@@ -30,8 +30,6 @@ def solution(dartResult):
         scores.append(score)
 
     return sum(scores)
-
-
 '''
 if문으로 해당 index의 값을 비교하기 보다는, 미리 딕셔너리화 해서 key값으로 바로 참조하기
 정규식을 좀 더 깔끔하게 쓸 것

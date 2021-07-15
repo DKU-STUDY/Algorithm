@@ -1,10 +1,10 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/17681
-비밀지도 : array의 원소는 어떤 이진수의 십진수. 이 이진수는 n*n에 대한 암호이며
-두 개의 array를 합한 array는 최종 암호이다. 1은 #으로 0은 공백으로 표현
-bin으로 이진수 치환. zip으로 바로 리스트화. re.sub으로 1과 0 대체
+비밀지도
+1. array의 원소는 어떤 이진수의 십진수. 이 이진수는 n*n에 대한 암호
+=> 두 개의 array를 합한 array는 최종 암호이다. 1은 #으로 0은 공백으로 표현
+=> bin으로 이진수 치환. zip으로 바로 리스트화. re.sub으로 1과 0 대체
 '''
-
 import re
 def solution(n, arr1, arr2):
     cipher = [bin(i | j)[-n:] for i, j in zip(arr1, arr2)]

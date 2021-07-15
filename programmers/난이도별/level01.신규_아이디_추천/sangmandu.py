@@ -1,9 +1,9 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/72410
 신규 아이디 추천
-정규식 사용 문제. 정규식을 모른다면 끔찍하다.
+[풀이]
+0. 정규식 사용 문제. 정규식을 모른다면 끔찍하다.
 '''
-
 import re
 
 def solution(new_id):
@@ -23,7 +23,6 @@ def solution(new_id):
     while len(new_id) < 3:
         new_id = new_id + new_id[-1]
     return new_id
-
 '''
 정규식이랑 if를 너무 혼재해서 사용한 듯 하다
 나보다 더 정규식을 잘 쓴 사람 코드를 배워야겠다

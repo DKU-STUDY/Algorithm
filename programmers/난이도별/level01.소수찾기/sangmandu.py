@@ -1,9 +1,9 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/12921
-소수 찾기 : n 까지의 소수 찾기
-제곱근까지 탐색
+소수 찾기
+[풀이]
+1. 제곱근까지 탐색
 '''
-
 def solution(n):
     if n == 2: return 1
     answer = 1

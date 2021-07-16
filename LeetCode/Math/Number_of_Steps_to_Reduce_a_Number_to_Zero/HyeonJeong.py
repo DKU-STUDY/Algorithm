@@ -1,6 +1,6 @@
 class Solution:
     def numberOfSteps(self, num: int) -> int:
-        cnt = 0
+        cnt = 0 # 단계 수
         while (num != 0) :
             cnt += 1
             if num % 2 == 0:

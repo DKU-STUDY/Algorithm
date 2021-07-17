@@ -5,9 +5,10 @@ using namespace std;
 
 //monotone stack을 이용하여 풀이 
 
-int N,num,ans=0;
-stack<int> s;
-vector<int> v;
+int N,num;
+long long ans = 0;
+stack<long long> s;
+vector<long long> v;
 
 int main(void) {
 	cin >> N;

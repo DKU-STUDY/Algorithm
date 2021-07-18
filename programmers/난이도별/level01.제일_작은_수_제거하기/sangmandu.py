@@ -1,7 +1,8 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/12935
 제일 작은 수 제거하기
-remove, sorted
+[풀이]
+1. remove, sorted 사용
 '''
 def solution(arr):
     arr and arr.remove(sorted(arr)[0])

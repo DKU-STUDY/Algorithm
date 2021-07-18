@@ -1,3 +1,14 @@
+'''
+https://programmers.co.kr/learn/courses/30/lessons/64061
+크레이 인형뽑기 게임
+[풀이]
+1. 각 열마다 있는 인형 개수 조사
+2. movee에 대해 반복문
+=> 뽑을 인형이 없으면 continue
+=> 뽑을 인형이 있으면 bucket에 담고 top과 같은지 비교
+=> 같으면 bomb 추가
+3. 뽑은 인형은 bucket에 닮기고 top을 bucket에 마지막 원소로 지정
+'''
 def solution(board, moves):
     numLine = [0 for i in range(len(board))]
     
@@ -27,3 +38,5 @@ def solution(board, moves):
         #print("bucket + top : ", bucket, top, ", bomb : ", bomb)
         
     return 2 * bomb
+'''
+'''

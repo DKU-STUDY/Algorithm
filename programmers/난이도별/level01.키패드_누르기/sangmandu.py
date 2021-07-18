@@ -1,10 +1,9 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/67256
 키패드 누르기
-키패드를 1을 중심으로 (0,0)~(3,2)로 설정, 해당 좌표로부터의 거리를 기준으로 조건문
+[풀이]
+1. 키패드를 1을 중심으로 (0,0)~(3,2)로 설정, 해당 좌표로부터의 거리를 기준으로 조건문
 '''
-
-
 def solution(numbers, hand):
     answer = ''
     l, r = (3, 0), (3, 2)
@@ -33,6 +32,5 @@ def solution(numbers, hand):
                     answer += "R"
 
     return answer
-
 '''
 '''

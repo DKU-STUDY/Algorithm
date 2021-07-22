@@ -1,9 +1,9 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/12913
 땅따먹기
-max 값을 아래 리스트로 내려보낸다. 바로 아래는 두번째 max값을 전달.
+[풀이]
+1. max 값을 아래 리스트로 내려보낸다. 바로 아래는 두번째 max값을 전달.
 '''
-
 def solution(land):
     one = two = idx = 0
     for i in land:
@@ -14,7 +14,6 @@ def solution(land):
         one, two = sorted(i)[-1], sorted(i)[-2]
 
     return max(land[-1])
-
 print(
     solution([[1,2,3,5],[5,6,7,8],[4,3,2,1]])
 )

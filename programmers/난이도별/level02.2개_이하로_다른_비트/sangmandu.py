@@ -1,7 +1,8 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/77885
 2개 이하로 다른 비트
-비트 조작
+[풀이]
+1. 비트 조작
 '''
 def solution(numbers):
     result = []

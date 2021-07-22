@@ -1,3 +1,7 @@
+'''
+문자열 압축
+https://programmers.co.kr/learn/courses/30/lessons/60057
+'''
 def solution(s):
     size = len(s)
     answer = size
@@ -16,3 +20,5 @@ def solution(s):
             cnt = 1
         answer = min(answer, len(newStr))
     return answer
+'''
+'''

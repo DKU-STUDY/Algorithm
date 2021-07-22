@@ -1,8 +1,9 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/12905
 가장 큰 정사각형 찾기
+[풀이]
+1. https://github.com/DKU-STUDY/Algorithm/pull/997 설명 참조
 '''
-
 def solution(board):
     for i in range(1, len(board)):
         for j in range(1, len(board[0])):

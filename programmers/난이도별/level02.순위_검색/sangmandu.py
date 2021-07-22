@@ -1,7 +1,9 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/72412
 순위 검색
-dictionary 고급 문제
+[풀이]
+1. dictionary 고급 문제
+2. bisect 사용
 '''
 from itertools import product
 from bisect import bisect_left as bisl

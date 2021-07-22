@@ -1,7 +1,8 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/72411
 메뉴 리뉴얼
-dictionary
+[풀이]
+1. dictionary와 combinations 사용
 '''
 from itertools import combinations
 def solution(orders, course):

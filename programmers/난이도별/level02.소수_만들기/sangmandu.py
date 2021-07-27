@@ -2,9 +2,7 @@
 https://programmers.co.kr/learn/courses/30/lessons/12977
 소수 만들기
 '''
-
 from itertools import combinations
-
 
 def solution(nums):
     nums = sorted([sum(i) for i in combinations(nums, 3)])
@@ -15,7 +13,5 @@ def solution(nums):
             for j in range(i + i, rear + 1, i):
                 sieve[j] = False
     return [sieve[i] for i in nums].count(True)
-
-
 '''
 '''

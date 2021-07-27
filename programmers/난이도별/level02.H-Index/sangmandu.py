@@ -1,16 +1,14 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/42747#
 H-Index
-문제 설명대로 비교. 1000편 이하이므로 2중 반복문 사용 가능.
-all을 사용해서 i <=j 와 j >= i를 모두 만족하면 return
+1. 문제 설명대로 비교. 1000편 이하이므로 2중 반복문 사용 가능.
+2. all을 사용해서 i <=j 와 j >= i를 모두 만족하면 return
 '''
-
 def solution(citations):
     citations.sort(reverse=True)
     for i in range(len(citations), 0, -1):
         if all([j >= i for j in citations[:i]]) and all([j <= i for j in citations[i:]]): return i
     return 0
-
 '''
 세상에 고수는 많다..
 1) 이중 반복문을 안써도 되는 비교

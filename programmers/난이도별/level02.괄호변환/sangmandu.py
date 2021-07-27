@@ -1,4 +1,10 @@
-def bracket(p):
+'''
+괄호 변환
+https://programmers.co.kr/learn/courses/30/lessons/60058
+[풀이]
+1. 문제에서 제시한 대로 풀이
+'''
+ def bracket(p):
     if len(p) == 0:
         return ''
     
@@ -29,3 +35,5 @@ def bracket(p):
     
 def solution(p):
     return bracket(p)
+'''
+'''

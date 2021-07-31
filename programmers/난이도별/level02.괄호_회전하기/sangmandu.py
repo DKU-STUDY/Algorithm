@@ -1,7 +1,8 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/76502
 괄호 회전하기
-문자열 함수
+[풀이]
+1. 문자열 함수 replace 사용
 '''
 def solution(s):
     answer = 0

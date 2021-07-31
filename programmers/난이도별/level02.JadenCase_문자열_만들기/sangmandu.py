@@ -1,8 +1,9 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/12951
 JadenCase 문자열 만들기
+[풀이]
+1. RE 사용
 '''
-
 import re
 def solution(s):
     idx = [i.span()[1]-1 for i in re.finditer('\s\w', s)]
@@ -10,7 +11,6 @@ def solution(s):
     for i in idx:
         s[i] = s[i].upper()
     return ''.join(s)
-
 
 '''
 처음에는 아래처럼 풀었는데, 공백의 크기도 고려해야 해서 결국 split을 사용하지 못했다.

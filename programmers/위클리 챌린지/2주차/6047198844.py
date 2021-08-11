@@ -15,12 +15,13 @@ def solution(scores):
             return 'F'
 
     scores = list(zip(*scores))
-
     for idx, score in enumerate(scores):
         aggre = sum(score)
-        self_score = scores[idx][idx]
-        print(score.count(self_score))
-        if scores[idx].count(self_score) == 1 and (self_score == min(scores) or self_score == max(scores)):
-            print(scores[idx][idx])
+        N = len(score)
+        self_score = score[idx]
+        if score.count(self_score) == 1 and (self_score == min(score) or self_score == max(score)):
+            aggre -= self_score
+            N -= 1
+        answer += grade(aggre // N)
 
-    return answerv
+    return answer

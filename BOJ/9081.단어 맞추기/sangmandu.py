@@ -8,12 +8,13 @@ https://www.acmicpc.net/problem/9081
 => 문자열의 순서는 문자열을 숫자로 바꾸더라도 동일하다
 4. idx를 찾는다. 마지막 원소라면 그대로 유지. 이후 반환
 '''
-from itertools import permutations
 n = int(input())
 for _ in range(n):
     word = list(input())
-    num = [ord(w) for w in word]
-    nums = sorted([n for n in tuple(set(permutations(num, len(num))))])
-    idx = nums.index(tuple(num))
-    idx = idx if idx+1 == len(nums) else idx+1
-    print(''.join([chr(n) for n in nums[idx]]))
+    for idx in range(len(word)-1, 0, -1):
+        if word[idx] > word[idx-1]:
+            a, b = min([(w, jdx) for jdx, w in enumerate(word[idx:]) if w > word[idx - 1]])
+            print(''.join(word[:idx-1]+[a]+sorted(word[idx:idx+b]+word[idx+b+1:]+[word[idx-1]])))
+            break
+    else:
+        print(''.join(word))

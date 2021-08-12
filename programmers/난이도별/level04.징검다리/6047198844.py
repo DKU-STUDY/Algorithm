@@ -44,13 +44,4 @@ def solution(distance, rocks, n):
         # 삭제한 돌이 N보다 큰경우 -> 거리가 기므로 거리를 좁힌다.
         else:
             end = mid - 1
-
-    #        print(stack,min_distance,del_rock_n)
-
-    '''
-    0~25 m=12
-    0~11 m=5
-    0~4 m=2
-    '''
-
     return answer

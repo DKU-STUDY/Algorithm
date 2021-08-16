@@ -5,18 +5,17 @@ class Solution:
         BN = len(b)
         N = max(AN, BN)
         res = ''
-        div = 0
+        rnd = 0
 
-        print(a, b, '--------------')
         for idx in range(1, N + 1):
-            if idx < AN and a[-idx] == '1':
-                div += 1
-            if idx < BN and b[-idx] == '1':
-                div += 1
-            res = str(div % 2) + res
-            div //= 2
+            if idx <= AN and a[-idx] == '1':
+                rnd += 1
+            if idx <= BN and b[-idx] == '1':
+                rnd += 1
+            res = str(rnd % 2) + res
+            rnd //= 2
 
-        if div == 1:
+        if rnd == 1:
             res = '1' + res
 
         return res

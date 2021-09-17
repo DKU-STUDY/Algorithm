@@ -3,7 +3,7 @@ class Solution:
         word = ''
         N = len(s)
         begin, end = 0, N - 1
-        vowels = set(['a', 'e', 'i', 'o', 'u'])
+        vowels = set(['a','e','i','o','u','A','E','I','O','U'])
 
         while begin < N:
             if s[begin] in vowels:

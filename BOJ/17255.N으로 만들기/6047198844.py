@@ -9,10 +9,9 @@ while Q:
     else:
         i = num[1:]
         j = num[:-1]
-        if i == j:
-            Q.append(i)
-        else:
-            Q.append(i)
+        Q.append(i)
+        if i != j:
             Q.append(j)
+
 
 print(ans)

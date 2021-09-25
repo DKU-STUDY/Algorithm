@@ -13,24 +13,36 @@ for _ in range(N):
     min_board.append(s.split())
     max_board.append(s.split())
 
-#최소값 구하기.
+# 최소값 구하기.
 for y in range(N):
     for x in range(N):
-        i = j = 9999999
-        k = l = -9999999
-        if (y+x) % 2 == 0:
+        if (y + x) % 2 == 0:
+            i = 9999999
+            k = -9999999
             # 좌
-            if x-2 >= 0:
-                i = eval(min_board[y][x-2] + min_board[y][x-1] + min_board[y][x])
-                k = eval(max_board[y][x-2] + max_board[y][x-1] + max_board[y][x])
+            if x - 1 >= 0:
+                #좌
+                if x - 2 >= 0:
+                    i = min(i, int(eval(min_board[y][x - 2] + min_board[y][x - 1] + min_board[y][x])))
+                    k = max(k, int(eval(max_board[y][x - 2] + max_board[y][x - 1] + max_board[y][x])))
+                #상
+                if y - 1 >= 0:
+                    i = min(i, int(eval(min_board[y - 1][x - 1] + min_board[y][x - 1] + min_board[y][x])))
+                    k = max(k, int(eval(max_board[y - 1][x - 1] + max_board[y][x - 1] + max_board[y][x])))
             # 상
-            if y - 2 >= 0:
-                j = eval(min_board[y - 2][x] + min_board[y - 1][x] + min_board[y][x])
-                l = eval(max_board[y - 2][x] + max_board[y - 1][x] + max_board[y][x])
+            if y - 1 >= 0:
+                #좌
+                if x - 1 >= 0:
+                    i = min(i, int(eval(min_board[y - 1][x - 1] + min_board[y - 1][x] + min_board[y][x])))
+                    k = max(k, int(eval(max_board[y - 1][x - 1] + max_board[y - 1][x] + max_board[y][x])))
+                #상
+                if y - 2 >= 0:
+                    i = min(i, int(eval(min_board[y - 2][x] + min_board[y - 1][x] + min_board[y][x])))
+                    k = max(k, int(eval(max_board[y - 2][x] + max_board[y - 1][x] + max_board[y][x])))
 
-            if i != 9999999 or j != 9999999:
-                min_board[y][x] = str(min(i,j))
-                max_board[y][x] = str(max(k,l))
+            if i != 9999999:
+                min_board[y][x] = str(i)
+            if k != -9999999:
+                max_board[y][x] = str(k)
 
-
-print(max_board[N-1][N-1], min_board[N-1][N-1])
+print(max_board[N - 1][N - 1], min_board[N - 1][N - 1])

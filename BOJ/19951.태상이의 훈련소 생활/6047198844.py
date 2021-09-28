@@ -47,5 +47,5 @@ for _ in range(M):
 for i in range(1, N+1):
     variance[i] += variance[i-1]
     H[i-1] += variance[i-1]
-print(variance)
-print(H)
+
+print(' '.join(map(str, H)))

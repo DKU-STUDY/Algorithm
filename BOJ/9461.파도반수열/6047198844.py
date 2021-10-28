@@ -26,9 +26,10 @@
 # P(-3) + P(1) = P(2)
 # P(-2) + P(2) = P(3)
 # P(-1) + P(3) = P(4)
-
-N = int(input())
-P = [1, 1, 1, 2, 2]
-for idx in range(5, N + 1):
-    P.append(P[idx-5] + P[idx-1])
-print(P[N-1])
+T = int(input())
+for _ in range(T):
+    N = int(input())
+    P = [1, 1, 1, 2, 2]
+    for idx in range(5, N + 1):
+        P.append(P[idx-5] + P[idx-1])
+    print(P[N-1])

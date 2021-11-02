@@ -5,7 +5,7 @@ res = ''
 S = input()
 for char in S:
     if char == ' ':
-        res += word
+        res += word[::-1]
         word = ''
         res += char
     #flag가 false면 word. True면 tag라는 뜻이다.
@@ -22,4 +22,5 @@ for char in S:
         word += char
     else:
         tag += char
+res += word[::-1]
 print(res)

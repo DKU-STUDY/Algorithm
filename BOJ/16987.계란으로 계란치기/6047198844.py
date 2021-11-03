@@ -35,30 +35,31 @@ for _ in range(N):
 eggs_durability = [durability for durability, weight in eggs]
 ans = 0
 
+
 # 고를 계란의 위치: idx
-def brute_force(picked_idx):
+def brute_force(picked_idx, broken_eggs_n):
     global ans
     # base case. 더 이상 고를 계란이 없다면 종료한다.
     if picked_idx == N:
-        ans = max(ans, len(list(filter(lambda durability : durability <= 0, eggs_durability))))
+        ans = max(ans, broken_eggs_n)
         return
 
-    # 터진 계란이라면, 다음 계란을 고른다.
-    if eggs_durability[picked_idx] <= 0:
-        brute_force(picked_idx + 1)
+    # 손에 있는 계란이 터진 계란이거나 깨지지 않은 다른 계란이 없는 경우.
+    if eggs_durability[picked_idx] <= 0 or N - broken_eggs_n == 1:
+        brute_force(picked_idx + 1, broken_eggs_n)
         return
 
     # 현재 계란은 깨진 계란이 아니다. 이제 계란을 다른 계란과 부딪혀보자. 이미 깨진 계란은 안되겠지?
     for target_idx in range(N):
         # 손에 들고 있는 계란이 아닌 다른 계란중에 깨지지 않은 계란이 있다면.
         if target_idx != picked_idx and eggs_durability[target_idx] > 0:
-            #충격을 가한다.
+            # 충격을 가한다.
             eggs_durability[picked_idx] -= eggs[target_idx][1]
             eggs_durability[target_idx] -= eggs[picked_idx][1]
-            brute_force(picked_idx + 1)
+            brute_force(picked_idx + 1, broken_eggs_n + int(eggs_durability[picked_idx] <= 0) + int(eggs_durability[target_idx] <= 0))
             eggs_durability[picked_idx] += eggs[target_idx][1]
             eggs_durability[target_idx] += eggs[picked_idx][1]
 
 
-brute_force(0)
+brute_force(0, 0)
 print(ans)

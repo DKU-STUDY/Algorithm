@@ -24,8 +24,6 @@ i+1번째 줄에는 왼쪽에서 i번째에 위치한 계란의 내구도 Si(1 �
 출력
 첫째 줄에 인범이가 깰 수 있는 계란의 최대 개수를 출력한다.
 """
-from collections import Counter
-
 N = int(input())
 eggs = list()
 for _ in range(N):

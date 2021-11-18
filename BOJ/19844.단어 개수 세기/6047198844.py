@@ -23,8 +23,7 @@ for word in sentence.split():
     back_word = "[aeiouh]+"
 
     for front_word in front_words:
-        regex = front_word + back_word
-        p = re.compile(regex)
+        p = re.compile(front_word + back_word)
         if p.match(word):
             cnt += 1
 print(cnt)

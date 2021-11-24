@@ -7,6 +7,7 @@ pays = list()
 
 for _ in range(N):
     pays.append(tuple(map(int, input().split())))
+pays.sort()
 
 res = 0
 benefit = 0

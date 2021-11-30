@@ -22,5 +22,5 @@ for x in range(1, 1000 + 1):
         for z in range(y, 1001 + 1):
             if z in S:
                 continue
-            ans = min(ans, abs(N - x*y*z))
+            ans = abs(N - x*y*z)
 print(ans)

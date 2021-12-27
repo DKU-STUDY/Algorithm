@@ -18,7 +18,7 @@ N, K = map(int, input().split())
 arr = list(int(sys.stdin.readline()) for _ in range(N))
 
 begin = 1
-end = max(arr)
+end = max(arr) + 1 # 주의 : upperbound
 
 while begin < end:
     cnt = 0
@@ -32,4 +32,4 @@ while begin < end:
     else:
         end = mid
 
-print(begin-1)
+print(end-1)

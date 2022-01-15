@@ -22,23 +22,20 @@
 def func(N, K, length):
     # m o o 만 남았을떄.
     if N <= 3:
-        print("moo"[N - 1])
-        exit()
+        return ("moo"[N - 1])
 
     next_length = length * 2 + K + 3
 
     # 확장한다.
     if next_length < N:
-        func(N, K + 1, next_length)
+        return func(N, K + 1, next_length)
 
     # 다음 Moo 의 범위에 속해있는지 확인한다.
     if length + 1 <= N <= length + K + 3:
-        print("m") if N == length + 1 else print("o")
-        exit()
+        return "m" if N == length + 1 else "o"
 
     # 재귀를 처음부터 다시 시작한다. N의 범위는 줄어든다.
-    func(N - (length + K + 3), 1, 3)
+    return func(N - (length + K + 3), 1, 3)
 
 
-N = int(input())
-func(N, 1, 3)
+print(func(int(input()), 1, 3))

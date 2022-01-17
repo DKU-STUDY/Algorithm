@@ -14,14 +14,14 @@
 #
 # 출력
 # 00시 00분 00초부터 N시 59분 59초까지의 모든 시각 중에서 K가 하나라도 포함되는 시각들의 수를 출력한다.
-from datetime import time, timedelta, datetime
+from datetime import timedelta, datetime
 
 N, K = input().split()
 start_time = datetime(100, 1, 1, 0, 0, 0)
 end_time = datetime(100, 1, 1, int(N), 59, 59)
 
 res = 0
-while start_time < end_time:
-    start_time += timedelta(seconds=1)
+while start_time <= end_time:
     res += int(K in start_time.strftime('%H%M%S'))
+    start_time += timedelta(seconds=1)
 print(res)

@@ -9,6 +9,7 @@
 # 마지막 줄에는 "END"가 주어진다. (END는 해독하지 않는다.)
 import sys
 
+
 while True:
     plain = sys.stdin.readline().rstrip()
     if plain == 'END':

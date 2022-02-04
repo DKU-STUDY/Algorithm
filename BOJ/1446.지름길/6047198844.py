@@ -17,12 +17,12 @@ from collections import defaultdict
 
 INF = 987654321
 N, D = map(int, input().split())
-edges = defaultdict(lambda: defaultdict(int))
+edges = defaultdict(lambda: dict())
 vertexes = set()
 for _ in range(N):
     i, j, cost = map(int, input().split())
     # edges 필터링. 유일한 간선만 만들어보자.
-    if not edges[i][j] or edges[i][j] > cost:
+    if j not in edges[i] or edges[i][j] > cost:
         edges[i][j] = cost
     vertexes.add(i)
     vertexes.add(j)
@@ -31,10 +31,10 @@ depart, arrive = 0, D
 vertexes.add(0)
 vertexes.add(D)
 
-vertexes = list(sorted(vertexes))
+vertexes = list(vertexes)
 for i in vertexes:
     for j in vertexes:
-        if i < j and (not edges[i][j] :
+        if i < j and (j not in edges[i] or edges[i][j] > j - i):
             edges[i][j] = j - i
 
 # 최단거리 초기화

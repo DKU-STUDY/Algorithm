@@ -22,15 +22,11 @@ INF = 987654321
 def union(i, j):
     pi = find(i)
     pj = find(j)
-    if pi == -INF and pj == -INF:
-        return
-
-    if pi == -INF:
-        p[pj] = -INF
-        return
-
-    if pj == -INF:
-        p[pi] = -INF
+    if pi == -INF or pj == -INF:
+        if pi != -INF:
+            p[pi] = -INF
+        if pj != -INF:
+            p[pj] = -INF
         return
 
     if pi == pj:

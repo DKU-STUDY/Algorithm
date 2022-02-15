@@ -26,65 +26,30 @@ H, W = map(int, sys.stdin.readline().split())
 # 전처리
 board = [list(map(int, sys.stdin.readline().rstrip().replace('.', '0'))) for _ in range(H)]
 
-# 파도에 의해 무너질 가능성이 있는 구역
+# 무너진 구역
 Q = deque([])
-for y in range(1, H - 1):
-    for x in range(1, W - 1):
-        # 0 , 9 는 가능성이 없다.
-        if board[y][x] != 0 and board[y][x] != 9:
+for y in range(H):
+    for x in range(W):
+        if board[y][x] == 0:
             Q.append((y, x))
 
 res = 0
-while Q:
-    # 파도에 의해 무너진 구역
-    # 0으로 확인할수있으나 구현과정에서 저장할곳이 필요함. 즉 임시저장소임.
-    broken_Q = deque([])
-
-    # 파도에 의해 무너질 가능성이 있는 구역
-    next_Q = deque([])
-    next_visited = set()
-
-    # 파도가 친다.
-    res += 1
-    while Q:
+while True:
+    for _ in range(len(Q)):
         y, x = Q.popleft()
 
-        # 이미 무너졌는지 확인
-        # 파도에 의해 없어졌을 가능성이 존재한다.
-        if board[y][x] == 0:
-            continue
-
-        cnt = 0
-        # 내구성 테스트
-        for ny, nx in (y - 1, x), (y - 1, x - 1), (y, x - 1), (y + 1, x - 1), (y + 1, x), (y + 1, x + 1), (y, x + 1), (y - 1, x + 1):
-            cnt += int(board[ny][nx] == 0)
-
-        # 무너진 경우
-        if cnt >= board[y][x]:
-            # 이번 파도에 의해 무너진 구역에 추가한다.
-            broken_Q.append((y, x))
-            board[y][x] = -1
-
-            # 주변을 다음 큐에 넣는다.
-            # 파도에 의해 무너질 가능성이 있는 구역에 추가한다.
-            for ny, nx in (y - 1, x), (y - 1, x - 1), (y, x - 1), (y + 1, x - 1), (y + 1, x), (y + 1, x + 1), (y, x + 1), (y - 1, x + 1):
-                # 이미 추가된 구역 / 무너진 구역이 아니여야한다. 또한 0과 9는 무너질 가능성이 없으므로 넣지 않는다.
-                if (ny, nx) not in next_visited and board[ny][nx] != -1 and board[ny][nx] != 0 and board[ny][nx] != 9:
-                    next_Q.append((ny, nx))
-                    next_visited.add((ny, nx))
-
-    # 무너진 구역이 없는 경우. 이전 파도는 영향을 끼치지 못했으므로 수렴했다는 뜻이다. 1을 감소시키고 종료한다.
-    if len(broken_Q) == 0:
-        res -= 1
+        # 8방향 확인.
+        for ny, nx in (y - 1, x - 1), (y - 1, x), (y - 1, x + 1), (y, x - 1), (y, x + 1), (y + 1, x - 1), (y + 1, x), (
+        y + 1, x + 1):
+            # 범위 확인
+            if not (0 <= ny < H and 0 <= nx < W):
+                continue
+            if board[ny][nx] != 0:
+                board[ny][nx] -= 1
+                if board[ny][nx] == 0:
+                    Q.append((ny, nx))
+    if Q:
+        res += 1
+    else:
         break
-
-    # 무너진다.
-    while broken_Q:
-        y, x = broken_Q.popleft()
-        board[y][x] = 0
-
-    # 다음 방문으로 교체한다.
-    Q = next_Q
-
-
 print(res)

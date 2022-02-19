@@ -1,6 +1,6 @@
 import sys
 
-
+sys.setrecursionlimit(10**7)
 def union(A, B):
     PA = find(A)
     PB = find(B)

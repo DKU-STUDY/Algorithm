@@ -2,24 +2,6 @@ import sys
 from collections import defaultdict, deque
 
 
-def union(A, B):
-    PA = find(A)
-    PB = find(B)
-
-    if PA == PB:
-        return False
-
-    P[PB] = PA
-    return True
-
-
-def find(A):
-    if P[A] == A:
-        return A
-    P[A] = find(P[A])
-    return P[A]
-
-
 N, M = map(int, sys.stdin.readline().split())
 P = [i for i in range(N + 1)]
 lines = [list(map(int, sys.stdin.readline().split()))[1:] for _ in range(M)]
@@ -49,9 +31,6 @@ while Q:
     for W in edges[V]:
         indegrees[W] -= 1
         if indegrees[W] == 0:
-            if not union(V, W):
-                print(0)
-                exit()
             Q.append(W)
 
 

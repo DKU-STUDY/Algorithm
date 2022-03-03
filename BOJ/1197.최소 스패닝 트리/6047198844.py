@@ -20,17 +20,14 @@ import sys
 def union(A, B):
     PA = find(A)
     PB = find(B)
-
-    if PA == PB or PA == -1 or PB == -1:
-        P[PA] = -1
-        P[PB] = -1
-        return
-
+    if PA == PB:
+        return False
     P[PB] = PA
+    return True
 
 
 def find(A):
-    if A == -1 or P[A] == A:
+    if P[A] == A:
         return A
     P[A] = find(P[A])
     return P[A]
@@ -47,8 +44,6 @@ for _ in range(E):
 res = 0
 while Q:
     C, A, B = heapq.heappop(Q)
-    if find(A) == find(B):
-        continue
-    union(A, B)
-    res += C
+    if union(A, B):
+        res += C
 print(res)

@@ -8,7 +8,7 @@ def union(A, B):
     if PA == PB:
         return
     P[PB] = PA
-
+    print(P)
 
 
 def find(A):

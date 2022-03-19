@@ -13,38 +13,22 @@ for idx, command in enumerate(commands[:-1]):
 
     # 왼발이 움직이는 경우.
     # 이전 오른발의 초기상태. 오른발은 고정이다.
-    for right in range(4 + 1):
-        if right == command:
+    for fix in range(4 + 1):
+        if fix == command:
             continue
         # 이전 왼발의 상태. 왼발은 움직인다.
-        for left in range(4 + 1):
-            if left == command:
-                memo[idx + 1][command][right] = min(memo[idx + 1][command][right], memo[idx][left][right] + 1)
-            elif left == 0:
-                memo[idx + 1][command][right] = min(memo[idx + 1][command][right], memo[idx][left][right] + 2)
-            elif ((left == 1 or left == 3) and (command == 2 or command == 4)) or (
-                    (left == 2 or left == 4) and (command == 1 or command == 3)):
-                memo[idx + 1][command][right] = min(memo[idx + 1][command][right], memo[idx][left][right] + 3)
+        for move in range(4 + 1):
+            if move == command:
+                dn = 1
+            elif move == 0:
+                dn = 2
+            elif ((move == 1 or move == 3) and (command == 2 or command == 4)) or (
+                    (move == 2 or move == 4) and (command == 1 or command == 3)):
+                dn = 3
             else:
-                memo[idx + 1][command][right] = min(memo[idx + 1][command][right], memo[idx][left][right] + 4)
-
-    # 오른발이 움직이는 경우.
-    # 이전 왼발의 초기상태. 왼발은 고정이다.
-    for left in range(4 + 1):
-        if left == command:
-            continue
-        # 이전 오른발의 상태. 오른발은 움직인다.
-        for right in range(4 + 1):
-            # right -> command
-            if right == command:
-                memo[idx + 1][left][command] = min(memo[idx + 1][left][command], memo[idx][left][right] + 1)
-            elif right == 0:
-                memo[idx + 1][left][command] = min(memo[idx + 1][left][command], memo[idx][left][right] + 2)
-            elif ((right == 1 or right == 3) and (command == 2 or command == 4)) or (
-                    (right == 2 or right == 4) and (command == 1 or command == 3)):
-                memo[idx + 1][left][command] = min(memo[idx + 1][left][command], memo[idx][left][right] + 3)
-            else:
-                memo[idx + 1][left][command] = min(memo[idx + 1][left][command], memo[idx][left][right] + 4)
+                dn = 4
+            memo[idx + 1][command][fix] = min(memo[idx + 1][command][fix], memo[idx][move][fix] + dn)
+            memo[idx + 1][fix][command] = min(memo[idx + 1][fix][command], memo[idx][fix][move] + dn)
 
 res = math.inf
 for r in memo[-1]:

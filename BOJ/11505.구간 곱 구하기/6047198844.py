@@ -2,13 +2,15 @@ import sys
 
 
 def init(sgi, left, right):
+    # 리프 노드인가
     if left == right:
         segment_tree[sgi] = arr[left]
+    # 부모노드는 자식 노드의 곱이다.
     else:
         mid = (left + right) // 2
-        segment_tree[sgi] = init(sgi * 2, left, mid) * init(sgi * 2 + 1, mid + 1, right)
+        segment_tree[sgi] = init(sgi * 2, left, mid) * init(sgi * 2 + 1, mid + 1, right) % 1000000007
 
-    return segment_tree[sgi] % 1000000007
+    return segment_tree[sgi]
 
 
 def update(sgi, left, right, i, new_value):
@@ -21,7 +23,6 @@ def update(sgi, left, right, i, new_value):
         segment_tree[sgi] = new_value
         return
 
-    # 어떤 자식노드가 i 를 가질까?
     # 현재 노드는 left ~ right 의 범위를 가진다.
     # 중간을 기준으로, i가 mid 보다 작거나 같으면 왼쪽 크면 오른쪽 자식이다.
     mid = (left + right) // 2

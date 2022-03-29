@@ -1,47 +1,32 @@
 import sys
-from collections import deque
 
-sys.setrecursionlimit(10 ** 6)
+sys.setrecursionlimit(10 ** 9)
 
 
-def func(root, early):
-    if memo[root][int(early)] != -1:
-        return memo[root][int(early)]
-
-    if early:
-        ans = 1
-        for child in children[root]:
-            ans += min(func(child, True), func(child, False))
-    else:
-        ans = 0
-        for child in children[root]:
-            ans += func(child, True)
-    memo[root][int(early)] = ans
-    return memo[root][int(early)]
+# 소셜인 경우와 소셜이 아닌 경우를 계산한다.
+def func(root):
+    # 방문 처리
+    visited[root] = 1
+    # 방문한 경우
+    memo[root][True] = 1
+    for child in edge[root]:
+        # 자식인 경우
+        if visited[child] == 0:
+            # 자식 계산
+            func(child)
+            memo[root][True] += min(memo[child][True], memo[child][False])
+            memo[root][False] += memo[child][True]
 
 
 N = int(sys.stdin.readline())
 edge = [[] for _ in range(N + 1)]
-memo = [[-1, -1] for _ in range(N + 1)]
+memo = [[0, 0] for _ in range(N + 1)]
+visited = [0 for _ in range(N + 1)]
 
 for _ in range(N - 1):
     V, W = map(int, sys.stdin.readline().split())
     edge[V].append(W)
+    edge[W].append(V)
 
-children = [[] for _ in range(N + 1)]
-
-# 트리 생성
-# 1번을 루트로한다.
-Q = deque([1])
-visited = set()
-visited.add(1)
-while Q:
-    root = Q.popleft()
-
-    for child in edge[root]:
-        if child not in visited:
-            children[root].append(child)
-            Q.append(child)
-            visited.add(child)
-
-print(min(func(1, True), func(1, False)))
+func(1)
+print(min(memo[1][True], memo[1][False]))

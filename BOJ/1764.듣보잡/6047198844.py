@@ -1,13 +1,11 @@
+import sys
+from collections import Counter
+
 N, M = map(int, input().split())
-
-A = set()
-B = set()
-
-for _ in range(N):
-    A.add(input())
-for _ in range(N):
-    B.add(input())
-
-print(len(A & B))
-for name in sorted(A & B):
-    print(name)
+names = [sys.stdin.readline().rstrip() for _ in range(N + M)]
+count_names = Counter(names)
+res = list(filter(lambda names: count_names[names] == 2, Counter(names).keys()))
+res.sort()
+print(len(res))
+for i in res:
+    print(i)

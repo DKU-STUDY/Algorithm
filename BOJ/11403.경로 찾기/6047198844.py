@@ -4,11 +4,13 @@ import sys
 N = int(sys.stdin.readline())
 distance = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
 
+# 초기화
 for y in range(N):
     for x in range(N):
         if distance[y][x] == 0:
             distance[y][x] = math.inf
 
+# 최단거리 계산
 for k in range(N):
     for i in range(N):
         for j in range(N):

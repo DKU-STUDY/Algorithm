@@ -45,6 +45,7 @@ def LCA(A, B):
     if D[A] > D[B]:
         A, B = B, A
 
+    # 역순으로 하지 않으면, 차이를 꽉 매우지 못할수도 있음.
     for i in range(LOG, -1, -1):
         if D[B] - D[A] >= 1 << i:
             B = P[B][i]

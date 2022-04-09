@@ -67,7 +67,7 @@ for _ in range(n):
                 # 순위는 낮아진다.
                 B -= tree[sgi*2]
                 begin = mid + 1
-                sgi = sgi * 2 + 1
+                sgi = sgi * 2 + 1 # 실수함.ㅠ sgi *= 2 + 1
         print(begin)
         update(1, 1, MAX, begin, -1)
 

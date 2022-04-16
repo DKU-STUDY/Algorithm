@@ -11,7 +11,6 @@
 #
 # 출력
 # 서로 볼 수 있는 쌍의 수를 출력한다.
-import bisect
 import sys
 
 N = int(sys.stdin.readline())
@@ -43,8 +42,8 @@ for i in arr:
                     begin = mid + 1
                 else:
                     end = mid
-            res += len(stack) - end
-            if end != 0 and stack[end - 1] > target:
+            res += len(stack) - begin
+            if stack[end - 1] > target:
                 res += 1
 
     stack.append(i)

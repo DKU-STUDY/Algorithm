@@ -1,5 +1,6 @@
 import sys
 from collections import defaultdict, deque
+sys.setrecursionlimit(10**9)
 
 LOG = 15
 N = int(sys.stdin.readline())

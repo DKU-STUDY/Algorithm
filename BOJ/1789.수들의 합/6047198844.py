@@ -5,7 +5,7 @@ S = int(sys.stdin.readline())
 cnt = 0
 acc = 0
 i = 1
-while acc < S:
+while acc <= S:
     acc += i
     i += 1
     cnt += 1

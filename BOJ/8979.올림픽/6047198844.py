@@ -8,5 +8,5 @@ for _ in range(N):
     i, *j = map(int, sys.stdin.readline().split())
     table[i] = j
     arr.append(j)
-arr.sort()
+arr.sort(reverse=True)
 print(arr.index(table[K]) + 1)

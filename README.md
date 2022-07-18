@@ -42,7 +42,7 @@
     - [연습문제풀기](https://app.codility.com/programmers/lessons/1-iterations/) 의 문제를 풉니다. 
     - [codility_training](codility_training) 폴더에 풀이한 내용을 업로드해주세요.
     
-- [프로그래머스](https://programmers.co.kr/https://programmers.co.kr/)
+- [프로그래머스](https://programmers.co.kr/)
     - [고득점kit](https://programmers.co.kr/learn/challenges?tab=algorithm_practice_kit)
     - [스킬체크](https://programmers.co.kr/skill_checks)
     - [모든문제](https://programmers.co.kr/learn/challenges?tab=all_challenges)

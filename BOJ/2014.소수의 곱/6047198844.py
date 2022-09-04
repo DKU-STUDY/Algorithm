@@ -1,18 +1,16 @@
+import heapq
 import sys
 from collections import deque
 
 K, N = map(int, sys.stdin.readline().split())
 primes = list(map(int, sys.stdin.readline().split()))
-primes.sort()
-
-DQ = deque(primes)
+PQ = primes.copy()
 
 head = 0
-for _ in range(N-1):
-    head = DQ.popleft()
+for _ in range(N):
+    head = heapq.heappop(PQ)
     for prime in primes:
-        DQ.append(head * prime)
-
+        heapq.heappush(PQ, head * prime)
         if head % prime == 0:
             break
 print(head)

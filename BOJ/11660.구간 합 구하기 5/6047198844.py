@@ -1,30 +1,21 @@
 import sys
 
 N, M = map(int, sys.stdin.readline().split())
-arr = [0] + list(map(int, sys.stdin.readline().split()))
-segment_tree = [0] * (4 * N)
+table = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
 
+prefix_sum = [0]
+for y in range(N):
+    for x in range(N):
+        prefix_sum.append(table[y][x] + prefix_sum[-1])
 
-def init(sgi, begin, end):
-    if begin == end:
-        segment_tree[sgi] = arr[begin]
-    else:
-        mid = (begin + end) // 2
-        segment_tree[sgi] = init(sgi * 2, begin, mid) + init(sgi * 2 + 1, mid + 1, end)
-    return segment_tree[sgi]
-
-
-# sgi 구간, 구하고자하는 구간
-def sum(sgi, begin, end, left, right):
-    if left > end or right < begin:
-        return 0
-    if left <= begin and end <= right:
-        return segment_tree[sgi]
-    mid = (begin + end) // 2
-    return sum(sgi * 2, begin, mid, left, right) + sum(sgi * 2 + 1, mid + 1, end, left, right)
-
-
-init(1, 1, N)
+for i in range(len(prefix_sum)):
+    print(i, prefix_sum[i])
+print()
 for _ in range(M):
-    i, j = map(int, sys.stdin.readline().split())
-    print(sum(1, 1, N, i, j))
+    i, j, y, x = map(lambda i: int(i) - 1, sys.stdin.readline().split())
+    k = prefix_sum[y * N + x] - prefix_sum[i * N + j] + table[j-1][i-1]
+    print(prefix_sum[y * N + x])
+    print(prefix_sum[i * N + j])
+    print(table[j-1][i-1])
+    print(k)
+    print()

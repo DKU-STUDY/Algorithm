@@ -13,7 +13,7 @@
 
 ## 가입 문의 
 
-#858 에 
+[스터디 참여 신청 알림](https://github.com/DKU-STUDY/Algorithm/issues) 에 코멘트를 남겨주세요.
 
 ## PR 규칙
 - PR 이름은 알고리즘 푼 문제 이름

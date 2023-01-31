@@ -13,7 +13,7 @@
 
 ## 가입 문의 
 
-- https://open.kakao.com/me/junilhwang
+#858 에 
 
 ## PR 규칙
 - PR 이름은 알고리즘 푼 문제 이름

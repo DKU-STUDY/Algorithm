@@ -1,4 +1,5 @@
 class Solution {
+    //top-down memoization
     fun maxValue(events: Array<IntArray>, k: Int): Int {
         //(시작 ,종료,보상) 종료일+1부터 다음 이벤트
         //k개를 골랐을 때 maxSum

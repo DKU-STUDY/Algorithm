@@ -19,8 +19,12 @@ class Solution {
             if(x==root[x])return x
             root[x] = find(root[x])
             return root[x]
+            val set = hashSetOf(intArrayOf(1,2,3,4))
+            
         }
+
     }
+
     fun smallestEquivalentString(s1: String, s2: String, baseStr: String): String {
         val n = s1.length
         val unionfind = UnionFind(26)

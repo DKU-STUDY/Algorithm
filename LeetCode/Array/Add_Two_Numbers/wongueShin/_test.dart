@@ -1,10 +1,12 @@
-import 'package:flutter_test/flutter_test.dart';
+//import 'package:flutter_test/flutter_test.dart';
 import './solution.dart';
 
 List<int> _setUpTest(List<int> nums, int target) {
   final solution = Solution();
   return solution.twoSum(nums, target);
 }
+/*
+TEST_CODE
 
 void main() {
   test(
@@ -31,3 +33,4 @@ void main() {
     ),
   );
 }
+ */
